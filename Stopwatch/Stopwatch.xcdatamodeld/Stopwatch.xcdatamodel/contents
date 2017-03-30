@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Car" representedClassName="Car" syncable="YES">
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="toLaptime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LapTime" inverseName="toCar" inverseEntity="LapTime" syncable="YES"/>
+        <relationship name="toSetup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Setup" inverseName="toCar" inverseEntity="Setup" syncable="YES"/>
+    </entity>
+    <entity name="LapTime" representedClassName="LapTime" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="toCar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="toLaptime" inverseEntity="Car" syncable="YES"/>
+    </entity>
+    <entity name="PitLaneTime" representedClassName="PitLaneTime" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section1Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="section2Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="section3Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="section4Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="section5Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Setup" representedClassName="Setup" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="tirePressureFL" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tirePressureFR" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tirePressureRL" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tirePressureRR" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="toCar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="toSetup" inverseEntity="Car" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Car" positionX="-315" positionY="-63" width="128" height="118"/>
+        <element name="LapTime" positionX="-54" positionY="45" width="128" height="90"/>
+        <element name="PitLaneTime" positionX="-351" positionY="-267" width="128" height="150"/>
+        <element name="Setup" positionX="-56" positionY="-111" width="128" height="133"/>
+    </elements>
 </model>

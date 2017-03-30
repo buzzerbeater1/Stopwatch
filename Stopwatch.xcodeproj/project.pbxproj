@@ -8,22 +8,60 @@
 
 /* Begin PBXBuildFile section */
 		D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF431E5EA6CA00F5B3E8 /* AppDelegate.swift */; };
-		D708BF461E5EA6CA00F5B3E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF451E5EA6CA00F5B3E8 /* ViewController.swift */; };
+		D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */; };
 		D708BF491E5EA6CA00F5B3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D708BF471E5EA6CA00F5B3E8 /* Main.storyboard */; };
 		D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D708BF4A1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld */; };
 		D708BF4E1E5EA6CA00F5B3E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D708BF4D1E5EA6CA00F5B3E8 /* Assets.xcassets */; };
 		D708BF511E5EA6CA00F5B3E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D708BF4F1E5EA6CA00F5B3E8 /* LaunchScreen.storyboard */; };
+		D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */; };
+		D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */; };
+		D708BF641E6011C000F5B3E8 /* StopwatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF631E6011C000F5B3E8 /* StopwatchCell.swift */; };
+		D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF651E6014E600F5B3E8 /* Stopwatch.swift */; };
+		D708BF681E65CA5800F5B3E8 /* CarsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF671E65CA5800F5B3E8 /* CarsVC.swift */; };
+		D708BF6A1E65CCF600F5B3E8 /* CarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF691E65CCF600F5B3E8 /* CarsCell.swift */; };
+		D708BF6C1E65D2DD00F5B3E8 /* Cars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */; };
+		D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */; };
+		D768267C1E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */; };
+		D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */; };
+		D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */; };
+		D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */; };
+		D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77595051E743D2B0068C42C /* LapTimeCell.swift */; };
+		D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */; };
+		D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */; };
+		D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */; };
+		D77AF53F1E8409DE00741A04 /* Car+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */; };
+		D77AF5401E8409DE00741A04 /* Car+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */; };
+		D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5411E840C7000741A04 /* SetupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D708BF401E5EA6CA00F5B3E8 /* Stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D708BF431E5EA6CA00F5B3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D708BF451E5EA6CA00F5B3E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchVC.swift; sourceTree = "<group>"; };
 		D708BF481E5EA6CA00F5B3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D708BF4B1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stopwatch.xcdatamodel; sourceTree = "<group>"; };
 		D708BF4D1E5EA6CA00F5B3E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D708BF501E5EA6CA00F5B3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D708BF521E5EA6CA00F5B3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryScreenVC.swift; sourceTree = "<group>"; };
+		D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimerVC.swift; sourceTree = "<group>"; };
+		D708BF631E6011C000F5B3E8 /* StopwatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchCell.swift; sourceTree = "<group>"; };
+		D708BF651E6014E600F5B3E8 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		D708BF671E65CA5800F5B3E8 /* CarsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsVC.swift; sourceTree = "<group>"; };
+		D708BF691E65CCF600F5B3E8 /* CarsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsCell.swift; sourceTree = "<group>"; };
+		D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cars.swift; sourceTree = "<group>"; };
+		D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsVC.swift; sourceTree = "<group>"; };
+		D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PitLaneTime+CoreDataClass.swift"; path = "../PitLaneTime+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PitLaneTime+CoreDataProperties.swift"; path = "../PitLaneTime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LapTime+CoreDataClass.swift"; path = "../LapTime+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LapTime+CoreDataProperties.swift"; path = "../LapTime+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77595051E743D2B0068C42C /* LapTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimeCell.swift; sourceTree = "<group>"; };
+		D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimesTableVC.swift; sourceTree = "<group>"; };
+		D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataClass.swift"; path = "../Setup+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataProperties.swift"; path = "../Setup+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Car+CoreDataClass.swift"; path = "../Car+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Car+CoreDataProperties.swift"; path = "../Car+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5411E840C7000741A04 /* SetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +94,11 @@
 		D708BF421E5EA6CA00F5B3E8 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
+				D708BF621E60119100F5B3E8 /* Controller */,
+				D708BF611E60118600F5B3E8 /* View */,
+				D708BF601E60117D00F5B3E8 /* Model */,
+				D76826471E6C3EBB00C520BF /* generated */,
 				D708BF431E5EA6CA00F5B3E8 /* AppDelegate.swift */,
-				D708BF451E5EA6CA00F5B3E8 /* ViewController.swift */,
 				D708BF471E5EA6CA00F5B3E8 /* Main.storyboard */,
 				D708BF4D1E5EA6CA00F5B3E8 /* Assets.xcassets */,
 				D708BF4F1E5EA6CA00F5B3E8 /* LaunchScreen.storyboard */,
@@ -65,6 +106,54 @@
 				D708BF4A1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld */,
 			);
 			path = Stopwatch;
+			sourceTree = "<group>";
+		};
+		D708BF601E60117D00F5B3E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D708BF651E6014E600F5B3E8 /* Stopwatch.swift */,
+				D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */,
+				D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */,
+				D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */,
+				D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */,
+				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D708BF611E60118600F5B3E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D708BF631E6011C000F5B3E8 /* StopwatchCell.swift */,
+				D708BF691E65CCF600F5B3E8 /* CarsCell.swift */,
+				D77595051E743D2B0068C42C /* LapTimeCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D708BF621E60119100F5B3E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */,
+				D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */,
+				D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */,
+				D708BF671E65CA5800F5B3E8 /* CarsVC.swift */,
+				D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */,
+				D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */,
+				D77AF5411E840C7000741A04 /* SetupVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D76826471E6C3EBB00C520BF /* generated */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */,
+				D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */,
+				D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */,
+				D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */,
+			);
+			name = generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +228,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D708BF461E5EA6CA00F5B3E8 /* ViewController.swift in Sources */,
+				D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */,
+				D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */,
+				D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */,
+				D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */,
+				D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */,
+				D708BF681E65CA5800F5B3E8 /* CarsVC.swift in Sources */,
+				D768267C1E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift in Sources */,
+				D708BF6C1E65D2DD00F5B3E8 /* Cars.swift in Sources */,
+				D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */,
+				D77AF53F1E8409DE00741A04 /* Car+CoreDataClass.swift in Sources */,
+				D708BF6A1E65CCF600F5B3E8 /* CarsCell.swift in Sources */,
+				D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */,
+				D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */,
+				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
+				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
+				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
+				D77AF5401E8409DE00741A04 /* Car+CoreDataProperties.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
+				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,
+				D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */,
+				D708BF641E6011C000F5B3E8 /* StopwatchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +409,7 @@
 				D708BF571E5EA6CA00F5B3E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
