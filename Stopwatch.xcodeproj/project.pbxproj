@@ -30,8 +30,10 @@
 		D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */; };
 		D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */; };
 		D77AF53F1E8409DE00741A04 /* Car+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */; };
-		D77AF5401E8409DE00741A04 /* Car+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */; };
 		D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5411E840C7000741A04 /* SetupVC.swift */; };
+		D77AF5441E8CF21F00741A04 /* VoiceNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */; };
+		D77AF5461E8E21D500741A04 /* WrittenNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */; };
+		D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +62,10 @@
 		D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataClass.swift"; path = "../Setup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataProperties.swift"; path = "../Setup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Car+CoreDataClass.swift"; path = "../Car+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Car+CoreDataProperties.swift"; path = "../Car+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5411E840C7000741A04 /* SetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
+		D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceNoteVC.swift; sourceTree = "<group>"; };
+		D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrittenNoteVC.swift; sourceTree = "<group>"; };
+		D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Car+CoreDataProperties.swift"; path = "../Car+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */,
 				D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */,
 				D77AF5411E840C7000741A04 /* SetupVC.swift */,
+				D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */,
+				D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -148,7 +154,7 @@
 		D76826471E6C3EBB00C520BF /* generated */ = {
 			isa = PBXGroup;
 			children = (
-				D77AF53E1E8409DE00741A04 /* Car+CoreDataProperties.swift */,
+				D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */,
 				D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */,
 				D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */,
 				D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */,
@@ -231,6 +237,7 @@
 				D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */,
 				D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */,
 				D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */,
+				D77AF5441E8CF21F00741A04 /* VoiceNoteVC.swift in Sources */,
 				D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */,
 				D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */,
 				D708BF681E65CA5800F5B3E8 /* CarsVC.swift in Sources */,
@@ -243,9 +250,10 @@
 				D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */,
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
 				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
+				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
-				D77AF5401E8409DE00741A04 /* Car+CoreDataProperties.swift in Sources */,
+				D77AF5461E8E21D500741A04 /* WrittenNoteVC.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
 				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,
 				D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */,

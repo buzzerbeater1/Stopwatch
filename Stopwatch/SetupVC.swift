@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SetupVC: UIViewController {
+class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var imagePicker: UIImagePickerController!
     var car: Car!
+    
     
     @IBOutlet weak var tirePressureFLTextfield: UITextField!
     @IBOutlet weak var tirePressureFRTextfield: UITextField!
@@ -41,6 +43,28 @@ class SetupVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func pictureButtonPressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraCaptureMode = .photo
+            imagePicker.modalPresentationStyle = .fullScreen
+            present(imagePicker,animated: true,completion: nil)
+            print("Long press")
+        } else {
+            noCamera()
+        }
+    }
+    
+    @IBAction func voiceButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "VoiceNoteVC", sender: car)
+    }
+    
+    @IBAction func writeButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "WrittenNoteVC", sender: car)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +74,9 @@ class SetupVC: UIViewController {
         } else {
             print("We have a car, that is cool")
         }
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         configureLabels()
         // Do any additional setup after loading the view.
@@ -81,5 +108,61 @@ class SetupVC: UIViewController {
                 tirePressureRLTextfield.text = String(carSetup[0].tirePressureRL)
             }
         }
+    }
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        //Do shit
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //segue for the popover configuration window
+        if segue.identifier == "VoiceNoteVC" {
+            if let controller = segue.destination as? VoiceNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                }
+            }
+        }
+        if segue.identifier == "WrittenNoteVC" {
+            if let controller = segue.destination as? WrittenNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                }
+            }
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
+    
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let note = Note()
+            note.picture = img
+            car.addToToNote(note)
+            ad.saveContext()
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 }

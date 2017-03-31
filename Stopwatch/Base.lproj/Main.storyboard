@@ -204,11 +204,10 @@
                                     <action selector="addImage:" destination="7dn-wS-7Yu" eventType="touchUpInside" id="8vf-2X-SyA"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-Ce-i8R">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-Ce-i8R">
                                 <rect key="frame" x="51" y="617" width="273" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-ud-mnT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-ud-mnT">
                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
                                         <state key="normal" title="Lap Times"/>
                                         <connections>
@@ -216,21 +215,28 @@
                                             <segue destination="0Tr-nd-F6T" kind="show" identifier="LapTimesTableVC" id="rwT-EZ-n5s"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOx-mW-fzp">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOx-mW-fzp">
                                         <rect key="frame" x="101" y="0.0" width="71" height="30"/>
                                         <state key="normal" title="Setups"/>
                                         <connections>
                                             <action selector="setupButtonPressed:" destination="7dn-wS-7Yu" eventType="touchUpInside" id="dSp-lz-Jsm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Fs-948">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Fs-948">
                                         <rect key="frame" x="202" y="0.0" width="71" height="30"/>
                                         <state key="normal" title="Notes"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="T35-Fs-948" secondAttribute="trailing" id="FHy-Om-SdS"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TvE-Ce-i8R" firstAttribute="centerX" secondItem="LIF-af-y8Y" secondAttribute="centerX" id="REi-7f-mCM"/>
+                            <constraint firstItem="jaD-RK-p4h" firstAttribute="top" secondItem="TvE-Ce-i8R" secondAttribute="bottom" constant="20" id="zLO-QT-rik"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="carImage" destination="Y0w-vp-LR1" id="wDF-p8-Ixm"/>
@@ -335,37 +341,60 @@
                                     <action selector="cancelButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="lvp-wJ-Kf3"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="if2-DD-tXO">
-                                <rect key="frame" x="79" y="586" width="208" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="if2-DD-tXO">
+                                <rect key="frame" x="84" y="586.5" width="207" height="60.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-6K-mzp">
-                                        <rect key="frame" x="81" y="0.0" width="45.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-6K-mzp">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fSX-hP-Sc6">
-                                        <rect key="frame" x="0.0" y="30.5" width="207.5" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fSX-hP-Sc6">
+                                        <rect key="frame" x="0.0" y="30.5" width="207" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e96-VC-JXC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e96-VC-JXC">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Write"/>
+                                                <connections>
+                                                    <action selector="writeButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="fRG-pr-R65"/>
+                                                    <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="e96-VC-JXC" id="vBx-ND-SXR">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-Dw-M7n">
-                                                <rect key="frame" x="79" y="0.0" width="49.5" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-Dw-M7n">
+                                                <rect key="frame" x="79" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Voice"/>
+                                                <connections>
+                                                    <action selector="voiceButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="cUq-tG-WEM"/>
+                                                    <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="FP3-Dw-M7n" id="vUg-Gi-25P">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-jB-WEs">
-                                                <rect key="frame" x="158.5" y="0.0" width="49" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-jB-WEs">
+                                                <rect key="frame" x="158" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Picture"/>
+                                                <connections>
+                                                    <action selector="pictureButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="wJT-XU-Sru"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="v4O-6K-mzp" secondAttribute="trailing" id="R32-fe-Ui2"/>
+                                    <constraint firstItem="v4O-6K-mzp" firstAttribute="leading" secondItem="if2-DD-tXO" secondAttribute="leading" id="chN-Zz-aA9"/>
+                                    <constraint firstItem="v4O-6K-mzp" firstAttribute="top" secondItem="if2-DD-tXO" secondAttribute="top" id="pFH-iw-He6"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ndo-hZ-NWU" firstAttribute="top" secondItem="if2-DD-tXO" secondAttribute="bottom" constant="20" id="IpX-LN-Ggj"/>
+                            <constraint firstItem="if2-DD-tXO" firstAttribute="centerX" secondItem="wKj-uw-KGB" secondAttribute="centerX" id="RoT-uR-tvq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="carNameLabel" destination="hRF-1C-clm" id="lMv-aL-HGp"/>
@@ -378,6 +407,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy5-e1-trC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1541.5999999999999" y="-1197.7511244377813"/>
+        </scene>
+        <!--Voice NoteVC-->
+        <scene sceneID="Sd9-C9-KFz">
+            <objects>
+                <viewController id="nH4-i4-aqT" customClass="VoiceNoteVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uyO-L0-fyC"/>
+                        <viewControllerLayoutGuide type="bottom" id="jiP-MX-qr9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DSq-Da-tzp">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="54"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-wY-zlY">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="54"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uXG-wY-zlY" firstAttribute="top" secondItem="uyO-L0-fyC" secondAttribute="bottom" id="CSs-Hx-xbM"/>
+                            <constraint firstItem="jiP-MX-qr9" firstAttribute="top" secondItem="uXG-wY-zlY" secondAttribute="bottom" id="Woa-Av-QNF"/>
+                            <constraint firstAttribute="trailing" secondItem="uXG-wY-zlY" secondAttribute="trailing" id="g7C-AD-f0A"/>
+                            <constraint firstItem="uXG-wY-zlY" firstAttribute="leading" secondItem="DSq-Da-tzp" secondAttribute="leading" id="sdn-f4-7TU"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="54"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="54"/>
+                    <connections>
+                        <outlet property="recordButton" destination="uXG-wY-zlY" id="t0a-AN-N0W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ELE-hS-jLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2376" y="-1198.2008995502249"/>
+        </scene>
+        <!--Written NoteVC-->
+        <scene sceneID="GaU-Cs-q8l">
+            <objects>
+                <viewController id="08Z-7O-r0a" customClass="WrittenNoteVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rh4-d2-ETE"/>
+                        <viewControllerLayoutGuide type="bottom" id="sFf-Pi-gja"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nSa-98-MzI">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="scS-Rd-RWx">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="200"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="200"/>
+                    <connections>
+                        <outlet property="textView" destination="scS-Rd-RWx" id="WXE-eC-dXN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZU-oG-ECJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2376" y="-1012.8935532233884"/>
         </scene>
         <!--Lap Times TableVC-->
         <scene sceneID="fjP-qD-yzp">
@@ -925,7 +1025,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5ng-Uv-Gl1"/>
         <segue reference="CBC-Jb-iwZ"/>
+        <segue reference="fdo-fQ-EOF"/>
     </inferredMetricsTieBreakers>
 </document>

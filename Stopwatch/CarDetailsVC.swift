@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
@@ -111,7 +112,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
                 }
             }
         }
-        if segue.identifier == "SetupVC" {
+        if segue.identifier == "SetupVC" || segue.identifier == "PopoverSetupVC" {
             if let destination = segue.destination as? SetupVC {
                 if let car = sender as? Car {
                     destination.car = car
@@ -143,7 +144,13 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     func doubleTap() {
         let alert = UIAlertController(title: "Download Picture", message: "Please Input a valid picture URL!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Download", style: .default, handler: nil))
+//        let alertAction = UIAlertAction(title: "Download", style: .default, handler: nil)
+        let alertAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            self.carName.text = textField.text!
+        })
+        alert.addAction(alertAction)
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Enter URL:"
 //            textField.isSecureTextEntry = true
@@ -156,8 +163,8 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.tap))  //Tap function will call when user tap on button
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
-        tapGesture.numberOfTapsRequired = 2
-        doubleTapGesture.numberOfTapsRequired = 1
+        tapGesture.numberOfTapsRequired = 1
+        doubleTapGesture.numberOfTapsRequired = 2
         carImageButton.addGestureRecognizer(tapGesture)
         carImageButton.addGestureRecognizer(longGesture)
         carImageButton.addGestureRecognizer(doubleTapGesture)

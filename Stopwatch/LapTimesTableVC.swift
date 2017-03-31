@@ -22,7 +22,19 @@ class LapTimesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         performSegue(withIdentifier: "LaptimerVC1", sender: carToEdit)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LaptimerVC1" {
+            if let destination = segue.destination as? LapTimerVC {
+                if let car = sender as? Car {
+                    destination.preselectedCar = car
+                }
+            }
+        }
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

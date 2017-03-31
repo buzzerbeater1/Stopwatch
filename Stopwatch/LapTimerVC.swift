@@ -12,7 +12,7 @@ import CoreData
 class LapTimerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var rows = 1
-    
+    var preselectedCar: Car!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,6 +48,19 @@ class LapTimerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StopwatchCell", for: indexPath) as? StopwatchCell {
+            if preselectedCar != nil {
+                cell.carPicker.isHidden = true
+                cell.carNameLabel.text = preselectedCar.name
+//                var index = 0
+//                repeat {
+//                    let s = cell.car[index]
+//                    if s.name == preselectedCar.name {
+//                        cell.carPicker.selectRow(index, inComponent: 0, animated: false)
+//                        break
+//                    }
+//                    index += 1
+//                } while (index < cell.car.count)
+            }
             return cell
         }
         return UITableViewCell()
