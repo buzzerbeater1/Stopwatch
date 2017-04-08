@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  Stopwatch
 //
-//  Created by Michael Derstroff on 3/31/17.
+//  Created by Michael Derstroff on 4/6/17.
 //  Copyright © 2017 Stable Engineering. All rights reserved.
 //
 

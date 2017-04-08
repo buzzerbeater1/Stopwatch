@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mdj-HR-za1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FAa-yj-pYo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -250,6 +250,263 @@
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="-528.48575712143929"/>
         </scene>
+        <!--Page1VC-->
+        <scene sceneID="9G9-CO-kp0">
+            <objects>
+                <viewController storyboardIdentifier="Page1VC" id="8hE-cq-eBv" customClass="Page1VC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DyJ-Y9-yyf"/>
+                        <viewControllerLayoutGuide type="bottom" id="6uO-hX-5WF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9UX-Ou-Wxj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="495"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPf-Px-fB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="-2529.0854572713647"/>
+        </scene>
+        <!--Page2VC-->
+        <scene sceneID="wdE-hV-8sE">
+            <objects>
+                <viewController storyboardIdentifier="Page2VC" id="ojz-Zo-Uyr" customClass="Page2VC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ey6-6w-4i8"/>
+                        <viewControllerLayoutGuide type="bottom" id="q5c-6F-y0K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rn0-ou-4TZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCf-Hy-8hN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="495"/>
+                    <connections>
+                        <outlet property="scrollView" destination="jCf-Hy-8hN" id="17o-i2-Ios"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ii-o8-bTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544.8" y="-2529.0854572713647"/>
+        </scene>
+        <!--Page3VC-->
+        <scene sceneID="va1-k5-emc">
+            <objects>
+                <viewController storyboardIdentifier="Page3VC" id="DO1-Aq-mYI" customClass="Page3VC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aim-Cx-L4u"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ef-nT-fFD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GCl-k6-de5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvK-T1-3YE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="495"/>
+                    <connections>
+                        <outlet property="scrollView" destination="wvK-T1-3YE" id="sBN-mq-4d4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFk-2U-O3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2236" y="-2529.0854572713647"/>
+        </scene>
+        <!--Page4VC-->
+        <scene sceneID="MRL-39-r57">
+            <objects>
+                <viewController storyboardIdentifier="Page4VC" id="Vfu-Wf-C5D" customClass="Page4VC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VHY-HT-Lf2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZtM-hh-sPJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kAI-Is-q7M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAG-Oc-6XI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="495"/>
+                    <connections>
+                        <outlet property="scrollView" destination="CAG-Oc-6XI" id="4y2-RF-aId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odA-Rh-FaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="-2529.0854572713647"/>
+        </scene>
+        <!--Page5VC-->
+        <scene sceneID="qRB-ew-5hd">
+            <objects>
+                <viewController storyboardIdentifier="Page5VC" id="Tse-eH-WVx" customClass="Page5VC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zwH-3d-HWL"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ze-Gp-z6U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aHC-H0-OXV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bu5-IF-EbP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="495"/>
+                    <connections>
+                        <outlet property="scrollView" destination="bu5-IF-EbP" id="K4Z-6c-llM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBD-Um-Jp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3584.8000000000002" y="-2529.0854572713647"/>
+        </scene>
+        <!--Setup ScrollVC-->
+        <scene sceneID="CNK-Pm-jtH">
+            <objects>
+                <viewController id="FAa-yj-pYo" customClass="SetupScrollVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="btk-lh-5yN"/>
+                        <viewControllerLayoutGuide type="bottom" id="0HE-Fp-Qgn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qdc-A9-i05">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqt-f9-aFR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="jzI-Zo-aIY">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HNT-1y-4td"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tSl-2U-DQk"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-KE-NBb">
+                                <rect key="frame" x="84" y="596.5" width="207" height="60.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRb-mS-OH8">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-JT-LbG">
+                                        <rect key="frame" x="0.0" y="30.5" width="207" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icW-z5-BMG">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
+                                                <state key="normal" title="Write"/>
+                                                <connections>
+                                                    <action selector="writeButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="JVn-F3-EVg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld6-1T-aaR">
+                                                <rect key="frame" x="79" y="0.0" width="49" height="30"/>
+                                                <state key="normal" title="Voice"/>
+                                                <connections>
+                                                    <action selector="voiceButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="gaQ-ho-CAN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h04-Qn-8Bu">
+                                                <rect key="frame" x="158" y="0.0" width="49" height="30"/>
+                                                <state key="normal" title="Picture"/>
+                                                <connections>
+                                                    <action selector="pictureButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="xZn-Rv-lqZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aRb-mS-OH8" firstAttribute="top" secondItem="w6Y-KE-NBb" secondAttribute="top" id="AIW-Ki-xbS"/>
+                                    <constraint firstAttribute="trailing" secondItem="aRb-mS-OH8" secondAttribute="trailing" id="VwF-sU-HtN"/>
+                                    <constraint firstItem="aRb-mS-OH8" firstAttribute="leading" secondItem="w6Y-KE-NBb" secondAttribute="leading" id="upB-nk-SCM"/>
+                                </constraints>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MvS-C9-6aI">
+                                <rect key="frame" x="16" y="54" width="343" height="29"/>
+                                <segments>
+                                    <segment title="FL"/>
+                                    <segment title="FR"/>
+                                    <segment title="RL"/>
+                                    <segment title="RR"/>
+                                    <segment title="General"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChange:" destination="FAa-yj-pYo" eventType="valueChanged" id="OEE-Yc-LFf"/>
+                                </connections>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rih-qN-ofb">
+                                <rect key="frame" x="0.0" y="94" width="375" height="495"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uG-Y3-TSF">
+                                <rect key="frame" x="0.0" y="589" width="375" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RWJ-Ps-dAW">
+                                <rect key="frame" x="0.0" y="90" width="375" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0HE-Fp-Qgn" firstAttribute="top" secondItem="w6Y-KE-NBb" secondAttribute="bottom" constant="10" id="2rs-IV-Qvt"/>
+                            <constraint firstItem="Yqt-f9-aFR" firstAttribute="leading" secondItem="qdc-A9-i05" secondAttribute="leading" id="9zl-Dq-q7y"/>
+                            <constraint firstItem="Rih-qN-ofb" firstAttribute="leading" secondItem="qdc-A9-i05" secondAttribute="leading" id="DRk-sC-SO2"/>
+                            <constraint firstItem="MvS-C9-6aI" firstAttribute="trailing" secondItem="qdc-A9-i05" secondAttribute="trailingMargin" id="FvS-Ab-x3e"/>
+                            <constraint firstItem="Yqt-f9-aFR" firstAttribute="top" secondItem="qdc-A9-i05" secondAttribute="top" id="HFP-40-Afa"/>
+                            <constraint firstItem="MvS-C9-6aI" firstAttribute="leading" secondItem="qdc-A9-i05" secondAttribute="leadingMargin" id="NCI-aa-GUh"/>
+                            <constraint firstAttribute="trailing" secondItem="Rih-qN-ofb" secondAttribute="trailing" id="dI7-oF-tE0"/>
+                            <constraint firstItem="w6Y-KE-NBb" firstAttribute="centerX" secondItem="qdc-A9-i05" secondAttribute="centerX" id="m82-Oc-OOl"/>
+                            <constraint firstAttribute="trailing" secondItem="Yqt-f9-aFR" secondAttribute="trailing" id="t7i-8r-ly0"/>
+                            <constraint firstItem="Rih-qN-ofb" firstAttribute="top" secondItem="MvS-C9-6aI" secondAttribute="bottom" constant="12" id="tXC-XX-17i"/>
+                            <constraint firstItem="MvS-C9-6aI" firstAttribute="top" secondItem="Yqt-f9-aFR" secondAttribute="bottom" constant="10" id="xYR-Nm-mpr"/>
+                            <constraint firstItem="Rih-qN-ofb" firstAttribute="top" secondItem="MvS-C9-6aI" secondAttribute="bottom" constant="12" id="xyk-7Z-JYv"/>
+                            <constraint firstItem="w6Y-KE-NBb" firstAttribute="top" secondItem="Rih-qN-ofb" secondAttribute="bottom" constant="7.5" id="yD8-k5-eic"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerScrollView" destination="Rih-qN-ofb" id="OMH-Kd-MWb"/>
+                        <outlet property="segmentControl" destination="MvS-C9-6aI" id="qgV-a0-YIG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9k8-Oc-0T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1541.5999999999999" y="-1872.4137931034484"/>
+        </scene>
         <!--SetupVC-->
         <scene sceneID="IAV-EF-w8u">
             <objects>
@@ -358,9 +615,6 @@
                                                 <state key="normal" title="Write"/>
                                                 <connections>
                                                     <action selector="writeButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="fRG-pr-R65"/>
-                                                    <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="e96-VC-JXC" id="vBx-ND-SXR">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-Dw-M7n">
@@ -368,9 +622,6 @@
                                                 <state key="normal" title="Voice"/>
                                                 <connections>
                                                     <action selector="voiceButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="cUq-tG-WEM"/>
-                                                    <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="FP3-Dw-M7n" id="vUg-Gi-25P">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-jB-WEs">
@@ -402,6 +653,12 @@
                         <outlet property="tirePressureFRTextfield" destination="gIC-eY-JwV" id="f2y-ur-aT6"/>
                         <outlet property="tirePressureRLTextfield" destination="ac6-kJ-pio" id="fdb-KY-ddc"/>
                         <outlet property="tirePressureRRTextfield" destination="dna-I7-Hq1" id="rUj-2v-Um4"/>
+                        <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="FP3-Dw-M7n" id="lpz-E4-GEF">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="e96-VC-JXC" id="wAI-rP-pj0">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy5-e1-trC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -779,19 +1036,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erX-C6-is0">
-                                                    <rect key="frame" x="296" y="8" width="71" height="30"/>
+                                                    <rect key="frame" x="186" y="8" width="71" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Start/Stop"/>
                                                     <connections>
                                                         <action selector="startStopButtonPressed:" destination="arS-iR-8FP" eventType="touchUpInside" id="m8K-X7-opD"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyF-jX-e8s">
-                                                    <rect key="frame" x="321" y="73" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Lap"/>
-                                                    <connections>
-                                                        <action selector="lapButtonPressed:" destination="arS-iR-8FP" eventType="touchUpInside" id="j33-pw-ij8"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvL-ej-ou3">
@@ -801,14 +1050,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5w-8Q-fvh">
-                                                    <rect key="frame" x="196" y="8" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Reset"/>
-                                                    <connections>
-                                                        <action selector="resetButtonPressed:" destination="arS-iR-8FP" eventType="touchUpInside" id="bQZ-V8-xu6"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Car" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gI-AN-SGH">
                                                     <rect key="frame" x="177" y="46" width="114" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -837,16 +1078,32 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyF-jX-e8s">
+                                                    <rect key="frame" x="307" y="30" width="60" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="YmQ-Jx-Som"/>
+                                                        <constraint firstAttribute="width" constant="60" id="e9T-AI-O4R"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Reset"/>
+                                                    <connections>
+                                                        <action selector="lapResetButtonPressed:" destination="arS-iR-8FP" eventType="touchUpInside" id="mLn-uG-EJw"/>
+                                                    </connections>
+                                                </button>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in3-nr-yhu">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pickerView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JyF-jX-e8s" firstAttribute="centerY" secondItem="Kf6-XQ-zPo" secondAttribute="centerY" id="dkN-cm-Lwi"/>
+                                                <constraint firstItem="JyF-jX-e8s" firstAttribute="trailing" secondItem="Kf6-XQ-zPo" secondAttribute="trailingMargin" id="rXj-SJ-znt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="carNameLabel" destination="5gI-AN-SGH" id="96W-qv-WUr"/>
                                             <outlet property="carPicker" destination="in3-nr-yhu" id="25t-Mg-xE4"/>
+                                            <outlet property="lapResetButton" destination="JyF-jX-e8s" id="nrc-Eh-m6g"/>
                                             <outlet property="lapTimeLabel" destination="X75-ga-jNM" id="0RZ-qg-uMB"/>
                                             <outlet property="totalTimeLabel" destination="QvL-ej-ou3" id="WBb-JC-lw5"/>
                                         </connections>
@@ -1026,6 +1283,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CBC-Jb-iwZ"/>
-        <segue reference="fdo-fQ-EOF"/>
+        <segue reference="5ng-Uv-Gl1"/>
     </inferredMetricsTieBreakers>
 </document>

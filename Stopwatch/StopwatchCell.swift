@@ -15,6 +15,7 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var lapTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var carNameLabel: UILabel!
+    @IBOutlet weak var lapResetButton: UIButton!
 
     var counter = 0.0
     var timer = Timer()
@@ -30,48 +31,59 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     
-    @IBAction func resetButtonPressed(_ sender: UIButton) {
-        sectionCounter = 1
-        timer.invalidate()
-        isPlaying = false
-        counter = 0.0
-        totalCounter = 0.0
-        lapTimeLabel.text = "0.0"
-        totalTimeLabel.text = "0.0"
-    }
+//    @IBAction func resetButtonPressed(_ sender: UIButton) {
+//        sectionCounter = 1
+//        timer.invalidate()
+//        isPlaying = false
+//        counter = 0.0
+//        totalCounter = 0.0
+//        lapTimeLabel.text = "0.0"
+//        totalTimeLabel.text = "0.0"
+//    }
     
     @IBAction func startStopButtonPressed(_ sender: UIButton) {
         if isPlaying {
             timer.invalidate()
             isPlaying = false
+            lapResetButton.titleLabel?.text = "Reset"
         } else {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             isPlaying = true
-            accurateStartTime = NSDate.timeIntervalSinceReferenceDate            
+            accurateStartTime = NSDate.timeIntervalSinceReferenceDate
+            lapResetButton.titleLabel?.text = "Lap"
         }
     }
     
     
     
-    @IBAction func lapButtonPressed(_ sender: UIButton) {
-        if carNameLabel.text != "" || carNameLabel.text != "Select Car" {
-            var index = 0
-            let accurateTime = NSDate.timeIntervalSinceReferenceDate - accurateStartTime
-            repeat {
-                let c = car[index]
-                if c.name == carNameLabel.text {
-                    let laptime = LapTime(context: context)
-                    laptime.time = accurateTime
-                    c.addToToLaptime(laptime)
-                    print("\(c.toLaptime?.count)")
-                    ad.saveContext()
-                    break
-                }
-                index += 1
-            } while (index < car.count)
+    @IBAction func lapResetButtonPressed(_ sender: UIButton) {
+        if isPlaying {
+            if carNameLabel.text != "" || carNameLabel.text != "Select Car" {
+                var index = 0
+                let accurateTime = NSDate.timeIntervalSinceReferenceDate - accurateStartTime
+                repeat {
+                    let c = car[index]
+                    if c.name == carNameLabel.text {
+                        let laptime = LapTime(context: context)
+                        laptime.time = accurateTime
+                        c.addToToLaptime(laptime)
+                        print("\(c.toLaptime?.count)")
+                        ad.saveContext()
+                        break
+                    }
+                    index += 1
+                } while (index < car.count)
+            }
+            counter = 0.0
+            accurateStartTime = NSDate.timeIntervalSinceReferenceDate
+        } else {
+            sectionCounter = 1
+            timer.invalidate()
+            counter = 0.0
+            totalCounter = 0.0
+            lapTimeLabel.text = "0.0"
+            totalTimeLabel.text = "0.0"
         }
-        counter = 0.0
-        accurateStartTime = NSDate.timeIntervalSinceReferenceDate
     }
     
     
