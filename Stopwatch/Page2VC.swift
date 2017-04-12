@@ -20,17 +20,17 @@ class Page2VC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.black
-        let contentWidth = scrollView.bounds.width
-        let contentHeight = scrollView.bounds.height*1.5
-        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
-        let frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight)
-        let subview = UIImageView(frame: frame)
-        subview.image = UIImage(named: "FR")
-        subview.contentMode = .scaleAspectFit
-        scrollView.addSubview(subview)
-        
+//        scrollView.delegate = self
+//        scrollView.backgroundColor = UIColor.black
+//        let contentWidth = scrollView.bounds.width
+//        let contentHeight = scrollView.bounds.height*1.5
+//        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+//        let frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight)
+//        let subview = UIImageView(frame: frame)
+//        subview.image = UIImage(named: "FR")
+//        subview.contentMode = .scaleAspectFit
+//        scrollView.addSubview(subview)
+//        
         
         // Do any additional setup after loading the view.
     }

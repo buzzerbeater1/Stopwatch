@@ -113,7 +113,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             }
         }
         if segue.identifier == "SetupVC" || segue.identifier == "PopoverSetupVC" {
-            if let destination = segue.destination as? SetupVC {
+            if let destination = segue.destination as? SetupScrollVC {
                 if let car = sender as? Car {
                     destination.car = car
                 }

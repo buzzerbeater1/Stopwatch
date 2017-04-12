@@ -13,26 +13,63 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+    }
+    
     @IBAction func segmentChange(_ sender: Any) {
         containerScrollView.setContentOffset(CGPoint.init(x: segmentControl.selectedSegmentIndex*375, y: 0), animated: true)
     }
     
-
+    
+    var setup: Setup!
+    var setupNew: SetupNew!
+    var car: Car!
+    var obj = [UIViewController]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        if car != nil {
+            print("I guess we have a car at least")
+        } else {
+            print("No car damn")
+        }
+        
+        if car.toSetup?.count == 0 {
+            setup = Setup(context: context)
+            setupNew = SetupNew()
+        } else {
+            setup = car.toSetup?.allObjects[0] as! Setup!
+            setupNew = setup.setupNew as? SetupNew!
+        }
+        if setup != nil {
+            print("We have a setup in the main view controller.")
+        }
         
         containerScrollView.delegate = self
         
         self.containerScrollView.contentSize = CGSize(width: CGFloat(segmentControl.numberOfSegments)*UIScreen.main.bounds.width, height: 495)
         
         var x = 0
-        var obj = [UIViewController]()
+        
+        let vc1 = self.storyboard?.instantiateViewController(withIdentifier: "Page1VC") as! Page1VC
+        vc1.fl = setupNew.fl
+        obj.append(vc1)
+        let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "Page2VC") as! Page2VC
+//        vc2.setup = setup
+        obj.append(vc2)
+        let vc3 = self.storyboard?.instantiateViewController(withIdentifier: "Page3VC") as! Page3VC
+//        vc3.setup = setup
+        obj.append(vc3)
+        let vc4 = self.storyboard?.instantiateViewController(withIdentifier: "Page4VC") as! Page4VC
+//        vc4.setup = setup
+        obj.append(vc4)
+        let vc5 = self.storyboard?.instantiateViewController(withIdentifier: "Page5VC") as! Page5VC
+//        vc5.setup = setup
+        obj.append(vc5)
         
         repeat {
-            let vc = (self.storyboard?.instantiateViewController(withIdentifier: "Page\(x+1)VC"))!
-            obj.append(vc)
             self.containerScrollView.addSubview(obj[x].view)
             obj[x].willMove(toParentViewController: self)
             self.addChildViewController(obj[x])
@@ -40,12 +77,8 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
             x += 1
             print("Page \(x) sucessfully initialized")
         } while (x < segmentControl.numberOfSegments)
-//        
-//        let obj1 = self.storyboard?.instantiateViewController(withIdentifier: "Page1VC") as! Page1VC
-//        let obj2 = self.storyboard?.instantiateViewController(withIdentifier: "Page2VC") as! Page2VC
-//        let obj3 = self.storyboard?.instantiateViewController(withIdentifier: "Page3VC") as! Page3VC
-//        let obj4 = self.storyboard?.instantiateViewController(withIdentifier: "Page4VC") as! Page4VC
-//        let obj5 = self.storyboard?.instantiateViewController(withIdentifier: "Page5VC") as! Page5VC
+        
+        
 //        
 //        self.containerScrollView.addSubview(obj2.view)
 //        obj2.willMove(toParentViewController: self)
@@ -70,6 +103,8 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
 //        obj1.view.frame.origin =  CGPoint.init(x: 0, y: 0)
 //        obj2.view.frame.origin =  CGPoint.init(x: UIScreen.main.bounds.width, y: 0)
 //        obj3.view.frame.origin = CGPoint.init(x: 2*UIScreen.main.bounds.width, y: 0)
+//        obj4.view.frame.origin = CGPoint.init(x: 3*UIScreen.main.bounds.width, y: 0)
+//        obj5.view.frame.origin = CGPoint.init(x: 4*UIScreen.main.bounds.width, y: 0)
         
         self.containerScrollView.frame = obj[2].view.frame
 
@@ -96,5 +131,14 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("we are perfoming a segue")
+        if segue.identifier == "Page1VC" {
+            if let destination = segue.destination as? Page1VC {
+                destination.setup = setup
+            }
+        }
+    }
 
 }

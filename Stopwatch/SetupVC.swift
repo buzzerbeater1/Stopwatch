@@ -23,16 +23,16 @@ class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImag
     @IBAction func saveButtonPressed(_ sender: Any) {
         if let currentSetup = car.toSetup?.allObjects as? [Setup] {
             if currentSetup.indices.contains(0) {
-                currentSetup[0].tirePressureFL = Double(tirePressureFLTextfield.text!)!
-                currentSetup[0].tirePressureFR = Double(tirePressureFRTextfield.text!)!
-                currentSetup[0].tirePressureRR = Double(tirePressureRRTextfield.text!)!
-                currentSetup[0].tirePressureRL = Double(tirePressureRLTextfield.text!)!
+//                currentSetup[0].tirePressureFL = Double(tirePressureFLTextfield.text!)!
+//                currentSetup[0].tirePressureFR = Double(tirePressureFRTextfield.text!)!
+//                currentSetup[0].tirePressureRR = Double(tirePressureRRTextfield.text!)!
+//                currentSetup[0].tirePressureRL = Double(tirePressureRLTextfield.text!)!
             } else {
                 let newSetup = Setup(context: context)
-                newSetup.tirePressureFL = Double(tirePressureFLTextfield.text!)!
-                newSetup.tirePressureFR = Double(tirePressureFRTextfield.text!)!
-                newSetup.tirePressureRR = Double(tirePressureRRTextfield.text!)!
-                newSetup.tirePressureRL = Double(tirePressureRLTextfield.text!)!
+//                newSetup.tirePressureFL = Double(tirePressureFLTextfield.text!)!
+//                newSetup.tirePressureFR = Double(tirePressureFRTextfield.text!)!
+//                newSetup.tirePressureRR = Double(tirePressureRRTextfield.text!)!
+//                newSetup.tirePressureRL = Double(tirePressureRLTextfield.text!)!
                 car.addToToSetup(newSetup)
                 ad.saveContext()
             }
@@ -102,10 +102,10 @@ class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImag
         carNameLabel.text = car.name
         if let carSetup = car.toSetup?.allObjects as? [Setup] {
             if carSetup.indices.contains(0) {
-                tirePressureFLTextfield.text = String(carSetup[0].tirePressureFL)
-                tirePressureFRTextfield.text = String(carSetup[0].tirePressureFR)
-                tirePressureRRTextfield.text = String(carSetup[0].tirePressureRR)
-                tirePressureRLTextfield.text = String(carSetup[0].tirePressureRL)
+//                tirePressureFLTextfield.text = String(carSetup[0].tirePressureFL)
+//                tirePressureFRTextfield.text = String(carSetup[0].tirePressureFR)
+//                tirePressureRRTextfield.text = String(carSetup[0].tirePressureRR)
+//                tirePressureRLTextfield.text = String(carSetup[0].tirePressureRL)
             }
         }
     }
