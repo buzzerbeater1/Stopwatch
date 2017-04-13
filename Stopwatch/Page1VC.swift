@@ -24,6 +24,14 @@ class Page1VC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var coldPressureTextField: UITextField!
     @IBOutlet weak var hotPressuretTextField: UITextField!
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        fl.rideHeight.value = rideHeightTextField.text!
+        setup.fl = fl
+        ad.saveContext()
+        let test = setup.fl as! Wheel
+        print(test.rideHeight.value)
+    }
+    
     var fl: Wheel!
     var setup: Setup!
     
@@ -32,10 +40,13 @@ class Page1VC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if setup != nil {
-            print("We have a setup in the page 1 view controller")
+        if setup.fl != nil {
+            print("We have a wheel in the page 1 view controller")
+            fl = setup.fl as? Wheel
+            updateLabels()
         }else{
-            print("no setup in page 1")
+            print("no wheel in page 1")
+            fl = Wheel()
         }
         
 //        let scrollView = UIScrollView(frame: super.view.bounds)
@@ -72,5 +83,9 @@ class Page1VC: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func updateLabels() {
+        rideHeightTextField.text = fl.rideHeight.value
+    }
 
 }

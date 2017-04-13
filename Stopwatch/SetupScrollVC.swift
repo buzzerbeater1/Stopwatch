@@ -23,12 +23,15 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
     
     
     var setup: Setup!
-    var setupNew: SetupNew!
     var car: Car!
     var obj = [UIViewController]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         if car != nil {
             print("I guess we have a car at least")
@@ -38,11 +41,12 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
         
         if car.toSetup?.count == 0 {
             setup = Setup(context: context)
-            setupNew = SetupNew()
+            car.addToToSetup(setup)
+            ad.saveContext()
         } else {
             setup = car.toSetup?.allObjects[0] as! Setup!
-            setupNew = setup.setupNew as? SetupNew!
         }
+        print("weh have setups:\(car.toSetup?.count)")
         if setup != nil {
             print("We have a setup in the main view controller.")
         }
@@ -54,7 +58,7 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
         var x = 0
         
         let vc1 = self.storyboard?.instantiateViewController(withIdentifier: "Page1VC") as! Page1VC
-        vc1.fl = setupNew.fl
+        vc1.setup = setup
         obj.append(vc1)
         let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "Page2VC") as! Page2VC
 //        vc2.setup = setup

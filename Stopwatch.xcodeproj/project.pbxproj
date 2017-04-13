@@ -183,8 +183,8 @@
 				D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */,
 				D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */,
 				D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */,
-				D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */,
 				D77AF56A1E976E0C00741A04 /* Note+CoreDataProperties.swift */,
+				D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */,
 			);
 			name = generated;
 			sourceTree = "<group>";
