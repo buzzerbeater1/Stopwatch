@@ -8,13 +8,25 @@
 
 import UIKit
 
-class SetupScrollVC: UIViewController, UIScrollViewDelegate{
+class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        let page1VC = self.childViewControllers[0] as! Page1VC
+        page1VC.saveButtonPressed()
+        let page2VC = self.childViewControllers[1] as! Page2VC
+        page2VC.saveButtonPressed()
+        let page3VC = self.childViewControllers[2] as! Page3VC
+        page3VC.saveButtonPressed()
+        let page4VC = self.childViewControllers[3] as! Page4VC
+        page4VC.saveButtonPressed()
+        let page5VC = self.childViewControllers[4] as! Page5VC
+        page5VC.saveButtonPressed()
         
+        
+        ad.saveContext()
     }
     
     @IBAction func segmentChange(_ sender: Any) {
@@ -22,16 +34,43 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
     }
     
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pictureButtonPressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraCaptureMode = .photo
+            imagePicker.modalPresentationStyle = .fullScreen
+            present(imagePicker,animated: true,completion: nil)
+            print("Long press")
+        } else {
+            noCamera()
+        }
+    }
+    
+    @IBAction func voiceButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "VoiceNoteVC", sender: car)
+    }
+    
+    @IBAction func writeButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "WrittenNoteVC", sender: car)
+    }
+    
+    
     var setup: Setup!
     var car: Car!
     var obj = [UIViewController]()
-    
+    var imagePicker: UIImagePickerController!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         if car != nil {
             print("I guess we have a car at least")
@@ -43,8 +82,10 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
             setup = Setup(context: context)
             car.addToToSetup(setup)
             ad.saveContext()
+            print("We just created a new Setup")
         } else {
             setup = car.toSetup?.allObjects[0] as! Setup!
+            print("Already have a set up, lets use that")
         }
         print("weh have setups:\(car.toSetup?.count)")
         if setup != nil {
@@ -61,16 +102,16 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
         vc1.setup = setup
         obj.append(vc1)
         let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "Page2VC") as! Page2VC
-//        vc2.setup = setup
+        vc2.setup = setup
         obj.append(vc2)
         let vc3 = self.storyboard?.instantiateViewController(withIdentifier: "Page3VC") as! Page3VC
-//        vc3.setup = setup
+        vc3.setup = setup
         obj.append(vc3)
         let vc4 = self.storyboard?.instantiateViewController(withIdentifier: "Page4VC") as! Page4VC
-//        vc4.setup = setup
+        vc4.setup = setup
         obj.append(vc4)
         let vc5 = self.storyboard?.instantiateViewController(withIdentifier: "Page5VC") as! Page5VC
-//        vc5.setup = setup
+        vc5.setup = setup
         obj.append(vc5)
         
         repeat {
@@ -115,7 +156,9 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
         // Do any additional setup after loading the view.
     }
 
-    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        //Do shit
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -137,12 +180,57 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate{
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("we are perfoming a segue")
-        if segue.identifier == "Page1VC" {
-            if let destination = segue.destination as? Page1VC {
-                destination.setup = setup
+        //segue for the popover configuration window
+        if segue.identifier == "VoiceNoteVC" {
+            if let controller = segue.destination as? VoiceNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                }
             }
         }
+        if segue.identifier == "WrittenNoteVC" {
+            if let controller = segue.destination as? WrittenNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                }
+            }
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
+    
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let note = Note(context: context)
+            note.picture = img
+            car.addToToNote(note)
+            ad.saveContext()
+            print(car.toNote!.count)
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
 }

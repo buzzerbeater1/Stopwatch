@@ -36,7 +36,6 @@
         <attribute name="general" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="rl" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="rr" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="setupNew" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="toCar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="toSetup" inverseEntity="Car" syncable="YES"/>
         <relationship name="toNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="toSetup" inverseEntity="Note" syncable="YES"/>
     </entity>
@@ -44,7 +43,7 @@
         <element name="Car" positionX="-315" positionY="-63" width="128" height="135"/>
         <element name="LapTime" positionX="-585" positionY="-36" width="128" height="90"/>
         <element name="PitLaneTime" positionX="-351" positionY="-267" width="128" height="150"/>
-        <element name="Setup" positionX="241" positionY="-135" width="128" height="28"/>
+        <element name="Setup" positionX="241" positionY="-135" width="128" height="163"/>
         <element name="Note" positionX="-56" positionY="-192" width="128" height="118"/>
     </elements>
 </model>

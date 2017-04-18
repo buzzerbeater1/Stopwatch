@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Page1VC: UIViewController, UIScrollViewDelegate {
+class Page1VC: UIViewController {
 
     @IBOutlet weak var rideHeightTextField: UITextField!
     @IBOutlet weak var trackPlateTextField: UITextField!
@@ -24,12 +24,25 @@ class Page1VC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var coldPressureTextField: UITextField!
     @IBOutlet weak var hotPressuretTextField: UITextField!
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        fl.rideHeight.value = rideHeightTextField.text!
-        setup.fl = fl
-        ad.saveContext()
-        let test = setup.fl as! Wheel
-        print(test.rideHeight.value)
+    func saveButtonPressed() {
+        let flNew = Wheel()
+        flNew.rideHeight.value = rideHeightTextField.text!
+        flNew.trackPlate.value = trackPlateTextField.text!
+        flNew.spring.pre.value = preSpringTextField.text!
+        flNew.damper.lb.value = lbTextField.text!
+        flNew.damper.lr.value = lrTextField.text!
+        flNew.damper.hb.value = hbTextField.text!
+        flNew.damper.hr.value = hrTextField.text!
+        flNew.arb.position.value = posTextField.text!
+        flNew.arb.pre.value = preARBTextField.text!
+        flNew.camber.value = camberTextField.text!
+        flNew.toe.value = toeTextField.text!
+        flNew.coldPressure.value = coldPressureTextField.text!
+        flNew.hotPressure.value = hotPressuretTextField.text!
+        
+        
+        
+        setup.fl = flNew
     }
     
     var fl: Wheel!
@@ -86,6 +99,18 @@ class Page1VC: UIViewController, UIScrollViewDelegate {
     
     func updateLabels() {
         rideHeightTextField.text = fl.rideHeight.value
+        trackPlateTextField.text = fl.trackPlate.value
+        preSpringTextField.text = fl.spring.pre.value
+        lbTextField.text = fl.damper.lb.value
+        lrTextField.text = fl.damper.lr.value
+        hbTextField.text = fl.damper.hb.value
+        hrTextField.text = fl.damper.hr.value
+        posTextField.text = fl.arb.position.value
+        preARBTextField.text = fl.arb.pre.value
+        camberTextField.text = fl.camber.value
+        toeTextField.text = fl.toe.value
+        coldPressureTextField.text = fl.coldPressure.value
+        hotPressuretTextField.text = fl.hotPressure.value
     }
 
 }

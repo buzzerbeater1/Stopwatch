@@ -158,13 +158,13 @@
 		D708BF621E60119100F5B3E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D77AF5731EA5E86600741A04 /* Outdated Controller */,
 				D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */,
 				D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */,
 				D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */,
 				D708BF671E65CA5800F5B3E8 /* CarsVC.swift */,
 				D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */,
 				D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */,
-				D77AF5411E840C7000741A04 /* SetupVC.swift */,
 				D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */,
 				D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */,
 				D77AF55B1E94F08200741A04 /* Page1VC.swift */,
@@ -187,6 +187,14 @@
 				D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */,
 			);
 			name = generated;
+			sourceTree = "<group>";
+		};
+		D77AF5731EA5E86600741A04 /* Outdated Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF5411E840C7000741A04 /* SetupVC.swift */,
+			);
+			name = "Outdated Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
