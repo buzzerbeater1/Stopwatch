@@ -243,6 +243,9 @@
                         <outlet property="carImageButton" destination="SVy-A8-8ac" id="d7C-D2-u5z"/>
                         <outlet property="carModel" destination="N7d-4c-1Qg" id="J14-3L-KCA"/>
                         <outlet property="carName" destination="Han-VK-OpI" id="pn8-dZ-PuL"/>
+                        <outlet property="lapTimesButton" destination="BUW-ud-mnT" id="HRv-gA-p0a"/>
+                        <outlet property="notesButton" destination="T35-Fs-948" id="5Jj-77-h4F"/>
+                        <outlet property="setupsButton" destination="bOx-mW-fzp" id="jRg-LL-pc8"/>
                         <segue destination="FAa-yj-pYo" kind="show" identifier="SetupVC" id="jpa-iN-P6U"/>
                     </connections>
                 </viewController>
@@ -1117,27 +1120,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Write"/>
                                                 <connections>
-                                                    <action selector="writeButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="JVn-F3-EVg"/>
-                                                    <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="icW-z5-BMG" id="rdS-Ls-25k">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <action selector="writeButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="vNm-9y-zdI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld6-1T-aaR">
                                                 <rect key="frame" x="79" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Voice"/>
                                                 <connections>
-                                                    <action selector="voiceButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="gaQ-ho-CAN"/>
-                                                    <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="Ld6-1T-aaR" id="kYc-3f-gYZ">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <action selector="voiceButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="7aS-k3-UYy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h04-Qn-8Bu">
                                                 <rect key="frame" x="158" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Picture"/>
                                                 <connections>
-                                                    <action selector="pictureButtonPressed:" destination="gPy-BH-YxQ" eventType="touchUpInside" id="xZn-Rv-lqZ"/>
+                                                    <action selector="pictureButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="Bem-nD-SY4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1195,7 +1192,14 @@
                     </view>
                     <connections>
                         <outlet property="containerScrollView" destination="Rih-qN-ofb" id="OMH-Kd-MWb"/>
+                        <outlet property="navigationBar" destination="Yqt-f9-aFR" id="ESf-4t-ZOn"/>
                         <outlet property="segmentControl" destination="MvS-C9-6aI" id="qgV-a0-YIG"/>
+                        <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="Ld6-1T-aaR" id="9a7-Pl-O5B">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="icW-z5-BMG" id="zgV-6P-IDj">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9k8-Oc-0T7" userLabel="First Responder" sceneMemberID="firstResponder"/>

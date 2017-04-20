@@ -70,6 +70,9 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var carName: UITextField!
     @IBOutlet weak var carModel: UITextField!
+    @IBOutlet weak var lapTimesButton: UIButton!
+    @IBOutlet weak var setupsButton: UIButton!
+    @IBOutlet weak var notesButton: UIButton!
     
     
     var carToEdit: Car!
@@ -85,12 +88,18 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
         if carToEdit != nil {
             loadItemData()
+        } else {
+            lapTimesButton.isEnabled = false
+            setupsButton.isEnabled = false
+            notesButton.isEnabled = false
+            carImageButton.setTitle("Press here for Car Picture", for: .normal)
         }
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
             carImage.image = img
+            carImageButton.setTitle("", for: .normal)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

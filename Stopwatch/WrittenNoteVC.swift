@@ -60,11 +60,11 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let note = Note(context: context)
-        note.written = textView.text
-        car.addToToNote(note)
-        ad.saveContext()
-        print(car.toNote!.count)
+//        let note = Note(context: context)
+//        note.written = textView.text
+//        car.addToToNote(note)
+//        ad.saveContext()
+//        print(car.toNote!.count)
     }
 
 }

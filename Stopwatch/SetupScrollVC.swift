@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         let page1VC = self.childViewControllers[0] as! Page1VC
@@ -38,7 +39,7 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverController
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func pictureButtonPressed(_ sender: Any) {
+    @IBAction func pictureButtonPressed(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.allowsEditing = false
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
@@ -51,11 +52,11 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverController
         }
     }
     
-    @IBAction func voiceButtonPressed(_ sender: Any) {
+    @IBAction func voiceButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "VoiceNoteVC", sender: car)
     }
     
-    @IBAction func writeButtonPressed(_ sender: Any) {
+    @IBAction func writeButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "WrittenNoteVC", sender: car)
     }
     
@@ -86,6 +87,13 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverController
         } else {
             setup = car.toSetup?.allObjects[0] as! Setup!
             print("Already have a set up, lets use that")
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, MMM dd, yyyy"
+        if setup.created != nil {
+            navigationBar.topItem?.title = dateFormatter.string(from: setup.created! as Date)
+        } else {
+            navigationBar.topItem?.title = dateFormatter.string(from: NSDate() as Date)
         }
         print("weh have setups:\(car.toSetup?.count)")
         if setup != nil {
