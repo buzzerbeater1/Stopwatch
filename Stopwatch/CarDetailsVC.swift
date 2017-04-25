@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
         
@@ -47,7 +47,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     @IBAction func setupButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "SetupVC", sender: carToEdit)
+        performSegue(withIdentifier: "ChooseSetupVC", sender: carToEdit)
     }
     
     
@@ -58,6 +58,20 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         }
         _ = navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToCarDetailsVC(segue: UIStoryboardSegue, sender: Any) {
+        // Completion code not working: Bug attaches to dismissed VC
+        if let segue = segue as? UIStoryboardSegueWithCompletion {
+            segue.completion = {
+                self.segueSetup()
+            }
+        }
+        // This solution isnt working either. Reason unknown
+//        let setupScrollVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetupScrollVC") as? SetupScrollVC
+//        setupScrollVC?.car = carToEdit
+//        self.navigationController?.viewControllers.append(setupScrollVC!)
+//        self.navigationController?.show(setupScrollVC!, sender: self)
     }
     
 //    @IBAction func addImage(_ sender: UIButton) {
@@ -77,6 +91,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     var carToEdit: Car!
     var imagePicker: UIImagePickerController!
+    var wantSetup: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,12 +136,30 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
                 }
             }
         }
-        if segue.identifier == "SetupVC" || segue.identifier == "PopoverSetupVC" {
+        if segue.identifier == "SetupScrollVC" {
             if let destination = segue.destination as? SetupScrollVC {
-                if let car = sender as? Car {
-                    destination.car = car
+                if let sender = sender as? CarDetailsVC {
+                    destination.car = sender.carToEdit
                 }
             }
+        }
+        if segue.identifier == "ChooseSetupVC" {
+            if let controller = segue.destination as? ChooseSetupVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+            }
+        }
+    }
+    
+    func segueSetup() {
+        if self.wantSetup == true {
+            let setupScrollVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetupScrollVC") as? SetupScrollVC
+            setupScrollVC?.car = carToEdit
+            self.navigationController?.viewControllers.append(setupScrollVC!)
+            self.present(setupScrollVC!, animated: true, completion: nil)
+            print("show")
+        } else {
+            // self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
         }
     }
     
@@ -194,4 +227,15 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             animated: true,
             completion: nil)
     }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        //Do shit
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
+
+    
 }

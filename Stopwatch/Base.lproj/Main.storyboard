@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mdj-HR-za1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V5V-Qh-Z0w">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -246,12 +246,59 @@
                         <outlet property="lapTimesButton" destination="BUW-ud-mnT" id="HRv-gA-p0a"/>
                         <outlet property="notesButton" destination="T35-Fs-948" id="5Jj-77-h4F"/>
                         <outlet property="setupsButton" destination="bOx-mW-fzp" id="jRg-LL-pc8"/>
-                        <segue destination="FAa-yj-pYo" kind="show" identifier="SetupVC" id="jpa-iN-P6U"/>
+                        <segue destination="xPd-Bz-8g4" kind="popoverPresentation" identifier="ChooseSetupVC" popoverAnchorView="bOx-mW-fzp" id="xZG-pX-Cqo">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="FAa-yj-pYo" kind="show" identifier="SetupScrollVC" id="RDy-7z-JyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eP-Vm-yoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="-528.48575712143929"/>
+        </scene>
+        <!--Choose SetupVC-->
+        <scene sceneID="NWm-Ww-mLn">
+            <objects>
+                <viewController id="xPd-Bz-8g4" customClass="ChooseSetupVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WgP-5p-EFd"/>
+                        <viewControllerLayoutGuide type="bottom" id="CRO-SP-Cjz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7qL-BC-XeC">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qj-gy-g6W">
+                                <rect key="frame" x="42" y="20" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pre Race"/>
+                                <connections>
+                                    <action selector="preRaceButtonPressed:" destination="xPd-Bz-8g4" eventType="touchUpInside" id="FN6-5Y-bjq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nms-ax-vpw">
+                                <rect key="frame" x="167" y="20" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="During Race"/>
+                                <connections>
+                                    <action selector="duringRaceButtonPressed:" destination="xPd-Bz-8g4" eventType="touchUpInside" id="NYj-sE-HDt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="70"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="70"/>
+                    <connections>
+                        <segue destination="wDx-Ej-ShS" kind="unwind" identifier="unwindCarDetailsVC" customClass="UIStoryboardSegueWithCompletion" customModule="Stopwatch" customModuleProvider="target" unwindAction="unwindToCarDetailsVCWithSegue:sender:" id="e3L-vs-RNg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qo2-vc-B5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wDx-Ej-ShS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1541" y="-529"/>
         </scene>
         <!--Page1VC-->
         <scene sceneID="9G9-CO-kp0">
@@ -1075,10 +1122,134 @@
             </objects>
             <point key="canvasLocation" x="3480.8000000000002" y="-2790.4047976011998"/>
         </scene>
+        <!--In Race SetupVC-->
+        <scene sceneID="hPT-Xv-bfE">
+            <objects>
+                <viewController storyboardIdentifier="InRaceSetupVC" id="V5V-Qh-Z0w" customClass="InRaceSetupVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HbL-nv-dZz"/>
+                        <viewControllerLayoutGuide type="bottom" id="BUN-IP-j7R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JNc-eu-cnU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYD-R5-1DM">
+                                <rect key="frame" x="75" y="69" width="300" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQR-7h-gCZ">
+                                <rect key="frame" x="181" y="28" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-0V-z4a">
+                                <rect key="frame" x="0.0" y="69" width="76" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsI-Um-bp6">
+                                        <rect key="frame" x="15" y="273" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="testButtonPressed:" destination="V5V-Qh-Z0w" eventType="touchUpInside" id="rfp-Yg-i2M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b35-jN-wcn">
+                                <rect key="frame" x="5" y="309" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EWo-T3-9vG">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerScrollView" destination="GYD-R5-1DM" id="khQ-ZY-7gY"/>
+                        <outlet property="pageControl" destination="EWo-T3-9vG" id="tZ9-Dd-teB"/>
+                        <segue destination="Fp4-W8-hEd" kind="presentation" identifier="InRaceSetupDetailsVC" modalPresentationStyle="formSheet" id="0H6-Xt-PtA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fm-sK-ChE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3064.8000000000002" y="-1872.4137931034484"/>
+        </scene>
+        <!--In Race Setup DetailsVC-->
+        <scene sceneID="L8P-Ao-QsT">
+            <objects>
+                <viewController modalPresentationStyle="formSheet" id="Fp4-W8-hEd" customClass="InRaceSetupDetailsVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zu5-fR-nJj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZmW-fz-fLN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jU2-n1-hFC">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gt-RG-hnh">
+                                <rect key="frame" x="129" y="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="300"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qY-OV-bns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3068" y="-1187"/>
+        </scene>
+        <!--In Race Sub PagesVC-->
+        <scene sceneID="CIh-va-i0N">
+            <objects>
+                <viewController storyboardIdentifier="InRaceSubPagesVC" id="uLU-gm-CXQ" customClass="InRaceSubPagesVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oz9-Ih-6jQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eCf-cE-DcI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hF2-2K-MDM">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="45124" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcn-2J-DeT">
+                                <rect key="frame" x="29" y="222" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="100" height="500"/>
+                    <connections>
+                        <outlet property="TestLabel" destination="Zcn-2J-DeT" id="wau-Cb-X5S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hK-N2-IHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3940" y="-1872"/>
+        </scene>
         <!--Setup ScrollVC-->
         <scene sceneID="CNK-Pm-jtH">
             <objects>
-                <viewController id="FAa-yj-pYo" customClass="SetupScrollVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupScrollVC" id="FAa-yj-pYo" customClass="SetupScrollVC" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="btk-lh-5yN"/>
                         <viewControllerLayoutGuide type="bottom" id="0HE-Fp-Qgn"/>
@@ -1494,7 +1665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XB-Sg-tTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1541.5999999999999" y="-528.48575712143929"/>
+            <point key="canvasLocation" x="1542" y="123"/>
         </scene>
         <!--StopwatchVC-->
         <scene sceneID="tne-QT-ifu">
@@ -1983,6 +2154,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CBC-Jb-iwZ"/>
-        <segue reference="5ng-Uv-Gl1"/>
+        <segue reference="fdo-fQ-EOF"/>
     </inferredMetricsTieBreakers>
 </document>

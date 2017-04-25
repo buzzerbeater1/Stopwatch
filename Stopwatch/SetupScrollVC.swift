@@ -46,7 +46,6 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentati
             imagePicker.cameraCaptureMode = .photo
             imagePicker.modalPresentationStyle = .fullScreen
             present(imagePicker,animated: true,completion: nil)
-            print("Long press")
         } else {
             noCamera()
         }
@@ -89,9 +88,9 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentati
             print("Already have a set up, lets use that")
         }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE, MMM dd, yyyy"
+        dateFormatter.dateFormat = "EEE"
         if setup.created != nil {
-            navigationBar.topItem?.title = dateFormatter.string(from: setup.created! as Date)
+            navigationBar.topItem?.title = car.name! + ", " + dateFormatter.string(from: setup.created! as Date)
         } else {
             navigationBar.topItem?.title = dateFormatter.string(from: NSDate() as Date)
         }
