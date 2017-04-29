@@ -48,6 +48,12 @@
 		D77AF5791EAB1F7500741A04 /* InRaceSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */; };
 		D77AF57B1EAB1F8F00741A04 /* InRaceSubPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */; };
 		D77AF57D1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */; };
+		D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5821EB07F4B00741A04 /* EventsVC.swift */; };
+		D77AF58F1EB088A600741A04 /* RaceEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */; };
+		D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */; };
+		D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5911EB08A3800741A04 /* EventsCell.swift */; };
+		D77AF5941EB094B200741A04 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5931EB094B200741A04 /* EventDetailsVC.swift */; };
+		D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5951EB482DC00741A04 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +100,12 @@
 		D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSetupVC.swift; sourceTree = "<group>"; };
 		D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSubPagesVC.swift; sourceTree = "<group>"; };
 		D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSetupDetailsVC.swift; sourceTree = "<group>"; };
+		D77AF5821EB07F4B00741A04 /* EventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
+		D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RaceEvent+CoreDataClass.swift"; path = "../RaceEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RaceEvent+CoreDataProperties.swift"; path = "../RaceEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5911EB08A3800741A04 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
+		D77AF5931EB094B200741A04 /* EventDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
+		D77AF5951EB482DC00741A04 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +155,7 @@
 		D708BF601E60117D00F5B3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */,
 				D708BF651E6014E600F5B3E8 /* Stopwatch.swift */,
 				D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */,
 				D77AF5671E975E0600741A04 /* SetupNew.swift */,
@@ -152,6 +165,7 @@
 				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
 				D77AF5691E976E0C00741A04 /* Note+CoreDataClass.swift */,
 				D77AF5761EAA1B2400741A04 /* CustomSegue.swift */,
+				D77AF5951EB482DC00741A04 /* Extensions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -162,6 +176,7 @@
 				D708BF631E6011C000F5B3E8 /* StopwatchCell.swift */,
 				D708BF691E65CCF600F5B3E8 /* CarsCell.swift */,
 				D77595051E743D2B0068C42C /* LapTimeCell.swift */,
+				D77AF5911EB08A3800741A04 /* EventsCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -169,25 +184,13 @@
 		D708BF621E60119100F5B3E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D77AF5731EA5E86600741A04 /* Outdated Controller */,
 				D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */,
-				D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */,
-				D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */,
-				D708BF671E65CA5800F5B3E8 /* CarsVC.swift */,
-				D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */,
-				D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */,
-				D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */,
-				D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */,
-				D77AF55B1E94F08200741A04 /* Page1VC.swift */,
-				D77AF55D1E94F09200741A04 /* Page2VC.swift */,
-				D77AF55F1E94F0A200741A04 /* Page3VC.swift */,
-				D77AF5631E9640B700741A04 /* Page4VC.swift */,
-				D77AF5651E9640C700741A04 /* Page5VC.swift */,
-				D77AF5611E94F12C00741A04 /* SetupScrollVC.swift */,
-				D77AF5741EAA018300741A04 /* ChooseSetupVC.swift */,
-				D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */,
-				D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */,
-				D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */,
+				D77AF5841EB083B000741A04 /* Notes */,
+				D77AF5811EB07F2D00741A04 /* Setup */,
+				D77AF5801EB07F2600741A04 /* Car */,
+				D77AF57F1EB07F1D00741A04 /* Lap Timer */,
+				D77AF57E1EB07F1300741A04 /* Events */,
+				D77AF5731EA5E86600741A04 /* Outdated Controller */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 		D76826471E6C3EBB00C520BF /* generated */ = {
 			isa = PBXGroup;
 			children = (
+				D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */,
 				D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */,
 				D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */,
 				D76826771E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift */,
@@ -210,6 +214,60 @@
 				D77AF5411E840C7000741A04 /* SetupVC.swift */,
 			);
 			name = "Outdated Controller";
+			sourceTree = "<group>";
+		};
+		D77AF57E1EB07F1300741A04 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF5821EB07F4B00741A04 /* EventsVC.swift */,
+				D77AF5931EB094B200741A04 /* EventDetailsVC.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		D77AF57F1EB07F1D00741A04 /* Lap Timer */ = {
+			isa = PBXGroup;
+			children = (
+				D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */,
+				D708BF5E1E600C2200F5B3E8 /* LapTimerVC.swift */,
+				D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */,
+			);
+			name = "Lap Timer";
+			sourceTree = "<group>";
+		};
+		D77AF5801EB07F2600741A04 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				D708BF671E65CA5800F5B3E8 /* CarsVC.swift */,
+				D708BF6D1E6651C400F5B3E8 /* CarDetailsVC.swift */,
+			);
+			name = Car;
+			sourceTree = "<group>";
+		};
+		D77AF5811EB07F2D00741A04 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF55B1E94F08200741A04 /* Page1VC.swift */,
+				D77AF55D1E94F09200741A04 /* Page2VC.swift */,
+				D77AF55F1E94F0A200741A04 /* Page3VC.swift */,
+				D77AF5631E9640B700741A04 /* Page4VC.swift */,
+				D77AF5651E9640C700741A04 /* Page5VC.swift */,
+				D77AF5611E94F12C00741A04 /* SetupScrollVC.swift */,
+				D77AF5741EAA018300741A04 /* ChooseSetupVC.swift */,
+				D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */,
+				D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */,
+				D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
+		D77AF5841EB083B000741A04 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */,
+				D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */,
+			);
+			name = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */,
+				D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */,
 				D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */,
 				D77AF5681E975E0600741A04 /* SetupNew.swift in Sources */,
 				D77AF55E1E94F09200741A04 /* Page2VC.swift in Sources */,
@@ -307,16 +366,21 @@
 				D77AF5601E94F0A200741A04 /* Page3VC.swift in Sources */,
 				D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */,
 				D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */,
+				D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */,
 				D77AF57D1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift in Sources */,
 				D77AF5661E9640C700741A04 /* Page5VC.swift in Sources */,
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
+				D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */,
 				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
 				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
+				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
 				D77AF5641E9640B700741A04 /* Page4VC.swift in Sources */,
+				D77AF5941EB094B200741A04 /* EventDetailsVC.swift in Sources */,
 				D77AF5461E8E21D500741A04 /* WrittenNoteVC.swift in Sources */,
 				D77AF5791EAB1F7500741A04 /* InRaceSetupVC.swift in Sources */,
+				D77AF58F1EB088A600741A04 /* RaceEvent+CoreDataClass.swift in Sources */,
 				D77AF5621E94F12C00741A04 /* SetupScrollVC.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
 				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,

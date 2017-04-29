@@ -6,6 +6,7 @@
         <attribute name="picture" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="toLaptime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LapTime" inverseName="toCar" inverseEntity="LapTime" syncable="YES"/>
         <relationship name="toNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="toCar" inverseEntity="Note" syncable="YES"/>
+        <relationship name="toRaceEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEvent" inverseName="toCar" inverseEntity="RaceEvent" syncable="YES"/>
         <relationship name="toSetup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Setup" inverseName="toCar" inverseEntity="Setup" syncable="YES"/>
     </entity>
     <entity name="LapTime" representedClassName="LapTime" syncable="YES">
@@ -29,6 +30,14 @@
         <attribute name="section5Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="RaceEvent" representedClassName="RaceEvent" syncable="YES">
+        <attribute name="circuit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="toCar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="toRaceEvent" inverseEntity="Car" syncable="YES"/>
+    </entity>
     <entity name="Setup" representedClassName="Setup" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fl" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -40,10 +49,11 @@
         <relationship name="toNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="toSetup" inverseEntity="Note" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Car" positionX="-315" positionY="-63" width="128" height="135"/>
+        <element name="Car" positionX="-315" positionY="-63" width="128" height="148"/>
         <element name="LapTime" positionX="-585" positionY="-36" width="128" height="90"/>
         <element name="PitLaneTime" positionX="-351" positionY="-267" width="128" height="150"/>
         <element name="Setup" positionX="241" positionY="-135" width="128" height="163"/>
         <element name="Note" positionX="-56" positionY="-192" width="128" height="118"/>
+        <element name="RaceEvent" positionX="-369" positionY="-108" width="128" height="135"/>
     </elements>
 </model>

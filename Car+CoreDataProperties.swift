@@ -2,7 +2,7 @@
 //  Car+CoreDataProperties.swift
 //  Stopwatch
 //
-//  Created by Michael Derstroff on 3/31/17.
+//  Created by Michael Derstroff on 4/26/17.
 //  Copyright © 2017 Stable Engineering. All rights reserved.
 //
 
@@ -22,6 +22,7 @@ extension Car {
     @NSManaged public var toLaptime: NSSet?
     @NSManaged public var toSetup: NSSet?
     @NSManaged public var toNote: NSSet?
+    @NSManaged public var toRaceEvent: NSSet?
 
 }
 
@@ -73,5 +74,22 @@ extension Car {
 
     @objc(removeToNote:)
     @NSManaged public func removeFromToNote(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toRaceEvent
+extension Car {
+
+    @objc(addToRaceEventObject:)
+    @NSManaged public func addToToRaceEvent(_ value: RaceEvent)
+
+    @objc(removeToRaceEventObject:)
+    @NSManaged public func removeFromToRaceEvent(_ value: RaceEvent)
+
+    @objc(addToRaceEvent:)
+    @NSManaged public func addToToRaceEvent(_ values: NSSet)
+
+    @objc(removeToRaceEvent:)
+    @NSManaged public func removeFromToRaceEvent(_ values: NSSet)
 
 }

@@ -12,13 +12,14 @@ import CoreData
 class CarsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     var controller: NSFetchedResultsController<Car>!
     
-    //var cars = [Cars]()
+
     
     
     
@@ -72,6 +73,7 @@ class CarsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = controller.sections {
+            print(sections.count)
             return sections.count
         }
         return 0
