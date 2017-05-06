@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9B714F4970C6D17EE672DCD /* Pods_Stopwatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839180F70202C2D5842D149A /* Pods_Stopwatch.framework */; };
 		D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF431E5EA6CA00F5B3E8 /* AppDelegate.swift */; };
 		D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */; };
 		D708BF491E5EA6CA00F5B3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D708BF471E5EA6CA00F5B3E8 /* Main.storyboard */; };
@@ -54,9 +55,22 @@
 		D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5911EB08A3800741A04 /* EventsCell.swift */; };
 		D77AF5941EB094B200741A04 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5931EB094B200741A04 /* EventDetailsVC.swift */; };
 		D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5951EB482DC00741A04 /* Extensions.swift */; };
+		D77AF5981EB9C3C300741A04 /* DateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */; };
+		D77AF59B1EB9C40900741A04 /* SessionPlannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */; };
+		D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */; };
+		D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */; };
+		D77AF5A71EBD900C00741A04 /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5A61EBD900C00741A04 /* WeatherConstants.swift */; };
+		D77AF5A91EBD906B00741A04 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5A81EBD906B00741A04 /* WeatherLocation.swift */; };
+		D77AF5AB1EBD90D100741A04 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AA1EBD90D100741A04 /* WeatherForecast.swift */; };
+		D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AC1EBD932700741A04 /* WeatherCell.swift */; };
+		D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */; };
+		D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		034B2561919300B7127690D0 /* Pods-Stopwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stopwatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stopwatch/Pods-Stopwatch.release.xcconfig"; sourceTree = "<group>"; };
+		255D412D5A7922D976EAAAF6 /* Pods-Stopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stopwatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stopwatch/Pods-Stopwatch.debug.xcconfig"; sourceTree = "<group>"; };
+		839180F70202C2D5842D149A /* Pods_Stopwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stopwatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D708BF401E5EA6CA00F5B3E8 /* Stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D708BF431E5EA6CA00F5B3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D708BF451E5EA6CA00F5B3E8 /* StopwatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchVC.swift; sourceTree = "<group>"; };
@@ -106,6 +120,16 @@
 		D77AF5911EB08A3800741A04 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
 		D77AF5931EB094B200741A04 /* EventDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
 		D77AF5951EB482DC00741A04 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionCell.swift; sourceTree = "<group>"; };
+		D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPlannerVC.swift; sourceTree = "<group>"; };
+		D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+CoreDataClass.swift"; path = "../Session+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+CoreDataProperties.swift"; path = "../Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5A61EBD900C00741A04 /* WeatherConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
+		D77AF5A81EBD906B00741A04 /* WeatherLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		D77AF5AA1EBD90D100741A04 /* WeatherForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
+		D77AF5AC1EBD932700741A04 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
+		D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCurrent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,17 +137,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B714F4970C6D17EE672DCD /* Pods_Stopwatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3575AAA2FE735FAF3DEA3FCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				255D412D5A7922D976EAAAF6 /* Pods-Stopwatch.debug.xcconfig */,
+				034B2561919300B7127690D0 /* Pods-Stopwatch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B33B864831DEA12751232FD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				839180F70202C2D5842D149A /* Pods_Stopwatch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D708BF371E5EA6CA00F5B3E8 = {
 			isa = PBXGroup;
 			children = (
 				D708BF421E5EA6CA00F5B3E8 /* Stopwatch */,
 				D708BF411E5EA6CA00F5B3E8 /* Products */,
+				3575AAA2FE735FAF3DEA3FCC /* Pods */,
+				B33B864831DEA12751232FD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,17 +199,16 @@
 		D708BF601E60117D00F5B3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */,
+				D77AF5A51EBD8FE700741A04 /* Core Data Classes */,
 				D708BF651E6014E600F5B3E8 /* Stopwatch.swift */,
 				D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */,
 				D77AF5671E975E0600741A04 /* SetupNew.swift */,
-				D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */,
-				D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */,
-				D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */,
-				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
-				D77AF5691E976E0C00741A04 /* Note+CoreDataClass.swift */,
 				D77AF5761EAA1B2400741A04 /* CustomSegue.swift */,
 				D77AF5951EB482DC00741A04 /* Extensions.swift */,
+				D77AF5A61EBD900C00741A04 /* WeatherConstants.swift */,
+				D77AF5A81EBD906B00741A04 /* WeatherLocation.swift */,
+				D77AF5AA1EBD90D100741A04 /* WeatherForecast.swift */,
+				D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -177,6 +220,8 @@
 				D708BF691E65CCF600F5B3E8 /* CarsCell.swift */,
 				D77595051E743D2B0068C42C /* LapTimeCell.swift */,
 				D77AF5911EB08A3800741A04 /* EventsCell.swift */,
+				D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */,
+				D77AF5AC1EBD932700741A04 /* WeatherCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -190,6 +235,8 @@
 				D77AF5801EB07F2600741A04 /* Car */,
 				D77AF57F1EB07F1D00741A04 /* Lap Timer */,
 				D77AF57E1EB07F1300741A04 /* Events */,
+				D77AF5AE1EBD952100741A04 /* Weather */,
+				D77AF5991EB9C3D700741A04 /* Sessions */,
 				D77AF5731EA5E86600741A04 /* Outdated Controller */,
 			);
 			name = Controller;
@@ -198,6 +245,7 @@
 		D76826471E6C3EBB00C520BF /* generated */ = {
 			isa = PBXGroup;
 			children = (
+				D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */,
 				D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */,
 				D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */,
 				D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */,
@@ -270,6 +318,36 @@
 			name = Notes;
 			sourceTree = "<group>";
 		};
+		D77AF5991EB9C3D700741A04 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */,
+			);
+			name = Sessions;
+			sourceTree = "<group>";
+		};
+		D77AF5A51EBD8FE700741A04 /* Core Data Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */,
+				D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */,
+				D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */,
+				D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */,
+				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
+				D77AF5691E976E0C00741A04 /* Note+CoreDataClass.swift */,
+				D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */,
+			);
+			name = "Core Data Classes";
+			sourceTree = "<group>";
+		};
+		D77AF5AE1EBD952100741A04 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */,
+			);
+			name = Weather;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,9 +355,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D708BF551E5EA6CA00F5B3E8 /* Build configuration list for PBXNativeTarget "Stopwatch" */;
 			buildPhases = (
+				0FBC0605CE66BF285C72330A /* [CP] Check Pods Manifest.lock */,
 				D708BF3C1E5EA6CA00F5B3E8 /* Sources */,
 				D708BF3D1E5EA6CA00F5B3E8 /* Frameworks */,
 				D708BF3E1E5EA6CA00F5B3E8 /* Resources */,
+				39146A0E8E9C59AF35F195DC /* [CP] Embed Pods Frameworks */,
+				2EE938AB71F98337EB62A1E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,6 +418,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FBC0605CE66BF285C72330A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2EE938AB71F98337EB62A1E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stopwatch/Pods-Stopwatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39146A0E8E9C59AF35F195DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stopwatch/Pods-Stopwatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D708BF3C1E5EA6CA00F5B3E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -346,7 +475,9 @@
 				D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */,
 				D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */,
 				D77AF5681E975E0600741A04 /* SetupNew.swift in Sources */,
+				D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */,
 				D77AF55E1E94F09200741A04 /* Page2VC.swift in Sources */,
+				D77AF5A91EBD906B00741A04 /* WeatherLocation.swift in Sources */,
 				D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */,
 				D77AF5441E8CF21F00741A04 /* VoiceNoteVC.swift in Sources */,
 				D77AF57B1EAB1F8F00741A04 /* InRaceSubPagesVC.swift in Sources */,
@@ -356,10 +487,13 @@
 				D768267C1E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift in Sources */,
 				D708BF6C1E65D2DD00F5B3E8 /* Cars.swift in Sources */,
 				D77AF56C1E976E0C00741A04 /* Note+CoreDataProperties.swift in Sources */,
+				D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */,
 				D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */,
 				D77AF55C1E94F08200741A04 /* Page1VC.swift in Sources */,
+				D77AF5AB1EBD90D100741A04 /* WeatherForecast.swift in Sources */,
 				D77AF56B1E976E0C00741A04 /* Note+CoreDataClass.swift in Sources */,
 				D77AF5751EAA018300741A04 /* ChooseSetupVC.swift in Sources */,
+				D77AF59B1EB9C40900741A04 /* SessionPlannerVC.swift in Sources */,
 				D77AF53F1E8409DE00741A04 /* Car+CoreDataClass.swift in Sources */,
 				D708BF6A1E65CCF600F5B3E8 /* CarsCell.swift in Sources */,
 				D77AF5771EAA1B2400741A04 /* CustomSegue.swift in Sources */,
@@ -372,6 +506,9 @@
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
 				D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */,
 				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
+				D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */,
+				D77AF5981EB9C3C300741A04 /* DateCollectionCell.swift in Sources */,
+				D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */,
 				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
 				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
@@ -384,7 +521,9 @@
 				D77AF5621E94F12C00741A04 /* SetupScrollVC.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
 				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,
+				D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */,
 				D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */,
+				D77AF5A71EBD900C00741A04 /* WeatherConstants.swift in Sources */,
 				D708BF641E6011C000F5B3E8 /* StopwatchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +643,7 @@
 		};
 		D708BF561E5EA6CA00F5B3E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 255D412D5A7922D976EAAAF6 /* Pods-Stopwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stopwatch/Info.plist;
@@ -516,6 +656,7 @@
 		};
 		D708BF571E5EA6CA00F5B3E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 034B2561919300B7127690D0 /* Pods-Stopwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stopwatch/Info.plist;

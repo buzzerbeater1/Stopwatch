@@ -157,9 +157,11 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             setupScrollVC?.car = carToEdit
             self.navigationController?.viewControllers.append(setupScrollVC!)
             self.present(setupScrollVC!, animated: true, completion: nil)
-            print("show")
         } else {
-            // self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+            let inRaceSetupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InRaceSetupVC") as? InRaceSetupVC
+            inRaceSetupVC?.car = carToEdit
+            self.navigationController?.viewControllers.append(inRaceSetupVC!)
+            self.present(inRaceSetupVC!, animated: true, completion: nil)
         }
     }
     

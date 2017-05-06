@@ -34,5 +34,12 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Gimme Access!!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to use your Location.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

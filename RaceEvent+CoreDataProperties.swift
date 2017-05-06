@@ -2,7 +2,7 @@
 //  RaceEvent+CoreDataProperties.swift
 //  Stopwatch
 //
-//  Created by Michael Derstroff on 4/26/17.
+//  Created by Michael Derstroff on 5/3/17.
 //  Copyright © 2017 Stable Engineering. All rights reserved.
 //
 
@@ -22,6 +22,7 @@ extension RaceEvent {
     @NSManaged public var name: String?
     @NSManaged public var circuit: String?
     @NSManaged public var toCar: NSSet?
+    @NSManaged public var toSession: NSSet?
 
 }
 
@@ -39,5 +40,22 @@ extension RaceEvent {
 
     @objc(removeToCar:)
     @NSManaged public func removeFromToCar(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toSession
+extension RaceEvent {
+
+    @objc(addToSessionObject:)
+    @NSManaged public func addToToSession(_ value: Session)
+
+    @objc(removeToSessionObject:)
+    @NSManaged public func removeFromToSession(_ value: Session)
+
+    @objc(addToSession:)
+    @NSManaged public func addToToSession(_ values: NSSet)
+
+    @objc(removeToSession:)
+    @NSManaged public func removeFromToSession(_ values: NSSet)
 
 }

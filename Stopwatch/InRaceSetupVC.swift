@@ -12,10 +12,25 @@ class InRaceSetupVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentati
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerScrollView: UIScrollView!
+    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var expandedView: UIView!
     
     @IBAction func testButtonPressed(_ sender: UIButton) {
 //        performSegue(withIdentifier: "InRaceSetupDetailsVC", sender: nil)
     }
+    
+    @IBAction func toggleButtonPressed(_ sender: UIButton) {
+        if expandedView.isHidden {
+            expandedView.isHidden = false
+        } else {
+            expandedView.isHidden = true
+        }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     var obj = [UIViewController]()
@@ -83,6 +98,10 @@ class InRaceSetupVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentati
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        testLabel.text = car.name
     }
 
 }
