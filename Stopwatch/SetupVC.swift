@@ -158,11 +158,11 @@ class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImag
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let note = Note(context: context)
-            note.picture = img
-            car.addToToNote(note)
-            ad.saveContext()
-            print(car.toNote!.count)
+//            let note = Note(context: context)
+//            note.picture = img
+//            car.addToToNote(note)
+//            ad.saveContext()
+//            print(car.toNote!.count)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

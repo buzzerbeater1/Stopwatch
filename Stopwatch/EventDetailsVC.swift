@@ -218,6 +218,12 @@ class EventDetailsVC: UIViewController, UINavigationControllerDelegate, UIGestur
                 }
             }
         }
+        if segue.identifier == "WeatherVC" {
+            if let destination = segue.destination as? WeatherVC {
+                    destination.event = self.event
+                print("try to set event")
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

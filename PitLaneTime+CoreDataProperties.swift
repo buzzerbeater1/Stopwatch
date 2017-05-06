@@ -1,9 +1,9 @@
 //
 //  PitLaneTime+CoreDataProperties.swift
-//  Stopwatch
+//  
 //
-//  Created by Michael Derstroff on 3/5/17.
-//  Copyright © 2017 Stable Engineering. All rights reserved.
+//  Created by Michael Derstroff on 5/6/17.
+//
 //
 
 import Foundation

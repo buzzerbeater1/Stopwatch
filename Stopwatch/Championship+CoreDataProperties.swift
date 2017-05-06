@@ -1,5 +1,5 @@
 //
-//  RaceEvent+CoreDataProperties.swift
+//  Championship+CoreDataProperties.swift
 //  
 //
 //  Created by Michael Derstroff on 5/6/17.
@@ -10,27 +10,26 @@ import Foundation
 import CoreData
 
 
-extension RaceEvent {
+extension Championship {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<RaceEvent> {
-        return NSFetchRequest<RaceEvent>(entityName: "RaceEvent");
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Championship> {
+        return NSFetchRequest<Championship>(entityName: "Championship");
     }
 
-    @NSManaged public var circuit: String?
-    @NSManaged public var endDate: NSDate?
-    @NSManaged public var location: String?
     @NSManaged public var name: String?
-    @NSManaged public var startDate: NSDate?
+    @NSManaged public var registrationFiles: NSObject?
+    @NSManaged public var regulations: NSObject?
+    @NSManaged public var results: NSObject?
+    @NSManaged public var standings: NSObject?
+    @NSManaged public var year: String?
     @NSManaged public var toCar: NSSet?
-    @NSManaged public var toChampionship: Championship?
-    @NSManaged public var toRuns: NSSet?
+    @NSManaged public var toRaceEvent: NSSet?
     @NSManaged public var toSession: NSSet?
-    @NSManaged public var toWeatherMonitor: WeaterMonitor?
 
 }
 
 // MARK: Generated accessors for toCar
-extension RaceEvent {
+extension Championship {
 
     @objc(addToCarObject:)
     @NSManaged public func addToToCar(_ value: Car)
@@ -46,25 +45,25 @@ extension RaceEvent {
 
 }
 
-// MARK: Generated accessors for toRuns
-extension RaceEvent {
+// MARK: Generated accessors for toRaceEvent
+extension Championship {
 
-    @objc(addToRunsObject:)
-    @NSManaged public func addToToRuns(_ value: Runs)
+    @objc(addToRaceEventObject:)
+    @NSManaged public func addToToRaceEvent(_ value: RaceEvent)
 
-    @objc(removeToRunsObject:)
-    @NSManaged public func removeFromToRuns(_ value: Runs)
+    @objc(removeToRaceEventObject:)
+    @NSManaged public func removeFromToRaceEvent(_ value: RaceEvent)
 
-    @objc(addToRuns:)
-    @NSManaged public func addToToRuns(_ values: NSSet)
+    @objc(addToRaceEvent:)
+    @NSManaged public func addToToRaceEvent(_ values: NSSet)
 
-    @objc(removeToRuns:)
-    @NSManaged public func removeFromToRuns(_ values: NSSet)
+    @objc(removeToRaceEvent:)
+    @NSManaged public func removeFromToRaceEvent(_ values: NSSet)
 
 }
 
 // MARK: Generated accessors for toSession
-extension RaceEvent {
+extension Championship {
 
     @objc(addToSessionObject:)
     @NSManaged public func addToToSession(_ value: Session)

@@ -318,7 +318,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="Weather"/>
                                 <connections>
-                                    <segue destination="Rc3-zC-bud" kind="show" id="Iv9-kt-EnX"/>
+                                    <segue destination="Rc3-zC-bud" kind="show" identifier="WeatherVC" id="Iv9-kt-EnX"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kr-xA-YMu">
@@ -378,17 +378,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9j-sN-Hpk">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9j-sN-Hpk">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="y9L-g5-K93">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9dw-ll-Aar"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9dw-ll-Aar">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="Rc3-zC-bud" id="F7J-Bu-Xes"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" id="J47-6l-8Fv"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p4y-E6-d7e">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p4y-E6-d7e">
                                 <rect key="frame" x="16" y="287" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -474,25 +479,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NhW-VG-Ckd">
-                                <rect key="frame" x="22" y="104" width="331" height="132"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NhW-VG-Ckd">
+                                <rect key="frame" x="22" y="74" width="331" height="132"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c55-AK-YIJ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c55-AK-YIJ">
                                         <rect key="frame" x="0.0" y="0.0" width="141" height="132"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Today, 17.02.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="KCH-kb-Pe2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 17.02.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="KCH-kb-Pe2">
                                                 <rect key="frame" x="0.0" y="0.0" width="141" height="24"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="fdg-a9-pOc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="fdg-a9-pOc">
                                                 <rect key="frame" x="0.0" y="24" width="141" height="84"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="60"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Shanghai, China " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="nDU-KW-Ieg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shanghai, China " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="nDU-KW-Ieg">
                                                 <rect key="frame" x="0.0" y="108" width="141" height="24"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -500,13 +505,13 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ag5-wA-jBL">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ag5-wA-jBL">
                                         <rect key="frame" x="141" y="20" width="190" height="92"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Clouds" translatesAutoresizingMaskIntoConstraints="NO" id="Uie-nE-jD2">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clouds" translatesAutoresizingMaskIntoConstraints="NO" id="Uie-nE-jD2">
                                                 <rect key="frame" x="49" y="0.0" width="92" height="68"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rainy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-CN-hVY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-CN-hVY">
                                                 <rect key="frame" x="73.5" y="68" width="43.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -519,10 +524,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NhW-VG-Ckd" firstAttribute="top" secondItem="H9j-sN-Hpk" secondAttribute="bottom" constant="6" id="3HY-HD-hpC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NhW-VG-Ckd" secondAttribute="trailing" constant="6" id="3eP-St-Gib"/>
                             <constraint firstItem="NhW-VG-Ckd" firstAttribute="leading" secondItem="VBB-xf-sah" secondAttribute="leadingMargin" constant="6" id="Hr4-vZ-6vy"/>
-                            <constraint firstItem="p4y-E6-d7e" firstAttribute="top" secondItem="NhW-VG-Ckd" secondAttribute="bottom" constant="6" id="QIg-pQ-cdT"/>
+                            <constraint firstItem="NhW-VG-Ckd" firstAttribute="top" secondItem="H9j-sN-Hpk" secondAttribute="bottom" constant="10" id="K0J-bP-Fn3"/>
+                            <constraint firstItem="H9j-sN-Hpk" firstAttribute="leading" secondItem="VBB-xf-sah" secondAttribute="leading" id="QW2-Gx-mq4"/>
+                            <constraint firstItem="H9j-sN-Hpk" firstAttribute="top" secondItem="BL3-sb-Y3b" secondAttribute="bottom" id="cBq-dR-NQ2"/>
+                            <constraint firstAttribute="trailing" secondItem="H9j-sN-Hpk" secondAttribute="trailing" id="kIw-lF-z33"/>
                         </constraints>
                     </view>
                     <connections>

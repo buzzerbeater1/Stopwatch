@@ -1,9 +1,9 @@
 //
 //  Car+CoreDataProperties.swift
-//  Stopwatch
+//  
 //
-//  Created by Michael Derstroff on 5/3/17.
-//  Copyright © 2017 Stable Engineering. All rights reserved.
+//  Created by Michael Derstroff on 5/6/17.
+//
 //
 
 import Foundation
@@ -19,11 +19,32 @@ extension Car {
     @NSManaged public var model: String?
     @NSManaged public var name: String?
     @NSManaged public var picture: NSObject?
+    @NSManaged public var toChampionship: NSSet?
     @NSManaged public var toLaptime: NSSet?
-    @NSManaged public var toSetup: NSSet?
-    @NSManaged public var toNote: NSSet?
+    @NSManaged public var toPictureNote: NSSet?
     @NSManaged public var toRaceEvent: NSSet?
+    @NSManaged public var toRuns: NSSet?
     @NSManaged public var toSession: NSSet?
+    @NSManaged public var toSetup: NSSet?
+    @NSManaged public var toVoiceNote: NSSet?
+    @NSManaged public var toWrittenNote: NSSet?
+
+}
+
+// MARK: Generated accessors for toChampionship
+extension Car {
+
+    @objc(addToChampionshipObject:)
+    @NSManaged public func addToToChampionship(_ value: Championship)
+
+    @objc(removeToChampionshipObject:)
+    @NSManaged public func removeFromToChampionship(_ value: Championship)
+
+    @objc(addToChampionship:)
+    @NSManaged public func addToToChampionship(_ values: NSSet)
+
+    @objc(removeToChampionship:)
+    @NSManaged public func removeFromToChampionship(_ values: NSSet)
 
 }
 
@@ -44,37 +65,20 @@ extension Car {
 
 }
 
-// MARK: Generated accessors for toSetup
+// MARK: Generated accessors for toPictureNote
 extension Car {
 
-    @objc(addToSetupObject:)
-    @NSManaged public func addToToSetup(_ value: Setup)
+    @objc(addToPictureNoteObject:)
+    @NSManaged public func addToToPictureNote(_ value: PictureNote)
 
-    @objc(removeToSetupObject:)
-    @NSManaged public func removeFromToSetup(_ value: Setup)
+    @objc(removeToPictureNoteObject:)
+    @NSManaged public func removeFromToPictureNote(_ value: PictureNote)
 
-    @objc(addToSetup:)
-    @NSManaged public func addToToSetup(_ values: NSSet)
+    @objc(addToPictureNote:)
+    @NSManaged public func addToToPictureNote(_ values: NSSet)
 
-    @objc(removeToSetup:)
-    @NSManaged public func removeFromToSetup(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for toNote
-extension Car {
-
-    @objc(addToNoteObject:)
-    @NSManaged public func addToToNote(_ value: Note)
-
-    @objc(removeToNoteObject:)
-    @NSManaged public func removeFromToNote(_ value: Note)
-
-    @objc(addToNote:)
-    @NSManaged public func addToToNote(_ values: NSSet)
-
-    @objc(removeToNote:)
-    @NSManaged public func removeFromToNote(_ values: NSSet)
+    @objc(removeToPictureNote:)
+    @NSManaged public func removeFromToPictureNote(_ values: NSSet)
 
 }
 
@@ -95,6 +99,23 @@ extension Car {
 
 }
 
+// MARK: Generated accessors for toRuns
+extension Car {
+
+    @objc(addToRunsObject:)
+    @NSManaged public func addToToRuns(_ value: Runs)
+
+    @objc(removeToRunsObject:)
+    @NSManaged public func removeFromToRuns(_ value: Runs)
+
+    @objc(addToRuns:)
+    @NSManaged public func addToToRuns(_ values: NSSet)
+
+    @objc(removeToRuns:)
+    @NSManaged public func removeFromToRuns(_ values: NSSet)
+
+}
+
 // MARK: Generated accessors for toSession
 extension Car {
 
@@ -109,5 +130,56 @@ extension Car {
 
     @objc(removeToSession:)
     @NSManaged public func removeFromToSession(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toSetup
+extension Car {
+
+    @objc(addToSetupObject:)
+    @NSManaged public func addToToSetup(_ value: Setup)
+
+    @objc(removeToSetupObject:)
+    @NSManaged public func removeFromToSetup(_ value: Setup)
+
+    @objc(addToSetup:)
+    @NSManaged public func addToToSetup(_ values: NSSet)
+
+    @objc(removeToSetup:)
+    @NSManaged public func removeFromToSetup(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toVoiceNote
+extension Car {
+
+    @objc(addToVoiceNoteObject:)
+    @NSManaged public func addToToVoiceNote(_ value: VoiceNote)
+
+    @objc(removeToVoiceNoteObject:)
+    @NSManaged public func removeFromToVoiceNote(_ value: VoiceNote)
+
+    @objc(addToVoiceNote:)
+    @NSManaged public func addToToVoiceNote(_ values: NSSet)
+
+    @objc(removeToVoiceNote:)
+    @NSManaged public func removeFromToVoiceNote(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toWrittenNote
+extension Car {
+
+    @objc(addToWrittenNoteObject:)
+    @NSManaged public func addToToWrittenNote(_ value: WrittenNote)
+
+    @objc(removeToWrittenNoteObject:)
+    @NSManaged public func removeFromToWrittenNote(_ value: WrittenNote)
+
+    @objc(addToWrittenNote:)
+    @NSManaged public func addToToWrittenNote(_ values: NSSet)
+
+    @objc(removeToWrittenNote:)
+    @NSManaged public func removeFromToWrittenNote(_ values: NSSet)
 
 }

@@ -1,9 +1,9 @@
 //
 //  Setup+CoreDataProperties.swift
-//  Stopwatch
+//  
 //
-//  Created by Michael Derstroff on 4/12/17.
-//  Copyright © 2017 Stable Engineering. All rights reserved.
+//  Created by Michael Derstroff on 5/6/17.
+//
 //
 
 import Foundation
@@ -19,11 +19,81 @@ extension Setup {
     @NSManaged public var created: NSDate?
     @NSManaged public var fl: NSObject?
     @NSManaged public var fr: NSObject?
+    @NSManaged public var general: NSObject?
     @NSManaged public var rl: NSObject?
     @NSManaged public var rr: NSObject?
-    @NSManaged public var general: NSObject?
-    @NSManaged public var setupNew: NSObject?
     @NSManaged public var toCar: Car?
-    @NSManaged public var toNote: Note?
+    @NSManaged public var toPictureNote: NSSet?
+    @NSManaged public var toRuns: NSSet?
+    @NSManaged public var toVoiceNote: NSSet?
+    @NSManaged public var toWrittenNote: NSSet?
+
+}
+
+// MARK: Generated accessors for toPictureNote
+extension Setup {
+
+    @objc(addToPictureNoteObject:)
+    @NSManaged public func addToToPictureNote(_ value: PictureNote)
+
+    @objc(removeToPictureNoteObject:)
+    @NSManaged public func removeFromToPictureNote(_ value: PictureNote)
+
+    @objc(addToPictureNote:)
+    @NSManaged public func addToToPictureNote(_ values: NSSet)
+
+    @objc(removeToPictureNote:)
+    @NSManaged public func removeFromToPictureNote(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toRuns
+extension Setup {
+
+    @objc(addToRunsObject:)
+    @NSManaged public func addToToRuns(_ value: Runs)
+
+    @objc(removeToRunsObject:)
+    @NSManaged public func removeFromToRuns(_ value: Runs)
+
+    @objc(addToRuns:)
+    @NSManaged public func addToToRuns(_ values: NSSet)
+
+    @objc(removeToRuns:)
+    @NSManaged public func removeFromToRuns(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toVoiceNote
+extension Setup {
+
+    @objc(addToVoiceNoteObject:)
+    @NSManaged public func addToToVoiceNote(_ value: VoiceNote)
+
+    @objc(removeToVoiceNoteObject:)
+    @NSManaged public func removeFromToVoiceNote(_ value: VoiceNote)
+
+    @objc(addToVoiceNote:)
+    @NSManaged public func addToToVoiceNote(_ values: NSSet)
+
+    @objc(removeToVoiceNote:)
+    @NSManaged public func removeFromToVoiceNote(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toWrittenNote
+extension Setup {
+
+    @objc(addToWrittenNoteObject:)
+    @NSManaged public func addToToWrittenNote(_ value: WrittenNote)
+
+    @objc(removeToWrittenNoteObject:)
+    @NSManaged public func removeFromToWrittenNote(_ value: WrittenNote)
+
+    @objc(addToWrittenNote:)
+    @NSManaged public func addToToWrittenNote(_ values: NSSet)
+
+    @objc(removeToWrittenNote:)
+    @NSManaged public func removeFromToWrittenNote(_ values: NSSet)
 
 }

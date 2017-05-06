@@ -1,9 +1,9 @@
 //
 //  LapTime+CoreDataProperties.swift
-//  Stopwatch
+//  
 //
-//  Created by Michael Derstroff on 3/5/17.
-//  Copyright © 2017 Stable Engineering. All rights reserved.
+//  Created by Michael Derstroff on 5/6/17.
+//
 //
 
 import Foundation
@@ -16,8 +16,8 @@ extension LapTime {
         return NSFetchRequest<LapTime>(entityName: "LapTime");
     }
 
+    @NSManaged public var created: NSDate?
     @NSManaged public var time: Double
-    @NSManaged public var created: Date
     @NSManaged public var toCar: Car?
 
 }

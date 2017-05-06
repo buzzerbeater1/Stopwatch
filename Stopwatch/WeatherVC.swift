@@ -12,6 +12,12 @@ import CoreLocation
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -30,6 +36,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -95,9 +103,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 if let list = dict["list"] as? [Dictionary<String,AnyObject>] {
                     for obj in list {
-                        let forecast = WeatherForecast(weatherDict: obj)
-                        self.forecasts.append(forecast)
-                        print(obj)
+                        let date = obj["dt"] as! Double
+                        if date > (self.event.startDate?.timeIntervalSince1970)! && date < (self.event.endDate?.timeIntervalSince1970)! {
+                            let forecast = WeatherForecast(weatherDict: obj)
+                            self.forecasts.append(forecast)
+                        }
                     }
                     self.tableView.reloadData()
                 }

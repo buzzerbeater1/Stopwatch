@@ -47,12 +47,13 @@ class WeatherForecast {
     
     
     init( weatherDict: Dictionary<String,AnyObject>) {
-        if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
-            if let min = temp["min"] as? Double {
+        if let main = weatherDict["main"] as? Dictionary<String, AnyObject> {
+            if let min = main["temp_min"] as? Double {
+                print(min)
                 let minCelsius = min - 273.15
                 self._lowTemp = String(format:"%.02f°", minCelsius)
             }
-            if let max = temp["max"] as? Double {
+            if let max = main["temp_max"] as? Double {
                 let maxCelsius = max - 273.15
                 self._highTemp = String(format:"%.02f°", maxCelsius)
             }
@@ -68,8 +69,8 @@ class WeatherForecast {
             let unixConvertDate = Date(timeIntervalSince1970: date)
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
-            dateFormatter.dateFormat = "EEEE"
-            dateFormatter.timeStyle = .none
+            dateFormatter.dateFormat = "E, HH:mm"
+            dateFormatter.timeStyle = .short
             self._date = unixConvertDate.dayOfTheWeek()
         }
     }
@@ -79,7 +80,7 @@ class WeatherForecast {
 extension Date {
     func dayOfTheWeek() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "E, HH:mm"
         return dateFormatter.string(from:self)
     }
 }

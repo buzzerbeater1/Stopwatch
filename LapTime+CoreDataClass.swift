@@ -15,7 +15,7 @@ public class LapTime: NSManagedObject {
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         
-        self.created = NSDate() as Date
+        self.created = NSDate()
     }
 
 }

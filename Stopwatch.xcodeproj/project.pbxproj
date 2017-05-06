@@ -65,6 +65,18 @@
 		D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AC1EBD932700741A04 /* WeatherCell.swift */; };
 		D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */; };
 		D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */; };
+		D77AF5B91EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */; };
+		D77AF5BA1EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */; };
+		D77AF5BB1EBDBFBA00741A04 /* Runs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */; };
+		D77AF5BC1EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */; };
+		D77AF5BD1EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B71EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift */; };
+		D77AF5BE1EBDBFBA00741A04 /* Championship+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B81EBDBFBA00741A04 /* Championship+CoreDataClass.swift */; };
+		D77AF5C51EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */; };
+		D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */; };
+		D77AF5C71EBDBFCA00741A04 /* Runs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */; };
+		D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */; };
+		D77AF5C91EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */; };
+		D77AF5CA1EBDBFCA00741A04 /* Championship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +142,18 @@
 		D77AF5AC1EBD932700741A04 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCurrent.swift; sourceTree = "<group>"; };
+		D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeaterMonitor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Runs+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WrittenNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5B71EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PictureNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5B81EBDBFBA00741A04 /* Championship+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Championship+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeaterMonitor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Runs+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WrittenNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PictureNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Championship+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +269,12 @@
 		D76826471E6C3EBB00C520BF /* generated */ = {
 			isa = PBXGroup;
 			children = (
+				D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */,
+				D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */,
+				D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */,
+				D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */,
+				D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */,
+				D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */,
 				D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */,
 				D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */,
 				D77AF54D1E8E390500741A04 /* Car+CoreDataProperties.swift */,
@@ -336,6 +366,12 @@
 				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
 				D77AF5691E976E0C00741A04 /* Note+CoreDataClass.swift */,
 				D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */,
+				D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */,
+				D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */,
+				D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */,
+				D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */,
+				D77AF5B71EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift */,
+				D77AF5B81EBDBFBA00741A04 /* Championship+CoreDataClass.swift */,
 			);
 			name = "Core Data Classes";
 			sourceTree = "<group>";
@@ -471,22 +507,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77AF5BA1EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift in Sources */,
 				D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */,
 				D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */,
 				D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */,
 				D77AF5681E975E0600741A04 /* SetupNew.swift in Sources */,
 				D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */,
+				D77AF5C71EBDBFCA00741A04 /* Runs+CoreDataProperties.swift in Sources */,
 				D77AF55E1E94F09200741A04 /* Page2VC.swift in Sources */,
+				D77AF5C91EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift in Sources */,
 				D77AF5A91EBD906B00741A04 /* WeatherLocation.swift in Sources */,
 				D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */,
 				D77AF5441E8CF21F00741A04 /* VoiceNoteVC.swift in Sources */,
 				D77AF57B1EAB1F8F00741A04 /* InRaceSubPagesVC.swift in Sources */,
 				D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */,
 				D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */,
+				D77AF5BC1EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift in Sources */,
+				D77AF5B91EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift in Sources */,
 				D708BF681E65CA5800F5B3E8 /* CarsVC.swift in Sources */,
 				D768267C1E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift in Sources */,
+				D77AF5C51EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift in Sources */,
 				D708BF6C1E65D2DD00F5B3E8 /* Cars.swift in Sources */,
 				D77AF56C1E976E0C00741A04 /* Note+CoreDataProperties.swift in Sources */,
+				D77AF5BB1EBDBFBA00741A04 /* Runs+CoreDataClass.swift in Sources */,
 				D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */,
 				D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */,
 				D77AF55C1E94F08200741A04 /* Page1VC.swift in Sources */,
@@ -499,19 +542,24 @@
 				D77AF5771EAA1B2400741A04 /* CustomSegue.swift in Sources */,
 				D77AF5601E94F0A200741A04 /* Page3VC.swift in Sources */,
 				D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */,
+				D77AF5BE1EBDBFBA00741A04 /* Championship+CoreDataClass.swift in Sources */,
 				D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */,
 				D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */,
+				D77AF5CA1EBDBFCA00741A04 /* Championship+CoreDataProperties.swift in Sources */,
 				D77AF57D1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift in Sources */,
 				D77AF5661E9640C700741A04 /* Page5VC.swift in Sources */,
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
 				D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */,
+				D77AF5BD1EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift in Sources */,
 				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
 				D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */,
 				D77AF5981EB9C3C300741A04 /* DateCollectionCell.swift in Sources */,
+				D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */,
 				D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */,
 				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
 				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
+				D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
 				D77AF5641E9640B700741A04 /* Page4VC.swift in Sources */,
 				D77AF5941EB094B200741A04 /* EventDetailsVC.swift in Sources */,
