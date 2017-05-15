@@ -8,96 +8,166 @@
 
 import UIKit
 
-class SessionPlannerVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    @IBAction func debugButtonPressed(_ sender: UIBarButtonItem) {
+        print((event.toSession?.count)! as Int)
+        print("Do stuff")
+        for tv in dayTables {
+            tv.reloadData()
+        }
+    }
+    @IBAction func debugPressed(_ sender: UIButton) {
+        print((event.toSession?.count)! as Int)
+        print("Do stuff")
+        for tv in dayTables {
+            tv.reloadData()
+        }
+    }
 
+    @IBAction func sgmentChanged(_ sender: UISegmentedControl) {
+        scrollView.contentOffset = CGPoint(x: segmentBar.selectedSegmentIndex*375, y: 0)
+    }
+
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var segmentBar: UISegmentedControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+   
+    var event: RaceEvent!
+    var sessions: [Session]!
+    var numberOfDays: Int!
+    var dayTables: [UITableView]! = []
+    var weekDays: [String]! = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //configureCollectionView()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        if event != nil {
+            print("We have an event in the planner!")
+        }
         
-
-        // Do any additional setup after loading the view.
+        if event.toSession?.allObjects != nil {
+            sessions = event.toSession?.allObjects as! [Session]
+            print("We have this many sessions: \(sessions.count)")
+        }
+        
+        numberOfDays = findNumberOfDays()
+        weekDays = createWeekdays(from: event.startDate as! Date, to: event.endDate as! Date)
+        print("number of week days: \(weekDays)")
+        
+        scrollView.delegate = self
+        scrollView.contentSize = CGSize(width: numberOfDays*375, height: 550)
+        let frame = CGRect(x: 0, y: 0, width: 375, height: 550)
+        repeat {
+            let x = dayTables.count
+            if x == segmentBar.numberOfSegments {
+                segmentBar.insertSegment(withTitle: "", at: x, animated: true)
+            }
+            segmentBar.setTitle(weekDays[x], forSegmentAt: x)
+            let tv = UITableView(frame: frame, style: .plain)
+            tv.delegate = self
+            tv.dataSource = self
+            tv.tag = x
+            scrollView.addSubview(tv)
+            tv.frame.origin = CGPoint(x: x*375, y: 0)
+            tv.register(SessionCell.self, forCellReuseIdentifier: "SessionCell")
+            dayTables.append(tv)
+        } while (dayTables.count < numberOfDays)
     }
     
-    func configureCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionHeadersPinToVisibleBounds = true
-        flowLayout.sectionFootersPinToVisibleBounds = true
-        collectionView?.collectionViewLayout = flowLayout
+    func findNumberOfDays() -> Int {
+        let calendar = NSCalendar.current
+        
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: event.startDate as! Date)
+        let date2 = calendar.startOfDay(for: event.endDate as! Date)
+        
+        let components = calendar.dateComponents([.weekday], from: date1, to: date2)
+        
+        return components.weekday! + 1
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func createWeekdays(from start: Date,to end: Date) -> [String] {
+        let calendar = NSCalendar.current
+        var weekdays: [String]! = []
+        var weekday: [String]!
+        let numberOfStartDay = calendar.component(.weekday, from: start)
+        print("number of start day:\(numberOfStartDay)")
+        let numberOfEndDay = calendar.component(.weekday, from: end)
+        print("number of end day:\(numberOfEndDay)")
+        if numberOfDays < 5 {
+            weekday = calendar.weekdaySymbols
+        } else {
+            weekday = calendar.shortWeekdaySymbols
+        }
+        for x in numberOfStartDay...numberOfEndDay {
+            weekdays.append(weekday[x-1])
+        }
+        return weekdays
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 24
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as? SessionCell {
+            for session in sessions {
+                if session.eventDay == "Mon" && tableView.tag == 0 {
+                    
+                    cell.label?.text = "\(indexPath.row)"
+                }
+                if session.eventDay == "Wed" && tableView.tag == 2 {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "HH"
+                    let start = Int(dateFormatter.string(from: session.startTime! as Date))!
+                    let end = Int(dateFormatter.string(from: session.endTime!as Date))!
+                    dateFormatter.dateFormat = "mm"
+                    let startMinute = Int(dateFormatter.string(from: session.startTime! as Date))!
+                    let endMinute = Int(dateFormatter.string(from: session.endTime! as Date))!
+                    if indexPath.row >= start && indexPath.row <= end {
+                        cell.label?.text = "\(indexPath.row)"
+                        cell.yellowStrip?.isHidden = false
+                    }
+                    if indexPath.row == start {
+                        print("This is the start Minute: \(startMinute)")
+                        print("This is the cell height: \(cell.frame.height)")
+                        cell.yellowStrip?.frame = CGRect(x: 30, y: (1 - (startMinute/60)*Int(cell.frame.height)), width: 5, height: (startMinute/60)*Int(cell.frame.height))
+                    }
+                }
+            }
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        segmentBar.selectedSegmentIndex = (Int(scrollView.contentOffset.x)+(375/2))/375
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SessionDetailsVC" {
+            if let destination = segue.destination as? SessionDetailsVC {
+                destination.event = self.event
+                destination.currentDay = self.segmentBar.titleForSegment(at: self.segmentBar.selectedSegmentIndex)
+            }
+        }
     }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 20
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCollectionCell", for: indexPath) as? DateCollectionCell
     
-        cell?.testLabel.text = "\(indexPath.row)"
-        
-        // Configure the cell
-    
-        return cell!
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

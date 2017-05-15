@@ -10,17 +10,17 @@ import UIKit
 import Alamofire
 
 class WeatherForecast {
-    var _lowTemp: String!
+    var _temp: String!
     var _weatherType: String!
     var _date: String!
-    var _highTemp: String!
+    var _rain: String!
     
     
-    var lowTemp: String {
-        if _lowTemp == nil {
-            _lowTemp = ""
+    var temp: String {
+        if _temp == nil {
+            _temp = ""
         }
-        return _lowTemp
+        return _temp
     }
     
     var weatherType: String {
@@ -30,11 +30,11 @@ class WeatherForecast {
         return _weatherType
     }
     
-    var highTemp: String {
-        if _highTemp == nil {
-            _highTemp = ""
+    var rain: String {
+        if _rain == nil {
+            _rain = ""
         }
-        return _highTemp
+        return _rain
     }
     
     var date: String {
@@ -48,14 +48,8 @@ class WeatherForecast {
     
     init( weatherDict: Dictionary<String,AnyObject>) {
         if let main = weatherDict["main"] as? Dictionary<String, AnyObject> {
-            if let min = main["temp_min"] as? Double {
-                print(min)
-                let minCelsius = min - 273.15
-                self._lowTemp = String(format:"%.02f°", minCelsius)
-            }
-            if let max = main["temp_max"] as? Double {
-                let maxCelsius = max - 273.15
-                self._highTemp = String(format:"%.02f°", maxCelsius)
+            if let temp = main["temp"] as? Double {
+                self._temp = String(format:"%.02f°", temp)
             }
         }
         
@@ -66,12 +60,19 @@ class WeatherForecast {
         }
         
         if let date = weatherDict["dt"] as? Double {
-            let unixConvertDate = Date(timeIntervalSince1970: date)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .full
-            dateFormatter.dateFormat = "E, HH:mm"
-            dateFormatter.timeStyle = .short
+            var unixConvertDate = Date(timeIntervalSince1970: date)
+            unixConvertDate.addTimeInterval(25200)
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateStyle = .full
+//            dateFormatter.dateFormat = "E, HH:mm"
+//            dateFormatter.timeStyle = .short
             self._date = unixConvertDate.dayOfTheWeek()
+        }
+        
+        if let rain = weatherDict["rain"] as? Dictionary<String,AnyObject> {
+            if let amount = rain["3h"] as? Double {
+                self._rain = String(format:"%.02fmm", amount)
+            }
         }
     }
     

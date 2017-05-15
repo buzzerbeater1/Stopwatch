@@ -69,8 +69,7 @@ class CurrentWeather {
                 
                 if let main = dict["main"] as? Dictionary<String, AnyObject> {
                     if let currentTemperature = main["temp"] as? Double {
-                        let kelvinToCelsius = currentTemperature - 273.15
-                        self._currentTemp = kelvinToCelsius
+                        self._currentTemp = currentTemperature
                         print(self._currentTemp)
                     }
                 }

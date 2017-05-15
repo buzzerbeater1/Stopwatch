@@ -2,7 +2,7 @@
 //  Session+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 10/05/2017.
 //
 //
 
@@ -21,6 +21,7 @@ extension Session {
     @NSManaged public var endTime: NSDate?
     @NSManaged public var name: String?
     @NSManaged public var startTime: NSDate?
+    @NSManaged public var eventDay: String?
     @NSManaged public var toCar: NSSet?
     @NSManaged public var toChampionship: Championship?
     @NSManaged public var toRaceEvent: RaceEvent?

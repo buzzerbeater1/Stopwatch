@@ -68,6 +68,7 @@
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventDay" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="toCar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="toSession" inverseEntity="Car" syncable="YES"/>
@@ -115,7 +116,7 @@
         <element name="PitLaneTime" positionX="-351" positionY="-267" width="128" height="150"/>
         <element name="RaceEvent" positionX="-369" positionY="-108" width="128" height="195"/>
         <element name="Runs" positionX="-342" positionY="-81" width="128" height="120"/>
-        <element name="Session" positionX="-360" positionY="-99" width="128" height="195"/>
+        <element name="Session" positionX="-360" positionY="-99" width="128" height="210"/>
         <element name="Setup" positionX="241" positionY="-135" width="128" height="210"/>
         <element name="VoiceNote" positionX="-369" positionY="-108" width="128" height="105"/>
         <element name="WeaterMonitor" positionX="-333" positionY="-72" width="128" height="105"/>

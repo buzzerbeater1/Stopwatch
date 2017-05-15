@@ -50,7 +50,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
                 self.updateMainUI()
             }
         }
-        
+        print(FORECAST_URL)
         // Do any additional setup after loading the view.
     }
 
@@ -107,6 +107,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
                         if date > (self.event.startDate?.timeIntervalSince1970)! && date < (self.event.endDate?.timeIntervalSince1970)! {
                             let forecast = WeatherForecast(weatherDict: obj)
                             self.forecasts.append(forecast)
+                            print("valid")
+                        } else {
+                            print("Failed")
                         }
                     }
                     self.tableView.reloadData()

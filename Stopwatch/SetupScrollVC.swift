@@ -31,7 +31,7 @@ class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentati
     }
     
     @IBAction func segmentChange(_ sender: Any) {
-        containerScrollView.setContentOffset(CGPoint.init(x: segmentControl.selectedSegmentIndex*375, y: 0), animated: true)
+        containerScrollView.setContentOffset(CGPoint(x: segmentControl.selectedSegmentIndex*375, y: 0), animated: true)
     }
     
     

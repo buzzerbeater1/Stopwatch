@@ -55,7 +55,6 @@
 		D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5911EB08A3800741A04 /* EventsCell.swift */; };
 		D77AF5941EB094B200741A04 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5931EB094B200741A04 /* EventDetailsVC.swift */; };
 		D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5951EB482DC00741A04 /* Extensions.swift */; };
-		D77AF5981EB9C3C300741A04 /* DateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */; };
 		D77AF59B1EB9C40900741A04 /* SessionPlannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */; };
 		D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */; };
 		D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */; };
@@ -77,6 +76,8 @@
 		D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */; };
 		D77AF5C91EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */; };
 		D77AF5CA1EBDBFCA00741A04 /* Championship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */; };
+		D7BCC1541EC4109E00DC6AB0 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */; };
+		D7C9DACD1EC43D0C002DEF46 /* SessionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9DACC1EC43D0C002DEF46 /* SessionDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,7 +133,6 @@
 		D77AF5911EB08A3800741A04 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
 		D77AF5931EB094B200741A04 /* EventDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
 		D77AF5951EB482DC00741A04 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionCell.swift; sourceTree = "<group>"; };
 		D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPlannerVC.swift; sourceTree = "<group>"; };
 		D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+CoreDataClass.swift"; path = "../Session+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF59E1EB9C77A00741A04 /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+CoreDataProperties.swift"; path = "../Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -154,6 +154,8 @@
 		D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WrittenNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PictureNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Championship+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		D7C9DACC1EC43D0C002DEF46 /* SessionDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,8 +246,8 @@
 				D708BF691E65CCF600F5B3E8 /* CarsCell.swift */,
 				D77595051E743D2B0068C42C /* LapTimeCell.swift */,
 				D77AF5911EB08A3800741A04 /* EventsCell.swift */,
-				D77AF5971EB9C3C300741A04 /* DateCollectionCell.swift */,
 				D77AF5AC1EBD932700741A04 /* WeatherCell.swift */,
+				D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				D77AF59A1EB9C40900741A04 /* SessionPlannerVC.swift */,
+				D7C9DACC1EC43D0C002DEF46 /* SessionDetailsVC.swift */,
 			);
 			name = Sessions;
 			sourceTree = "<group>";
@@ -551,9 +554,10 @@
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
 				D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */,
 				D77AF5BD1EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift in Sources */,
+				D7BCC1541EC4109E00DC6AB0 /* SessionCell.swift in Sources */,
 				D708BF5D1E5EE02000F5B3E8 /* EntryScreenVC.swift in Sources */,
+				D7C9DACD1EC43D0C002DEF46 /* SessionDetailsVC.swift in Sources */,
 				D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */,
-				D77AF5981EB9C3C300741A04 /* DateCollectionCell.swift in Sources */,
 				D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */,
 				D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */,
 				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
