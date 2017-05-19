@@ -2,7 +2,7 @@
 //  Car+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 18/05/2017.
 //
 //
 
@@ -19,6 +19,9 @@ extension Car {
     @NSManaged public var model: String?
     @NSManaged public var name: String?
     @NSManaged public var picture: NSObject?
+    @NSManaged public var joblist: String?
+    @NSManaged public var make: String?
+    @NSManaged public var number: String?
     @NSManaged public var toChampionship: NSSet?
     @NSManaged public var toLaptime: NSSet?
     @NSManaged public var toPictureNote: NSSet?
@@ -28,6 +31,7 @@ extension Car {
     @NSManaged public var toSetup: NSSet?
     @NSManaged public var toVoiceNote: NSSet?
     @NSManaged public var toWrittenNote: NSSet?
+    @NSManaged public var toDriver: NSSet?
 
 }
 
@@ -181,5 +185,22 @@ extension Car {
 
     @objc(removeToWrittenNote:)
     @NSManaged public func removeFromToWrittenNote(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toDriver
+extension Car {
+
+    @objc(addToDriverObject:)
+    @NSManaged public func addToToDriver(_ value: Driver)
+
+    @objc(removeToDriverObject:)
+    @NSManaged public func removeFromToDriver(_ value: Driver)
+
+    @objc(addToDriver:)
+    @NSManaged public func addToToDriver(_ values: NSSet)
+
+    @objc(removeToDriver:)
+    @NSManaged public func removeFromToDriver(_ values: NSSet)
 
 }

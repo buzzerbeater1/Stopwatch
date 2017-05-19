@@ -33,12 +33,12 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
     }
 
     @IBAction func sgmentChanged(_ sender: UISegmentedControl) {
-        scrollView.contentOffset = CGPoint(x: segmentBar.selectedSegmentIndex*375, y: 0)
+        mainScrollView.contentOffset = CGPoint(x: segmentBar.selectedSegmentIndex*375, y: 0)
     }
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var segmentBar: UISegmentedControl!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
    
     var event: RaceEvent!
     var sessions: [Session]!
@@ -62,8 +62,8 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
         weekDays = createWeekdays(from: event.startDate as! Date, to: event.endDate as! Date)
         print("number of week days: \(weekDays)")
         
-        scrollView.delegate = self
-        scrollView.contentSize = CGSize(width: numberOfDays*375, height: 550)
+        mainScrollView.delegate = self
+        mainScrollView.contentSize = CGSize(width: numberOfDays*375, height: 550)
         let frame = CGRect(x: 0, y: 0, width: 375, height: 550)
         repeat {
             let x = dayTables.count
@@ -75,7 +75,7 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
             tv.delegate = self
             tv.dataSource = self
             tv.tag = x
-            scrollView.addSubview(tv)
+            mainScrollView.addSubview(tv)
             tv.frame.origin = CGPoint(x: x*375, y: 0)
             tv.register(SessionCell.self, forCellReuseIdentifier: "SessionCell")
             dayTables.append(tv)
@@ -143,22 +143,25 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
                     if indexPath.row >= start && indexPath.row <= end {
                         cell.label?.text = "\(indexPath.row)"
                         cell.yellowStrip?.isHidden = false
-                    }
-                    if indexPath.row == start {
-                        print("This is the start Minute: \(startMinute)")
-                        print("This is the cell height: \(cell.frame.height)")
-                        cell.yellowStrip?.frame = CGRect(x: 30, y: (1 - (startMinute/60)*Int(cell.frame.height)), width: 5, height: (startMinute/60)*Int(cell.frame.height))
+                        if indexPath.row == start {
+                            cell.yellowStrip?.frame = CGRect(x: 30, y: (Double(startMinute)/60)*Double(cell.frame.height), width: 5, height: (1 - (Double(startMinute)/60))*Double(cell.frame.height))
+                        }
+                        if indexPath.row == end {
+                            cell.yellowStrip?.frame = CGRect(x: 30, y: 0, width: 5, height: (Double(endMinute)/60)*Double(cell.frame.height))
+                        }
                     }
                 }
             }
-            
             return cell
         }
         return UITableViewCell()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        segmentBar.selectedSegmentIndex = (Int(scrollView.contentOffset.x)+(375/2))/375
+        if scrollView == mainScrollView {
+            segmentBar.selectedSegmentIndex = (Int(mainScrollView.contentOffset.x)+(375/2))/375
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -169,5 +172,6 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
             }
         }
     }
+    
     
 }

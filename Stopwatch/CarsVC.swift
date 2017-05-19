@@ -9,9 +9,14 @@
 import UIKit
 import CoreData
 
-class CarsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class CarsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
+    override var prefersStatusBarHidden: Bool {
+            return statusBarHiddenAppWide
+    }
+    
     @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tabBarItem: UITabBarItem!
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -31,6 +36,7 @@ class CarsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         //generateTestData()
         attemptFetch()
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

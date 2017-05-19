@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class EventsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -31,6 +31,8 @@ class EventsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NS
         tableView.dataSource = self
 
         attemptFetch()
+        
+
         // Do any additional setup after loading the view.
     }
 

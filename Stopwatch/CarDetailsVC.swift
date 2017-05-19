@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate {
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
         
@@ -29,7 +29,19 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             car.name = name
         }
         
+        if let make = carMake.text {
+            car.make = make
+        }
         
+        if let number = carNumber.text {
+            car.number = number
+        }
+        
+        if textView != nil {
+            if let jobList = textView.text {
+                car.joblist = jobList
+            }
+        }
         
         if let model = carModel.text {
             car.model = model
@@ -87,11 +99,15 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var lapTimesButton: UIButton!
     @IBOutlet weak var setupsButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var carNumber: UITextField!
+    @IBOutlet weak var carMake: UITextField!
     
     
     var carToEdit: Car!
     var imagePicker: UIImagePickerController!
     var wantSetup: Bool!
+    var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +115,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-        configureImageButton()
+        configureButtons()
         
         if carToEdit != nil {
             loadItemData()
@@ -124,6 +140,8 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             carName.text = car.name
             carModel.text = car.model
             carImage.image = car.picture as? UIImage
+            carMake.text = car.make
+            carNumber.text = car.number
             
         }
     }
@@ -203,15 +221,52 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
     }
     
-    func configureImageButton() {
+    func notesTap() {
+        if textView == nil {
+            textView = UITextView(frame: CGRect(x: 0, y: navigationBar.frame.origin.y + navigationBar.frame.height, width: super.view.bounds.width, height: (super.view.bounds.height/2) - navigationBar.frame.height))
+            textView.layer.cornerRadius = 5
+            textView.layer.borderColor = UIColor.black.cgColor
+            textView.layer.borderWidth = 2
+            self.view.addSubview(textView)
+            navigationBar.topItem?.title = "Job List"
+            textView.delegate = self
+            if carToEdit.joblist == nil {
+                setText()
+            } else {
+                textView.text = carToEdit.joblist
+            }
+        } else {
+            if textView.isHidden {
+                textView.isHidden = false
+                navigationBar.topItem?.title = "Job List"
+                //setText()
+            } else {
+                textView.isHidden = true
+                navigationBar.topItem?.title = carToEdit.name
+            }
+        }
+    }
+    
+    func notesLong(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+        performSegue(withIdentifier: "NotesVC", sender: carToEdit)
+        }
+    }
+    
+    func configureButtons() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.tap))  //Tap function will call when user tap on button
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
+        let notesTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.notesTap))
+        let notesLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.notesLong))
+        print(notesTapGesture.numberOfTapsRequired)
         tapGesture.numberOfTapsRequired = 1
         doubleTapGesture.numberOfTapsRequired = 2
         carImageButton.addGestureRecognizer(tapGesture)
         carImageButton.addGestureRecognizer(longGesture)
         carImageButton.addGestureRecognizer(doubleTapGesture)
+        notesButton.addGestureRecognizer(notesTapGesture)
+        notesButton.addGestureRecognizer(notesLongGesture)
     }
     
     func noCamera(){
@@ -239,5 +294,25 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         return UIModalPresentationStyle.none
     }
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func setText() {
+        if textView.text.isEmpty {
+            textView.text = "Please write your Job List in this Textfield!"
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
 }

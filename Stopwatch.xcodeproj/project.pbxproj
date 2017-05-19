@@ -78,6 +78,10 @@
 		D77AF5CA1EBDBFCA00741A04 /* Championship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */; };
 		D7BCC1541EC4109E00DC6AB0 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */; };
 		D7C9DACD1EC43D0C002DEF46 /* SessionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9DACC1EC43D0C002DEF46 /* SessionDetailsVC.swift */; };
+		D7C9DACF1ECD65E6002DEF46 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C9DACE1ECD65E6002DEF46 /* NotesVC.swift */; };
+		D7E551591ECEAF3000FAFFD0 /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E551581ECEAF3000FAFFD0 /* AppGlobals.swift */; };
+		D7E5515B1ECEB58800FAFFD0 /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5515A1ECEB58800FAFFD0 /* OptionsVC.swift */; };
+		D7E5515E1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5515D1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +160,10 @@
 		D77AF5C41EBDBFCA00741A04 /* Championship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Championship+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		D7C9DACC1EC43D0C002DEF46 /* SessionDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailsVC.swift; sourceTree = "<group>"; };
+		D7C9DACE1ECD65E6002DEF46 /* NotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
+		D7E551581ECEAF3000FAFFD0 /* AppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
+		D7E5515A1ECEB58800FAFFD0 /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
+		D7E5515D1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerStatusBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +233,7 @@
 		D708BF601E60117D00F5B3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7E5515C1ECEBB5100FAFFD0 /* Subclasses */,
 				D77AF5A51EBD8FE700741A04 /* Core Data Classes */,
 				D708BF651E6014E600F5B3E8 /* Stopwatch.swift */,
 				D708BF6B1E65D2DD00F5B3E8 /* Cars.swift */,
@@ -235,6 +244,7 @@
 				D77AF5A81EBD906B00741A04 /* WeatherLocation.swift */,
 				D77AF5AA1EBD90D100741A04 /* WeatherForecast.swift */,
 				D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */,
+				D7E551581ECEAF3000FAFFD0 /* AppGlobals.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -256,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				D708BF5C1E5EE02000F5B3E8 /* EntryScreenVC.swift */,
+				D7E5515A1ECEB58800FAFFD0 /* OptionsVC.swift */,
 				D77AF5841EB083B000741A04 /* Notes */,
 				D77AF5811EB07F2D00741A04 /* Setup */,
 				D77AF5801EB07F2600741A04 /* Car */,
@@ -346,6 +357,7 @@
 			children = (
 				D77AF5451E8E21D500741A04 /* WrittenNoteVC.swift */,
 				D77AF5431E8CF21F00741A04 /* VoiceNoteVC.swift */,
+				D7C9DACE1ECD65E6002DEF46 /* NotesVC.swift */,
 			);
 			name = Notes;
 			sourceTree = "<group>";
@@ -387,6 +399,14 @@
 			name = Weather;
 			sourceTree = "<group>";
 		};
+		D7E5515C1ECEBB5100FAFFD0 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5515D1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -422,6 +442,7 @@
 				TargetAttributes = {
 					D708BF3F1E5EA6CA00F5B3E8 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T7CJM64QL7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -536,8 +557,10 @@
 				D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */,
 				D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */,
 				D77AF55C1E94F08200741A04 /* Page1VC.swift in Sources */,
+				D7C9DACF1ECD65E6002DEF46 /* NotesVC.swift in Sources */,
 				D77AF5AB1EBD90D100741A04 /* WeatherForecast.swift in Sources */,
 				D77AF56B1E976E0C00741A04 /* Note+CoreDataClass.swift in Sources */,
+				D7E5515E1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift in Sources */,
 				D77AF5751EAA018300741A04 /* ChooseSetupVC.swift in Sources */,
 				D77AF59B1EB9C40900741A04 /* SessionPlannerVC.swift in Sources */,
 				D77AF53F1E8409DE00741A04 /* Car+CoreDataClass.swift in Sources */,
@@ -561,6 +584,7 @@
 				D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */,
 				D77AF5A21EB9C77A00741A04 /* Session+CoreDataProperties.swift in Sources */,
 				D77AF54E1E8E390500741A04 /* Car+CoreDataProperties.swift in Sources */,
+				D7E551591ECEAF3000FAFFD0 /* AppGlobals.swift in Sources */,
 				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
 				D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */,
@@ -573,6 +597,7 @@
 				D77AF5621E94F12C00741A04 /* SetupScrollVC.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
 				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,
+				D7E5515B1ECEB58800FAFFD0 /* OptionsVC.swift in Sources */,
 				D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */,
 				D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */,
 				D77AF5A71EBD900C00741A04 /* WeatherConstants.swift in Sources */,
@@ -698,6 +723,7 @@
 			baseConfigurationReference = 255D412D5A7922D976EAAAF6 /* Pods-Stopwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T7CJM64QL7;
 				INFOPLIST_FILE = Stopwatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Derstroff.Stopwatch";
@@ -711,6 +737,7 @@
 			baseConfigurationReference = 034B2561919300B7127690D0 /* Pods-Stopwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T7CJM64QL7;
 				INFOPLIST_FILE = Stopwatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Derstroff.Stopwatch";

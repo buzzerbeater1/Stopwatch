@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LapTimerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LapTimerVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource {
 
     var rows = 1
     var preselectedCar: Car!
@@ -40,7 +40,8 @@ class LapTimerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
       
-        
+
+
        
         
 //        carPicker.isHidden = true

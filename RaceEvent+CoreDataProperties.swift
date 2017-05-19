@@ -2,7 +2,7 @@
 //  RaceEvent+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 18/05/2017.
 //
 //
 
@@ -26,6 +26,7 @@ extension RaceEvent {
     @NSManaged public var toRuns: NSSet?
     @NSManaged public var toSession: NSSet?
     @NSManaged public var toWeatherMonitor: WeaterMonitor?
+    @NSManaged public var toRacetrack: Racetrack?
 
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Array where Element: Equatable {
     mutating func removeObject(object: Element) {
@@ -21,3 +22,4 @@ extension Array where Element: Equatable {
         }
     }
 }
+
