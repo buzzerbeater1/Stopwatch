@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -33,7 +33,7 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
     }
 
     @IBAction func sgmentChanged(_ sender: UISegmentedControl) {
-        mainScrollView.contentOffset = CGPoint(x: segmentBar.selectedSegmentIndex*375, y: 0)
+        mainScrollView.contentOffset = CGPoint(x: CGFloat(segmentBar.selectedSegmentIndex)*super.view.bounds.width, y: 0)
     }
 
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -62,9 +62,13 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
         weekDays = createWeekdays(from: event.startDate as! Date, to: event.endDate as! Date)
         print("number of week days: \(weekDays)")
         
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
         mainScrollView.delegate = self
-        mainScrollView.contentSize = CGSize(width: numberOfDays*375, height: 550)
-        let frame = CGRect(x: 0, y: 0, width: 375, height: 550)
+        mainScrollView.contentSize = CGSize(width: CGFloat(numberOfDays)*super.view.bounds.width, height: mainScrollView.frame.height)
+        let frame = CGRect(x: 0, y: 0, width: super.view.bounds.width, height: mainScrollView.frame.height)
         repeat {
             let x = dayTables.count
             if x == segmentBar.numberOfSegments {
@@ -76,7 +80,7 @@ class SessionPlannerVC: UIViewController, UIScrollViewDelegate, UITableViewDeleg
             tv.dataSource = self
             tv.tag = x
             mainScrollView.addSubview(tv)
-            tv.frame.origin = CGPoint(x: x*375, y: 0)
+            tv.frame.origin = CGPoint(x: x*Int(super.view.bounds.width), y: 0)
             tv.register(SessionCell.self, forCellReuseIdentifier: "SessionCell")
             dayTables.append(tv)
         } while (dayTables.count < numberOfDays)

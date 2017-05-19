@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate {
+class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate {
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
         
@@ -102,6 +102,10 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var carNumber: UITextField!
     @IBOutlet weak var carMake: UITextField!
+    @IBOutlet weak var toggleView: UIView!
+    @IBOutlet var toggleImageCollection: [UIImageView]!
+    
+    
     
     
     var carToEdit: Car!
@@ -223,7 +227,7 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     func notesTap() {
         if textView == nil {
-            textView = UITextView(frame: CGRect(x: 0, y: navigationBar.frame.origin.y + navigationBar.frame.height, width: super.view.bounds.width, height: (super.view.bounds.height/2) - navigationBar.frame.height))
+            textView = UITextView(frame: CGRect(x: 0, y: navigationBar.frame.origin.y + navigationBar.frame.height, width: super.view.bounds.width, height: toggleView.frame.origin.y - (navigationBar.frame.origin.y + navigationBar.frame.height)))
             textView.layer.cornerRadius = 5
             textView.layer.borderColor = UIColor.black.cgColor
             textView.layer.borderWidth = 2
@@ -235,14 +239,17 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             } else {
                 textView.text = carToEdit.joblist
             }
+            showArrowForJobList(true)
         } else {
             if textView.isHidden {
                 textView.isHidden = false
                 navigationBar.topItem?.title = "Job List"
                 //setText()
+                showArrowForJobList(true)
             } else {
                 textView.isHidden = true
                 navigationBar.topItem?.title = carToEdit.name
+                showArrowForJobList(false)
             }
         }
     }
@@ -312,6 +319,12 @@ class CarDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         if textView.text.isEmpty {
             textView.text = "Please write your Job List in this Textfield!"
             textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func showArrowForJobList(_ want: Bool) {
+        for view in toggleImageCollection {
+            view.isHighlighted = want
         }
     }
     

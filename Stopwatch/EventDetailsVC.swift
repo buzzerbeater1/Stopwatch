@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EventDetailsVC: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
 

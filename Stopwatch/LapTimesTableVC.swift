@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LapTimesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource {
     
     var carToEdit: Car!
 

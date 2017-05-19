@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import CoreLocation
 
-class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class WeatherVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

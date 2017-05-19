@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntryScreenVC: UIViewController {
+class EntryScreenVC: UIViewControllerStatusBar {
     
     
     override func viewDidLoad() {

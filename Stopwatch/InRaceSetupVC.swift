@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InRaceSetupVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate {
+class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerScrollView: UIScrollView!

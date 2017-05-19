@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetupScrollVC: UIViewController, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!

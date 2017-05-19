@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StopwatchVC: UIViewController {
+class StopwatchVC: UIViewControllerStatusBar {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!

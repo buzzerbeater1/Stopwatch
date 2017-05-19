@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesVC: UIViewController {
+class NotesVC: UIViewControllerStatusBar {
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
