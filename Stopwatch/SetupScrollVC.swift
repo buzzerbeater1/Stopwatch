@@ -13,6 +13,7 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var notesStackView: UIStackView!
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         let page1VC = self.childViewControllers[0] as! Page1VC
@@ -77,6 +78,7 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         } else {
             print("No car damn")
         }
+        
         
         if car.toSetup?.count == 0 {
             setup = Setup(context: context)

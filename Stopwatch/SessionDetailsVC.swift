@@ -116,6 +116,10 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
         tableView.delegate = self
         tableView.dataSource = self
         
+        descriptionTextView.layer.borderWidth = 2
+        descriptionTextView.layer.borderColor = UIColor.black.cgColor
+        descriptionTextView.layer.cornerRadius = 5
+        
         if event != nil {
             print("we have an event")
         }

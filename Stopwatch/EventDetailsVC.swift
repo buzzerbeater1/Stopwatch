@@ -91,6 +91,8 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewLabel: UILabel!
+    @IBOutlet weak var sessionPlannerButton: UIButton!
+    @IBOutlet weak var weatherButton: UIButton!
     
     
     var event: RaceEvent!
@@ -112,6 +114,8 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
             loadEventData()
         } else {
             event = RaceEvent(context: context)
+            sessionPlannerButton.isEnabled = false
+            weatherButton.isEnabled = false
         }
         
         configurePickerButton()

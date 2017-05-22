@@ -146,5 +146,16 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
             print("\(error)")
         }
     }
+    
+//    override func prepareForReuse() {
+//        timer.invalidate()
+//        isPlaying = false
+//        sectionCounter = 1
+//        counter = 0.0
+//        totalCounter = 0.0
+//        lapTimeLabel.text = "0.0"
+//        totalTimeLabel.text = "0.0"
+//        lapResetButton.titleLabel?.text = "Reset"
+//    }
 
 }

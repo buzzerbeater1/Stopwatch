@@ -76,7 +76,7 @@ class StopwatchVC: UIViewControllerStatusBar {
     }
     
     
-    @IBAction func PreviousButtonPressed(_ sender: UIButton) {
+    @IBAction func PreviousButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     

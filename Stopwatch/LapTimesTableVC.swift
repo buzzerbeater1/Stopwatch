@@ -14,11 +14,11 @@ class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func backButtonPressed(_ sender: Any) {
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func laptimerButtonPressed(_ sender: UIButton) {
+    @IBAction func laptimerButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "LaptimerVC1", sender: carToEdit)
     }
     
@@ -43,6 +43,9 @@ class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableVi
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.rowHeight = 40
+        tableView.register(LapTimeCell.self, forCellReuseIdentifier: "LapTimeCell")
         // Do any additional setup after loading the view.
     }
 
@@ -51,29 +54,19 @@ class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if carToEdit.toLaptime != nil {
             return (carToEdit.toLaptime?.count)!
         }
-        return 1
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "LapTimeCell", for: indexPath) as? LapTimeCell {
             let time = carToEdit!.toLaptime?.allObjects as! [LapTime]
             if time[indexPath.row].time < 60 {
-                cell.lapTimeLabel.text = String(format:"%.04f",	time[indexPath.row].time)
+                cell.lapTimeLabel?.text = "Test"
+                cell.lapTimeLabel?.text = String(format:"%.04f",	time[indexPath.row].time)
             }else if time[indexPath.row].time < 3600 {
                 var combinedTime: String
                 let min = Int(round((time[indexPath.row].time / 60)*10)/10)
@@ -84,10 +77,12 @@ class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableVi
                 } else {
                     combinedTime = "\(min):\(sec)"
                 }
-                cell.lapTimeLabel.text = combinedTime
+                cell.lapTimeLabel?.text = combinedTime
             }else{
                 print("Who the fuck takes Laptimes Longer than one hour?!")
             }
+            let number = indexPath.row + 1
+            cell.numberLabel?.text = String(number) + "."
             return cell
         }
         return UITableViewCell()
