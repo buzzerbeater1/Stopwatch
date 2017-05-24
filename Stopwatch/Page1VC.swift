@@ -23,6 +23,16 @@ class Page1VC: UIViewController {
     @IBOutlet weak var toeTextField: UITextField!
     @IBOutlet weak var coldPressureTextField: UITextField!
     @IBOutlet weak var hotPressuretTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var stackViewTextFields: UIStackView!
+    
+    //Constrain Outlets
+    @IBOutlet weak var stackViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var stackViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var stackViewTop: NSLayoutConstraint!
+    @IBOutlet weak var stackViewBottom: NSLayoutConstraint!
+    
     
     func saveButtonPressed() {
         let flNew = Wheel()
@@ -62,6 +72,8 @@ class Page1VC: UIViewController {
             fl = Wheel()
         }
         
+        scrollView.contentSize = CGSize(width: super.view.frame.width, height: super.view.frame.width * (732/375))
+        scrollView.frame = super.view.bounds
 //        let scrollView = UIScrollView(frame: super.view.bounds)
 //        
 //        

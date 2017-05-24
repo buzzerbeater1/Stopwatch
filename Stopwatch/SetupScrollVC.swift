@@ -32,7 +32,7 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     }
     
     @IBAction func segmentChange(_ sender: Any) {
-        containerScrollView.setContentOffset(CGPoint(x: segmentControl.selectedSegmentIndex*375, y: 0), animated: true)
+        containerScrollView.setContentOffset(CGPoint(x: CGFloat(segmentControl.selectedSegmentIndex)*UIScreen.main.bounds.width, y: 0), animated: true)
     }
     
     
@@ -101,9 +101,11 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             print("We have a setup in the main view controller.")
         }
         
+        print("The height of the scrollView is: \(containerScrollView.bounds.height)")
+        
         containerScrollView.delegate = self
         
-        self.containerScrollView.contentSize = CGSize(width: CGFloat(segmentControl.numberOfSegments)*UIScreen.main.bounds.width, height: 495)
+        self.containerScrollView.contentSize = CGSize(width: CGFloat(segmentControl.numberOfSegments)*UIScreen.main.bounds.width, height: containerScrollView.bounds.height)
         
         var x = 0
         
@@ -160,11 +162,70 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
 //        obj4.view.frame.origin = CGPoint.init(x: 3*UIScreen.main.bounds.width, y: 0)
 //        obj5.view.frame.origin = CGPoint.init(x: 4*UIScreen.main.bounds.width, y: 0)
         
-        self.containerScrollView.frame = obj[2].view.frame
+//        self.containerScrollView.frame = obj[2].view.frame
 
         // Do any additional setup after loading the view.
     }
-
+//
+//Let's try to get this shit going the right way.... 
+//
+    
+    
+    override func viewDidLayoutSubviews() {
+        self.containerScrollView.contentSize = CGSize(width: CGFloat(segmentControl.numberOfSegments)*UIScreen.main.bounds.width, height: containerScrollView.bounds.height)
+        let page1 = obj[0] as! Page1VC
+        var baseHeight: CGFloat = 735
+        var spacing = (UIScreen.main.bounds.width * (baseHeight/375) - 510)/17
+        if UIScreen.main.bounds.width == 320 {
+            spacing = (UIScreen.main.bounds.width * (baseHeight/375) - 510)/18
+        }
+        page1.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page1.scrollView.frame = containerScrollView.bounds
+        page1.imageView.contentMode = .scaleToFill
+        page1.imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page1.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375)))
+        page1.stackViewLeading.constant = page1.scrollView.bounds.midX + 10
+        page1.stackViewBottom.constant = spacing*0.8
+        page1.stackViewTop.constant = spacing*0.7
+        page1.stackViewWidth.constant = CGFloat(100*(Double(page1.scrollView.bounds.width)/375))
+        page1.stackViewTextFields.spacing = spacing
+        let page2 = obj[1] as! Page2VC
+        page2.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page2.scrollView.frame = containerScrollView.bounds
+        page2.imageView.contentMode = .scaleToFill
+        page2.imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page2.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375)))
+        page2.stackViewLeading.constant = page2.scrollView.bounds.midX + 10
+        page2.stackViewBottom.constant = spacing*0.8
+        page2.stackViewTop.constant = spacing*0.7
+        page2.stackViewWidth.constant = CGFloat(100*(Double(page2.scrollView.bounds.width)/375))
+        page2.stackViewTextFields.spacing = spacing
+        spacing = (UIScreen.main.bounds.width * (baseHeight/375) - 540)/19
+        baseHeight = 730
+        let page3 = obj[2] as! Page3VC
+        page3.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page3.scrollView.frame = containerScrollView.bounds
+        page3.imageView.contentMode = .scaleToFill
+        page3.imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page3.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375)))
+        page3.stackViewLeading.constant = page3.scrollView.bounds.midX + 10
+        page3.stackViewBottom.constant = spacing*0.8
+        page3.stackViewTop.constant = spacing*0.7
+        page3.stackViewWidth.constant = CGFloat(100*(Double(page3.scrollView.bounds.width)/375))
+        page3.stackViewTextFields.spacing = spacing
+        let page4 = obj[3] as! Page4VC
+        page4.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page4.scrollView.frame = containerScrollView.bounds
+        page4.imageView.contentMode = .scaleToFill
+        page4.imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375))
+        page4.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * (baseHeight/375)))
+        page4.stackViewLeading.constant = page4.scrollView.bounds.midX + 10
+        page4.stackViewBottom.constant = spacing*0.8
+        page4.stackViewTop.constant = spacing*0.7
+        page4.stackViewWidth.constant = CGFloat(100*(Double(page4.scrollView.bounds.width)/375))
+        page4.stackViewTextFields.spacing = spacing
+    }
+    
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         //Do shit
     }
@@ -241,5 +302,7 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
+    
+    
 
 }
