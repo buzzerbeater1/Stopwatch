@@ -49,9 +49,6 @@ class Page1VC: UIViewController {
         flNew.toe.value = toeTextField.text!
         flNew.coldPressure.value = coldPressureTextField.text!
         flNew.hotPressure.value = hotPressuretTextField.text!
-        
-        
-        
         setup.fl = flNew
     }
     
@@ -63,17 +60,11 @@ class Page1VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if setup.fl != nil {
-            print("We have a wheel in the page 1 view controller")
-            fl = setup.fl as? Wheel
-            updateLabels()
-        }else{
-            print("no wheel in page 1")
-            fl = Wheel()
-        }
+        getWheel()
         
         scrollView.contentSize = CGSize(width: super.view.frame.width, height: super.view.frame.width * (732/375))
         scrollView.frame = super.view.bounds
+
 //        let scrollView = UIScrollView(frame: super.view.bounds)
 //        
 //        
@@ -123,6 +114,19 @@ class Page1VC: UIViewController {
         toeTextField.text = fl.toe.value
         coldPressureTextField.text = fl.coldPressure.value
         hotPressuretTextField.text = fl.hotPressure.value
+    }
+    
+    func getWheel() {
+        if setup.fl != nil {
+            print("We have a wheel in the page 1 view controller")
+            fl = setup.fl as? Wheel
+            
+        }else{
+            print("no wheel in page 1")
+            fl = Wheel()
+            
+        }
+        updateLabels()
     }
 
 }

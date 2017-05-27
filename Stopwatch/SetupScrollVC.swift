@@ -8,36 +8,62 @@
 
 import UIKit
 
-class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var notesStackView: UIStackView!
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        let page1VC = self.childViewControllers[0] as! Page1VC
-        page1VC.saveButtonPressed()
-        let page2VC = self.childViewControllers[1] as! Page2VC
-        page2VC.saveButtonPressed()
-        let page3VC = self.childViewControllers[2] as! Page3VC
-        page3VC.saveButtonPressed()
-        let page4VC = self.childViewControllers[3] as! Page4VC
-        page4VC.saveButtonPressed()
-        let page5VC = self.childViewControllers[4] as! Page5VC
-        page5VC.saveButtonPressed()
-        
-        
-        ad.saveContext()
+    @IBAction func debugButtonPressed(_ sender: UIButton) {
+        for singleSetup in setups {
+            print(singleSetup.created!)
+        }
     }
     
-    @IBAction func segmentChange(_ sender: Any) {
+    @IBAction func chooseSetupButtonPressed(_ sender: UIButton) {
+        if tableView == nil {
+            
+            tableView = UITableView(frame: CGRect(x: 0,
+                                                  y: navigationBar.frame.origin.y + navigationBar.frame.height,
+                                                  width: super.view.bounds.width,
+                                                  height: super.view.bounds.midY - (navigationBar.frame.origin.y + navigationBar.frame.height)))
+            tableView.delegate = self
+            tableView.dataSource = self
+            self.view.addSubview(tableView)
+            tableView.rowHeight = 40
+            tableView.register(LapTimeCell.self, forCellReuseIdentifier: "LapTimeCell")
+            navigationBar.topItem?.title = "Pick a Setup"
+        } else {
+            if tableView.isHidden {
+                tableView.reloadData()
+                tableView.isHidden = false
+                navigationBar.topItem?.title = "Pick a Setup"
+            } else {
+                tableView.isHidden = true
+                createTopTitle()
+            }
+        }
+        tableView.reloadData()
+        print(setups.count)
+        print("Hello")
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        saveSetup()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func segmentChange(_ sender: UISegmentedControl) {
         containerScrollView.setContentOffset(CGPoint(x: CGFloat(segmentControl.selectedSegmentIndex)*UIScreen.main.bounds.width, y: 0), animated: true)
     }
     
-    
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        setup = Setup(context: context)
+        car.addToToSetup(setup)
+        ad.saveContext()
+        newSetupUpdate(setup)
+        setups = car.toSetup?.allObjects as! [Setup]
     }
     
     @IBAction func pictureButtonPressed(_ sender: UIButton) {
@@ -65,13 +91,20 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     var car: Car!
     var obj = [UIViewController]()
     var imagePicker: UIImagePickerController!
-    
+    var tableView: UITableView!
+    var setups = [Setup]() {
+        didSet {
+            setups = setups.sorted(by: { ($0.created?.timeIntervalSince1970)! > ($1.created?.timeIntervalSince1970)! })
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        
         
         if car != nil {
             print("I guess we have a car at least")
@@ -86,16 +119,11 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             ad.saveContext()
             print("We just created a new Setup")
         } else {
-            setup = car.toSetup?.allObjects[0] as! Setup!
+            setups = car.toSetup?.allObjects as! [Setup]
+            setup = setups[0]
             print("Already have a set up, lets use that")
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE"
-        if setup.created != nil {
-            navigationBar.topItem?.title = car.name! + ", " + dateFormatter.string(from: setup.created! as Date)
-        } else {
-            navigationBar.topItem?.title = dateFormatter.string(from: NSDate() as Date)
-        }
+        createTopTitle()
         print("weh have setups:\(car.toSetup?.count)")
         if setup != nil {
             print("We have a setup in the main view controller.")
@@ -166,11 +194,7 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
 
         // Do any additional setup after loading the view.
     }
-//
-//Let's try to get this shit going the right way.... 
-//
-    
-    
+
     override func viewDidLayoutSubviews() {
         self.containerScrollView.contentSize = CGSize(width: CGFloat(segmentControl.numberOfSegments)*UIScreen.main.bounds.width, height: containerScrollView.bounds.height)
         let page1 = obj[0] as! Page1VC
@@ -224,6 +248,17 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         page4.stackViewTop.constant = spacing*0.7
         page4.stackViewWidth.constant = CGFloat(100*(Double(page4.scrollView.bounds.width)/375))
         page4.stackViewTextFields.spacing = spacing
+        let page5 = obj[4] as! Page5VC
+        baseHeight = 846
+        let width: CGFloat = 375
+        page5.scrollView.contentSize = CGSize(width: width, height: width * (baseHeight/375))
+        page5.scrollView.frame = containerScrollView.bounds
+        page5.imageView.contentMode = .scaleToFill
+        page5.imageView.frame = CGRect(x: 0, y: 0, width: width, height: width * (baseHeight/375))
+        page5.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: width, height: width * (baseHeight/375)))
+        
+        
+        print("SHIT I DID A NEW LAYOUT WTF!!!")
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
@@ -236,18 +271,10 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        segmentControl.selectedSegmentIndex = (Int(containerScrollView.contentOffset.x)+(375/2))/375
+        if scrollView == containerScrollView {
+            segmentControl.selectedSegmentIndex = Int((containerScrollView.contentOffset.x+(UIScreen.main.bounds.width/2))/UIScreen.main.bounds.width)
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //segue for the popover configuration window
@@ -303,6 +330,73 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return setups.count
+    }
     
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "LapTimeCell", for: indexPath) as? LapTimeCell {
+            let number = indexPath.row + 1
+            cell.numberLabel?.text = String(number) + "."
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEE, HH:mm"
+            cell.lapTimeLabel?.text = car.name! + ", " + dateFormatter.string(from: setups[indexPath.row].created! as Date)
+            return cell
+        }
+    return UITableViewCell()
+    }
+    
+    func createTopTitle() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, HH:mm"
+        if setup.created != nil {
+            navigationBar.topItem?.title = car.name! + ", " + dateFormatter.string(from: setup.created! as Date)
+        } else {
+            navigationBar.topItem?.title = dateFormatter.string(from: NSDate() as Date)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newSetup = setups[indexPath.row]
+        newSetupUpdate(newSetup)
+        tableView.isHidden = true
+    }
+    
+    func saveSetup() {
+        let page1VC = self.childViewControllers[0] as! Page1VC
+        page1VC.saveButtonPressed()
+        let page2VC = self.childViewControllers[1] as! Page2VC
+        page2VC.saveButtonPressed()
+        let page3VC = self.childViewControllers[2] as! Page3VC
+        page3VC.saveButtonPressed()
+        let page4VC = self.childViewControllers[3] as! Page4VC
+        page4VC.saveButtonPressed()
+        let page5VC = self.childViewControllers[4] as! Page5VC
+        page5VC.saveButtonPressed()
+        ad.saveContext()
+    }
+    
+    func newSetupUpdate(_ newSetup: Setup) {
+        saveSetup()
+        let page1VC = self.childViewControllers[0] as! Page1VC
+        page1VC.setup = newSetup
+        page1VC.getWheel()
+        let page2VC = self.childViewControllers[1] as! Page2VC
+        page2VC.setup = newSetup
+        page2VC.getWheel()
+        let page3VC = self.childViewControllers[2] as! Page3VC
+        page3VC.setup = newSetup
+        page3VC.getWheel()
+        let page4VC = self.childViewControllers[3] as! Page4VC
+        page4VC.setup = newSetup
+        page4VC.getWheel()
+        let page5VC = self.childViewControllers[4] as! Page5VC
+        page5VC.setup = newSetup
+        page5VC.getWheel()
+        createTopTitle()
+    }
 }

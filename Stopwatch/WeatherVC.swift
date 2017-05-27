@@ -16,6 +16,23 @@ class WeatherVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewData
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func segmentBarValueChanged(_ sender: UISegmentedControl) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&units=metric&appid=231c48bccd7e1cb39c9cb24606746e54"
+            
+            FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&units=metric&appid=231c48bccd7e1cb39c9cb24606746e54"
+        } else {
+            CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q=\(event.location!),cn&units=metric&appid=231c48bccd7e1cb39c9cb24606746e54"
+            
+            FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast?q=\(event.location!),cn&units=metric&appid=231c48bccd7e1cb39c9cb24606746e54"
+        }
+        currentWeather.donwloadWeatherDetails {
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
+        }
+        tableView.reloadData()
+    }
     
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -100,6 +117,7 @@ class WeatherVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewData
         Alamofire.request(FORECAST_URL).responseJSON { response in
             let result = response.result
             print(result)
+            self.forecasts = []
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 if let list = dict["list"] as? [Dictionary<String,AnyObject>] {
                     for obj in list {

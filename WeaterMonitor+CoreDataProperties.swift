@@ -2,7 +2,7 @@
 //  WeaterMonitor+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 27/05/2017.
 //
 //
 

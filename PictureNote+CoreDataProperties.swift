@@ -2,7 +2,7 @@
 //  PictureNote+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 27/05/2017.
 //
 //
 
@@ -20,5 +20,6 @@ extension PictureNote {
     @NSManaged public var picture: NSObject?
     @NSManaged public var toCar: Car?
     @NSManaged public var toSetup: Setup?
+    @NSManaged public var toSetupRun: SetupRun?
 
 }

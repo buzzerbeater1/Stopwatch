@@ -2,7 +2,7 @@
 //  RaceEvent+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 18/05/2017.
+//  Created by Michael Derstroff on 27/05/2017.
 //
 //
 
@@ -23,10 +23,11 @@ extension RaceEvent {
     @NSManaged public var startDate: NSDate?
     @NSManaged public var toCar: NSSet?
     @NSManaged public var toChampionship: Championship?
+    @NSManaged public var toRacetrack: Racetrack?
     @NSManaged public var toRuns: NSSet?
     @NSManaged public var toSession: NSSet?
     @NSManaged public var toWeatherMonitor: WeaterMonitor?
-    @NSManaged public var toRacetrack: Racetrack?
+    @NSManaged public var toSetupRun: NSSet?
 
 }
 
@@ -78,5 +79,22 @@ extension RaceEvent {
 
     @objc(removeToSession:)
     @NSManaged public func removeFromToSession(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toSetupRun
+extension RaceEvent {
+
+    @objc(addToSetupRunObject:)
+    @NSManaged public func addToToSetupRun(_ value: SetupRun)
+
+    @objc(removeToSetupRunObject:)
+    @NSManaged public func removeFromToSetupRun(_ value: SetupRun)
+
+    @objc(addToSetupRun:)
+    @NSManaged public func addToToSetupRun(_ values: NSSet)
+
+    @objc(removeToSetupRun:)
+    @NSManaged public func removeFromToSetupRun(_ values: NSSet)
 
 }

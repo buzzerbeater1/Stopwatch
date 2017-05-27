@@ -2,7 +2,7 @@
 //  Car+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 18/05/2017.
+//  Created by Michael Derstroff on 27/05/2017.
 //
 //
 
@@ -16,13 +16,14 @@ extension Car {
         return NSFetchRequest<Car>(entityName: "Car");
     }
 
-    @NSManaged public var model: String?
-    @NSManaged public var name: String?
-    @NSManaged public var picture: NSObject?
     @NSManaged public var joblist: String?
     @NSManaged public var make: String?
+    @NSManaged public var model: String?
+    @NSManaged public var name: String?
     @NSManaged public var number: String?
+    @NSManaged public var picture: NSObject?
     @NSManaged public var toChampionship: NSSet?
+    @NSManaged public var toDriver: NSSet?
     @NSManaged public var toLaptime: NSSet?
     @NSManaged public var toPictureNote: NSSet?
     @NSManaged public var toRaceEvent: NSSet?
@@ -31,7 +32,7 @@ extension Car {
     @NSManaged public var toSetup: NSSet?
     @NSManaged public var toVoiceNote: NSSet?
     @NSManaged public var toWrittenNote: NSSet?
-    @NSManaged public var toDriver: NSSet?
+    @NSManaged public var toSetupRun: NSSet?
 
 }
 
@@ -49,6 +50,23 @@ extension Car {
 
     @objc(removeToChampionship:)
     @NSManaged public func removeFromToChampionship(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toDriver
+extension Car {
+
+    @objc(addToDriverObject:)
+    @NSManaged public func addToToDriver(_ value: Driver)
+
+    @objc(removeToDriverObject:)
+    @NSManaged public func removeFromToDriver(_ value: Driver)
+
+    @objc(addToDriver:)
+    @NSManaged public func addToToDriver(_ values: NSSet)
+
+    @objc(removeToDriver:)
+    @NSManaged public func removeFromToDriver(_ values: NSSet)
 
 }
 
@@ -188,19 +206,19 @@ extension Car {
 
 }
 
-// MARK: Generated accessors for toDriver
+// MARK: Generated accessors for toSetupRun
 extension Car {
 
-    @objc(addToDriverObject:)
-    @NSManaged public func addToToDriver(_ value: Driver)
+    @objc(addToSetupRunObject:)
+    @NSManaged public func addToToSetupRun(_ value: SetupRun)
 
-    @objc(removeToDriverObject:)
-    @NSManaged public func removeFromToDriver(_ value: Driver)
+    @objc(removeToSetupRunObject:)
+    @NSManaged public func removeFromToSetupRun(_ value: SetupRun)
 
-    @objc(addToDriver:)
-    @NSManaged public func addToToDriver(_ values: NSSet)
+    @objc(addToSetupRun:)
+    @NSManaged public func addToToSetupRun(_ values: NSSet)
 
-    @objc(removeToDriver:)
-    @NSManaged public func removeFromToDriver(_ values: NSSet)
+    @objc(removeToSetupRun:)
+    @NSManaged public func removeFromToSetupRun(_ values: NSSet)
 
 }

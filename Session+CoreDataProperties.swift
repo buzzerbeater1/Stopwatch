@@ -2,7 +2,7 @@
 //  Session+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 10/05/2017.
+//  Created by Michael Derstroff on 27/05/2017.
 //
 //
 
@@ -19,14 +19,15 @@ extension Session {
     @NSManaged public var created: NSDate?
     @NSManaged public var details: String?
     @NSManaged public var endTime: NSDate?
+    @NSManaged public var eventDay: String?
     @NSManaged public var name: String?
     @NSManaged public var startTime: NSDate?
-    @NSManaged public var eventDay: String?
     @NSManaged public var toCar: NSSet?
     @NSManaged public var toChampionship: Championship?
     @NSManaged public var toRaceEvent: RaceEvent?
     @NSManaged public var toRuns: NSSet?
     @NSManaged public var toWeatherMonitor: WeaterMonitor?
+    @NSManaged public var toSetupRun: NSSet?
 
 }
 
@@ -61,5 +62,22 @@ extension Session {
 
     @objc(removeToRuns:)
     @NSManaged public func removeFromToRuns(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for toSetupRun
+extension Session {
+
+    @objc(addToSetupRunObject:)
+    @NSManaged public func addToToSetupRun(_ value: SetupRun)
+
+    @objc(removeToSetupRunObject:)
+    @NSManaged public func removeFromToSetupRun(_ value: SetupRun)
+
+    @objc(addToSetupRun:)
+    @NSManaged public func addToToSetupRun(_ values: NSSet)
+
+    @objc(removeToSetupRun:)
+    @NSManaged public func removeFromToSetupRun(_ values: NSSet)
 
 }

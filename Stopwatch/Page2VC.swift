@@ -62,14 +62,7 @@ class Page2VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if setup.fr != nil {
-            print("We have a wheel in the page 2 view controller")
-            fr = setup.fr as? Wheel
-            updateLabels()
-        }else{
-            print("no wheel in page 2")
-            fr = Wheel()
-        }
+        getWheel()
         
         scrollView.contentSize = CGSize(width: super.view.frame.width, height: super.view.frame.width * (732/375))
         scrollView.frame = super.view.bounds
@@ -123,6 +116,19 @@ class Page2VC: UIViewController {
         toeTextField.text = fr.toe.value
         coldPressureTextField.text = fr.coldPressure.value
         hotPressuretTextField.text = fr.hotPressure.value
+    }
+    
+    func getWheel() {
+        if setup.fr != nil {
+            print("We have a wheel in the page 2 view controller")
+            fr = setup.fr as? Wheel
+            
+        }else{
+            print("no wheel in page 2")
+            fr = Wheel()
+            
+        }
+        updateLabels()
     }
     
 }

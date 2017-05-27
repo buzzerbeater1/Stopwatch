@@ -63,14 +63,7 @@ class Page4VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if setup.rr != nil {
-            print("We have a wheel in the page 2 view controller")
-            rr = setup.rr as? Wheel
-            updateLabels()
-        }else{
-            print("no wheel in page 2")
-            rr = Wheel()
-        }
+        getWheel()
         
         
         scrollView.contentSize = CGSize(width: super.view.frame.width, height: super.view.frame.width * (732/375))
@@ -124,6 +117,18 @@ class Page4VC: UIViewController {
         toeTextField.text = rr.toe.value
         coldPressureTextField.text = rr.coldPressure.value
         hotPressuretTextField.text = rr.hotPressure.value
+    }
+    
+    func getWheel() {
+        if setup.rr != nil {
+            print("We have a wheel in the page 4 view controller")
+            rr = setup.rr as? Wheel
+            
+        }else{
+            print("no wheel in page 4")
+            rr = Wheel()
+        }
+        updateLabels()
     }
     
     

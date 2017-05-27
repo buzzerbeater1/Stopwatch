@@ -32,7 +32,9 @@ class Page5VC: UIViewController {
     @IBOutlet weak var rampAngleAcceTextfield: UITextField!
     @IBOutlet weak var rampAngleCoastTextfield: UITextField!
     @IBOutlet weak var frictionPadPreTextfield: UITextField!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var constraintsCollection: [NSLayoutConstraint]!
     
     
     func saveButtonPressed() {
@@ -72,14 +74,11 @@ class Page5VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if setup.general != nil {
-            print("We have a General in the page 5 view controller")
-            general = setup.general as? General
-            updateLabels()
-        }else{
-            print("no General in page 5")
-            general = General()
-        }
+        getWheel()
+    
+        scrollView.contentSize = CGSize(width: 375, height: 375 * (846/375))
+        scrollView.frame = super.view.bounds
+        
         
         //        let scrollView = UIScrollView(rrame: super.view.bounds)
         //
@@ -139,6 +138,18 @@ class Page5VC: UIViewController {
           rampAngleAcceTextfield.text! = general.differential.rampAngle.acceleration.value
           rampAngleCoastTextfield.text! = general.differential.rampAngle.coast.value
           frictionPadPreTextfield.text! = general.differential.frictionPad.value
+    }
+    
+    func getWheel() {
+        if setup.general != nil {
+            print("We have a General in the page 5 view controller")
+            general = setup.general as? General
+            
+        }else{
+            print("no General in page 5")
+            general = General()
+        }
+        updateLabels()
     }
     
 }

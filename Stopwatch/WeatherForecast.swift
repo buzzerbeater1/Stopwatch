@@ -60,8 +60,8 @@ class WeatherForecast {
         }
         
         if let date = weatherDict["dt"] as? Double {
-            var unixConvertDate = Date(timeIntervalSince1970: date)
-            unixConvertDate.addTimeInterval(25200)
+            let unixConvertDate = Date(timeIntervalSince1970: date)
+           // unixConvertDate.addTimeInterval(25200)
 //            let dateFormatter = DateFormatter()
 //            dateFormatter.dateStyle = .full
 //            dateFormatter.dateFormat = "E, HH:mm"

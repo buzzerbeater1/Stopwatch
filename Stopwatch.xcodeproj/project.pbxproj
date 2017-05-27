@@ -27,6 +27,10 @@
 		D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */; };
 		D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */; };
 		D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77595051E743D2B0068C42C /* LapTimeCell.swift */; };
+		D7791ED41ED921610023EDA4 /* SetupRun+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED31ED921610023EDA4 /* SetupRun+CoreDataProperties.swift */; };
+		D7791ED61ED921790023EDA4 /* SetupRun+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED51ED921790023EDA4 /* SetupRun+CoreDataClass.swift */; };
+		D7791ED81ED92CB70023EDA4 /* SetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED71ED92CB70023EDA4 /* SetupCell.swift */; };
+		D7791EDA1ED981490023EDA4 /* RowNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED91ED981490023EDA4 /* RowNamesCell.swift */; };
 		D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */; };
 		D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */; };
 		D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */; };
@@ -47,8 +51,6 @@
 		D77AF5751EAA018300741A04 /* ChooseSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5741EAA018300741A04 /* ChooseSetupVC.swift */; };
 		D77AF5771EAA1B2400741A04 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5761EAA1B2400741A04 /* CustomSegue.swift */; };
 		D77AF5791EAB1F7500741A04 /* InRaceSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */; };
-		D77AF57B1EAB1F8F00741A04 /* InRaceSubPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */; };
-		D77AF57D1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */; };
 		D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5821EB07F4B00741A04 /* EventsVC.swift */; };
 		D77AF58F1EB088A600741A04 /* RaceEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */; };
 		D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */; };
@@ -109,6 +111,10 @@
 		D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LapTime+CoreDataClass.swift"; path = "../LapTime+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D76826791E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LapTime+CoreDataProperties.swift"; path = "../LapTime+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77595051E743D2B0068C42C /* LapTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimeCell.swift; sourceTree = "<group>"; };
+		D7791ED31ED921610023EDA4 /* SetupRun+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetupRun+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7791ED51ED921790023EDA4 /* SetupRun+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetupRun+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D7791ED71ED92CB70023EDA4 /* SetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCell.swift; sourceTree = "<group>"; };
+		D7791ED91ED981490023EDA4 /* RowNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowNamesCell.swift; sourceTree = "<group>"; };
 		D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimesTableVC.swift; sourceTree = "<group>"; };
 		D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataClass.swift"; path = "../Setup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataProperties.swift"; path = "../Setup+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -129,8 +135,6 @@
 		D77AF5741EAA018300741A04 /* ChooseSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSetupVC.swift; sourceTree = "<group>"; };
 		D77AF5761EAA1B2400741A04 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSetupVC.swift; sourceTree = "<group>"; };
-		D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSubPagesVC.swift; sourceTree = "<group>"; };
-		D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InRaceSetupDetailsVC.swift; sourceTree = "<group>"; };
 		D77AF5821EB07F4B00741A04 /* EventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RaceEvent+CoreDataClass.swift"; path = "../RaceEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF58D1EB088A600741A04 /* RaceEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RaceEvent+CoreDataProperties.swift"; path = "../RaceEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				D77AF5911EB08A3800741A04 /* EventsCell.swift */,
 				D77AF5AC1EBD932700741A04 /* WeatherCell.swift */,
 				D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */,
+				D7791ED71ED92CB70023EDA4 /* SetupCell.swift */,
+				D7791ED91ED981490023EDA4 /* RowNamesCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 		D76826471E6C3EBB00C520BF /* generated */ = {
 			isa = PBXGroup;
 			children = (
+				D7791ED31ED921610023EDA4 /* SetupRun+CoreDataProperties.swift */,
 				D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */,
 				D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */,
 				D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */,
@@ -346,8 +353,6 @@
 				D77AF5611E94F12C00741A04 /* SetupScrollVC.swift */,
 				D77AF5741EAA018300741A04 /* ChooseSetupVC.swift */,
 				D77AF5781EAB1F7500741A04 /* InRaceSetupVC.swift */,
-				D77AF57A1EAB1F8F00741A04 /* InRaceSubPagesVC.swift */,
-				D77AF57C1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 		D77AF5A51EBD8FE700741A04 /* Core Data Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D7791ED51ED921790023EDA4 /* SetupRun+CoreDataClass.swift */,
 				D77AF58C1EB088A600741A04 /* RaceEvent+CoreDataClass.swift */,
 				D76826761E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift */,
 				D76826781E6C4C1D00C520BF /* LapTime+CoreDataClass.swift */,
@@ -542,8 +548,8 @@
 				D77AF5C91EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift in Sources */,
 				D77AF5A91EBD906B00741A04 /* WeatherLocation.swift in Sources */,
 				D708BF461E5EA6CA00F5B3E8 /* StopwatchVC.swift in Sources */,
+				D7791ED81ED92CB70023EDA4 /* SetupCell.swift in Sources */,
 				D77AF5441E8CF21F00741A04 /* VoiceNoteVC.swift in Sources */,
-				D77AF57B1EAB1F8F00741A04 /* InRaceSubPagesVC.swift in Sources */,
 				D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */,
 				D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */,
 				D77AF5BC1EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift in Sources */,
@@ -572,7 +578,6 @@
 				D768267E1E6C4C1D00C520BF /* LapTime+CoreDataClass.swift in Sources */,
 				D77AF5921EB08A3800741A04 /* EventsCell.swift in Sources */,
 				D77AF5CA1EBDBFCA00741A04 /* Championship+CoreDataProperties.swift in Sources */,
-				D77AF57D1EAF2CA800741A04 /* InRaceSetupDetailsVC.swift in Sources */,
 				D77AF5661E9640C700741A04 /* Page5VC.swift in Sources */,
 				D708BF5F1E600C2200F5B3E8 /* LapTimerVC.swift in Sources */,
 				D77AF5831EB07F4B00741A04 /* EventsVC.swift in Sources */,
@@ -587,6 +592,7 @@
 				D7E551591ECEAF3000FAFFD0 /* AppGlobals.swift in Sources */,
 				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
+				D7791EDA1ED981490023EDA4 /* RowNamesCell.swift in Sources */,
 				D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
 				D77AF5641E9640B700741A04 /* Page4VC.swift in Sources */,
@@ -594,12 +600,14 @@
 				D77AF5461E8E21D500741A04 /* WrittenNoteVC.swift in Sources */,
 				D77AF5791EAB1F7500741A04 /* InRaceSetupVC.swift in Sources */,
 				D77AF58F1EB088A600741A04 /* RaceEvent+CoreDataClass.swift in Sources */,
+				D7791ED61ED921790023EDA4 /* SetupRun+CoreDataClass.swift in Sources */,
 				D77AF5621E94F12C00741A04 /* SetupScrollVC.swift in Sources */,
 				D708BF441E5EA6CA00F5B3E8 /* AppDelegate.swift in Sources */,
 				D708BF661E6014E600F5B3E8 /* Stopwatch.swift in Sources */,
 				D7E5515B1ECEB58800FAFFD0 /* OptionsVC.swift in Sources */,
 				D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */,
 				D77595061E743D2B0068C42C /* LapTimeCell.swift in Sources */,
+				D7791ED41ED921610023EDA4 /* SetupRun+CoreDataProperties.swift in Sources */,
 				D77AF5A71EBD900C00741A04 /* WeatherConstants.swift in Sources */,
 				D708BF641E6011C000F5B3E8 /* StopwatchCell.swift in Sources */,
 			);
