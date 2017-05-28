@@ -31,6 +31,7 @@
 		D7791ED61ED921790023EDA4 /* SetupRun+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED51ED921790023EDA4 /* SetupRun+CoreDataClass.swift */; };
 		D7791ED81ED92CB70023EDA4 /* SetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED71ED92CB70023EDA4 /* SetupCell.swift */; };
 		D7791EDA1ED981490023EDA4 /* RowNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED91ED981490023EDA4 /* RowNamesCell.swift */; };
+		D7791EDC1EDA81B80023EDA4 /* SetupRunOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */; };
 		D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */; };
 		D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */; };
 		D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */; };
@@ -115,6 +116,7 @@
 		D7791ED51ED921790023EDA4 /* SetupRun+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetupRun+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D7791ED71ED92CB70023EDA4 /* SetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCell.swift; sourceTree = "<group>"; };
 		D7791ED91ED981490023EDA4 /* RowNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowNamesCell.swift; sourceTree = "<group>"; };
+		D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupRunOverlayView.swift; sourceTree = "<group>"; };
 		D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimesTableVC.swift; sourceTree = "<group>"; };
 		D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataClass.swift"; path = "../Setup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataProperties.swift"; path = "../Setup+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				D7BCC1531EC4109E00DC6AB0 /* SessionCell.swift */,
 				D7791ED71ED92CB70023EDA4 /* SetupCell.swift */,
 				D7791ED91ED981490023EDA4 /* RowNamesCell.swift */,
+				D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				D77AF5681E975E0600741A04 /* SetupNew.swift in Sources */,
 				D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */,
 				D77AF5C71EBDBFCA00741A04 /* Runs+CoreDataProperties.swift in Sources */,
+				D7791EDC1EDA81B80023EDA4 /* SetupRunOverlayView.swift in Sources */,
 				D77AF55E1E94F09200741A04 /* Page2VC.swift in Sources */,
 				D77AF5C91EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift in Sources */,
 				D77AF5A91EBD906B00741A04 /* WeatherLocation.swift in Sources */,
