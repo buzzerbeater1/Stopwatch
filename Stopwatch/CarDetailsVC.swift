@@ -171,6 +171,13 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
                 controller.modalPresentationStyle = UIModalPresentationStyle.popover
             }
         }
+        if segue.identifier == "NotesVC" {
+            if let controller = segue.destination as? NotesVC {
+                if let sender = sender as? Car {
+                    controller.car = sender
+                }
+            }
+        }
     }
     
     func segueSetup() {

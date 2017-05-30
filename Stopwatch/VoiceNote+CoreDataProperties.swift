@@ -2,7 +2,7 @@
 //  VoiceNote+CoreDataProperties.swift
 //  
 //
-//  Created by Michael Derstroff on 5/6/17.
+//  Created by Michael Derstroff on 30/05/2017.
 //
 //
 
@@ -16,9 +16,10 @@ extension VoiceNote {
         return NSFetchRequest<VoiceNote>(entityName: "VoiceNote");
     }
 
-    @NSManaged public var created: String?
-    @NSManaged public var voice: NSObject?
+    @NSManaged public var created: NSDate?
+    @NSManaged public var filePath: String?
     @NSManaged public var toCar: Car?
     @NSManaged public var toSetup: Setup?
+    @NSManaged public var toSetupRun: SetupRun?
 
 }

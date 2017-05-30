@@ -12,4 +12,10 @@ import CoreData
 @objc(Session)
 public class Session: NSManagedObject {
 
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        self.created = NSDate() as NSDate?
+    }
+    
 }

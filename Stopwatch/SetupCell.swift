@@ -16,16 +16,16 @@ class SetupCell: UITableViewCell {
     var tirePressureFRLabel: UILabel!
     var tirePressureRLLabel: UILabel!
     var tirePressureRRLabel: UILabel!
-    var tireTemperatureFLOoutLabel: UILabel!
+    var tireTemperatureFLOutLabel: UILabel!
     var tireTemperatureFLMidLabel: UILabel!
     var tireTemperatureFLInLabel: UILabel!
-    var tireTemperatureFROoutLabel: UILabel!
+    var tireTemperatureFROutLabel: UILabel!
     var tireTemperatureFRMidLabel: UILabel!
     var tireTemperatureFRInLabel: UILabel!
-    var tireTemperatureRLOoutLabel: UILabel!
+    var tireTemperatureRLOutLabel: UILabel!
     var tireTemperatureRLMidLabel: UILabel!
     var tireTemperatureRLInLabel: UILabel!
-    var tireTemperatureRROoutLabel: UILabel!
+    var tireTemperatureRROutLabel: UILabel!
     var tireTemperatureRRMidLabel: UILabel!
     var tireTemperatureRRInLabel: UILabel!
     var needLayout = true
@@ -40,16 +40,16 @@ class SetupCell: UITableViewCell {
         tirePressureFRLabel = UILabel()
         tirePressureRLLabel = UILabel()
         tirePressureRRLabel = UILabel()
-        tireTemperatureFLOoutLabel = UILabel()
+        tireTemperatureFLOutLabel = UILabel()
         tireTemperatureFLMidLabel = UILabel()
         tireTemperatureFLInLabel = UILabel()
-        tireTemperatureFROoutLabel = UILabel()
+        tireTemperatureFROutLabel = UILabel()
         tireTemperatureFRMidLabel = UILabel()
         tireTemperatureFRInLabel = UILabel()
-        tireTemperatureRLOoutLabel = UILabel()
+        tireTemperatureRLOutLabel = UILabel()
         tireTemperatureRLMidLabel = UILabel()
         tireTemperatureRLInLabel = UILabel()
-        tireTemperatureRROoutLabel = UILabel()
+        tireTemperatureRROutLabel = UILabel()
         tireTemperatureRRMidLabel = UILabel()
         tireTemperatureRRInLabel = UILabel()
     }
@@ -85,29 +85,29 @@ class SetupCell: UITableViewCell {
             self.addSubview(tirePressureRLLabel)
             self.addSubview(tirePressureRRLabel)           
         } else if row == 1 {
-            tireTemperatureFLOoutLabel = UILabel(frame: CGRect(x: 4, y: 5, width: 12, height: 15))
+            tireTemperatureFLOutLabel = UILabel(frame: CGRect(x: 4, y: 5, width: 12, height: 15))
             tireTemperatureFLMidLabel = UILabel(frame: CGRect(x: 19, y: 5, width: 12, height: 15))
             tireTemperatureFLInLabel = UILabel(frame: CGRect(x: 34, y: 5, width: 12, height: 15))
-            tireTemperatureFROoutLabel = UILabel(frame: CGRect(x: 84, y: 5, width: 12, height: 15))
+            tireTemperatureFROutLabel = UILabel(frame: CGRect(x: 84, y: 5, width: 12, height: 15))
             tireTemperatureFRMidLabel = UILabel(frame: CGRect(x: 69, y: 5, width: 12, height: 15))
             tireTemperatureFRInLabel = UILabel(frame: CGRect(x: 54, y: 5, width: 12, height: 15))
-            tireTemperatureRLOoutLabel = UILabel(frame: CGRect(x: 4, y: 30, width: 12, height: 15))
+            tireTemperatureRLOutLabel = UILabel(frame: CGRect(x: 4, y: 30, width: 12, height: 15))
             tireTemperatureRLMidLabel = UILabel(frame: CGRect(x: 19, y: 30, width: 12, height: 15))
             tireTemperatureRLInLabel = UILabel(frame: CGRect(x: 34, y: 30, width: 12, height: 15))
-            tireTemperatureRROoutLabel = UILabel(frame: CGRect(x: 84, y: 30, width: 12, height: 15))
+            tireTemperatureRROutLabel = UILabel(frame: CGRect(x: 84, y: 30, width: 12, height: 15))
             tireTemperatureRRMidLabel = UILabel(frame: CGRect(x: 69, y: 30, width: 12, height: 15))
             tireTemperatureRRInLabel = UILabel(frame: CGRect(x: 54, y: 30, width: 12, height: 15))
             self.addSubview(tireTemperatureFLInLabel)
-            self.addSubview(tireTemperatureFLOoutLabel)
+            self.addSubview(tireTemperatureFLOutLabel)
             self.addSubview(tireTemperatureFLMidLabel)
             self.addSubview(tireTemperatureFRInLabel)
-            self.addSubview(tireTemperatureFROoutLabel)
+            self.addSubview(tireTemperatureFROutLabel)
             self.addSubview(tireTemperatureFRMidLabel)
             self.addSubview(tireTemperatureRLInLabel)
-            self.addSubview(tireTemperatureRLOoutLabel)
+            self.addSubview(tireTemperatureRLOutLabel)
             self.addSubview(tireTemperatureRLMidLabel)
             self.addSubview(tireTemperatureRRInLabel)
-            self.addSubview(tireTemperatureRROoutLabel)
+            self.addSubview(tireTemperatureRROutLabel)
             self.addSubview(tireTemperatureRRMidLabel)
             self.addSubview(horizontalBar)
             self.addSubview(verticalBar)
@@ -126,17 +126,22 @@ class SetupCell: UITableViewCell {
             tirePressureFRLabel.text = setup.tirePressureFR
             tirePressureFLLabel.text = setup.tirePressureFL
         } else if row == 1 {
+            print("HELLO HELLO HELLO HELLO ")
+ //           let divisorFL = (2*((Double(setup.tireTemperatureFLMid ?? "50") + Double(setup.tireTemperatureFLIn ?? "50") + Double(setup.tireTemperatureFLOut ?? "50")) / 3))
             tireTemperatureFLMidLabel.text = setup.tireTemperatureFLMid
-            tireTemperatureFLOoutLabel.text = setup.tireTemperatureFLOut
+  //          tireTemperatureFLMidLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLMid ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)   //(red: CGFloat(Double(setup.tireTemperatureFLMid ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLMid ?? "50")!)/divisorFL), blue: 0, alpha: 1)
+            tireTemperatureFLOutLabel.text = setup.tireTemperatureFLOut
+ //           tireTemperatureFLOutLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLOut ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)   //red: CGFloat(Double(setup.tireTemperatureFLOut ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLOut ?? "50")!)/divisorFL), blue: 0, alpha: 1)
             tireTemperatureFLInLabel.text = setup.tireTemperatureFLIn
+  //          tireTemperatureFLInLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLIn ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)  //red: CGFloat(Double(setup.tireTemperatureFLIn ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLIn ?? "50")!)/divisorFL), blue: 0, alpha: 1)
             tireTemperatureFRMidLabel.text = setup.tireTemperatureFRMid
-            tireTemperatureFROoutLabel.text = setup.tireTemperatureFROut
+            tireTemperatureFROutLabel.text = setup.tireTemperatureFROut
             tireTemperatureFRInLabel.text = setup.tireTemperatureFRIn
             tireTemperatureRLMidLabel.text = setup.tireTemperatureRLMid
-            tireTemperatureRLOoutLabel.text = setup.tireTemperatureRLOut
+            tireTemperatureRLOutLabel.text = setup.tireTemperatureRLOut
             tireTemperatureRLInLabel.text = setup.tireTemperatureRLIn
             tireTemperatureRRMidLabel.text = setup.tireTemperatureRRMid
-            tireTemperatureRROoutLabel.text = setup.tireTemperatureRROut
+            tireTemperatureRROutLabel.text = setup.tireTemperatureRROut
             tireTemperatureRRInLabel.text = setup.tireTemperatureRRIn
         } else if row == 2 {
             singleFieldLeft.text = setup.fuel

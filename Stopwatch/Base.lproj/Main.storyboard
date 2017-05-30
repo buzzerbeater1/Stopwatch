@@ -988,7 +988,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-Ce-i8R">
-                                <rect key="frame" x="51" y="568" width="273" height="30"/>
+                                <rect key="frame" x="51" y="617" width="273" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-ud-mnT">
                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
@@ -2153,7 +2153,7 @@
                                             <constraint firstAttribute="height" constant="86" id="Sob-SO-X04"/>
                                             <constraint firstAttribute="width" constant="116" id="erJ-ZT-YhW"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -2466,7 +2466,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="75" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U1b-ey-EUH" id="yVl-Pf-TCJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="49"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceI-dA-Sog">
@@ -2513,13 +2513,17 @@
                                     <constraint firstAttribute="height" constant="44" id="srp-ty-RuI"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="NZE-Fz-rVC">
+                                    <navigationItem title="Run Sheets" id="NZE-Fz-rVC">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="1Xf-iN-82E">
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="V5V-Qh-Z0w" id="w2H-7S-IRc"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kep-mG-8Ae"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kep-mG-8Ae">
+                                            <connections>
+                                                <action selector="addButtonPressed:" destination="V5V-Qh-Z0w" id="9RY-sd-TGa"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -2540,6 +2544,7 @@
                                                 <state key="normal" title="Write"/>
                                                 <connections>
                                                     <action selector="writeButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="2b4-ZP-3QA"/>
+                                                    <action selector="writeButtonPressed:" destination="V5V-Qh-Z0w" eventType="touchUpInside" id="iw2-SW-F7y"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj2-Ad-app">
@@ -2547,12 +2552,14 @@
                                                 <state key="normal" title="Voice"/>
                                                 <connections>
                                                     <action selector="voiceButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="Zdf-Wm-b2E"/>
+                                                    <action selector="voiceButtonPressed:" destination="V5V-Qh-Z0w" eventType="touchUpInside" id="u4x-la-6Cc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlL-9Q-srl">
                                                 <rect key="frame" x="158" y="0.0" width="49" height="30.5"/>
                                                 <state key="normal" title="Picture"/>
                                                 <connections>
+                                                    <action selector="pictureButtonPressed:" destination="V5V-Qh-Z0w" eventType="touchUpInside" id="4A4-jE-Y1h"/>
                                                     <action selector="pictureButtonPressed:" destination="FAa-yj-pYo" eventType="touchUpInside" id="GG1-b9-HSd"/>
                                                 </connections>
                                             </button>
@@ -2591,11 +2598,17 @@
                         <outlet property="containerScrollView" destination="GYD-R5-1DM" id="khQ-ZY-7gY"/>
                         <outlet property="expandedView" destination="lKw-rS-Iba" id="egE-hM-V9O"/>
                         <outlet property="tableView" destination="Uzg-C7-i2A" id="L8k-Ih-UbG"/>
+                        <segue destination="nH4-i4-aqT" kind="popoverPresentation" identifier="VoiceNoteVC" popoverAnchorView="kj2-Ad-app" id="x3R-2L-hgZ">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="08Z-7O-r0a" kind="popoverPresentation" identifier="WrittenNoteVC" popoverAnchorView="fjs-tB-mAl" id="7bv-dy-IIR">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fm-sK-ChE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3064.8000000000002" y="-1872.4137931034484"/>
+            <point key="canvasLocation" x="3126" y="-1853"/>
         </scene>
         <!--Setup ScrollVC-->
         <scene sceneID="CNK-Pm-jtH">
@@ -2781,7 +2794,7 @@
                                     <constraint firstAttribute="height" constant="44" id="guG-bD-6LD"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="9Hy-Vo-Niz">
+                                    <navigationItem title="Notes" id="9Hy-Vo-Niz">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="R7E-xi-zcI">
                                             <connections>
                                                 <action selector="doneButtonPressed:" destination="CzL-eJ-1w8" id="POe-OU-q8n"/>
@@ -2792,7 +2805,7 @@
                                 </items>
                             </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tuB-H7-pPH">
-                                <rect key="frame" x="0.0" y="74" width="375" height="29"/>
+                                <rect key="frame" x="10" y="74" width="355" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="J5A-wW-vN6"/>
                                 </constraints>
@@ -2801,10 +2814,23 @@
                                     <segment title="Picture"/>
                                     <segment title="Voice"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentBarChanged:" destination="CzL-eJ-1w8" eventType="valueChanged" id="6vg-7Z-hCe"/>
+                                </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2lp-80-czU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2lp-80-czU">
                                 <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesCell" rowHeight="107" id="tYY-oZ-toZ" customClass="NotesCell" customModule="Stopwatch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tYY-oZ-toZ" id="MYs-D0-WSD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2816,11 +2842,15 @@
                             <constraint firstAttribute="trailing" secondItem="Sbn-Hn-n3V" secondAttribute="trailing" id="DD5-bf-ear"/>
                             <constraint firstItem="Sbn-Hn-n3V" firstAttribute="leading" secondItem="iuO-Lp-HIt" secondAttribute="leading" id="Eip-pA-su1"/>
                             <constraint firstAttribute="trailing" secondItem="2lp-80-czU" secondAttribute="trailing" id="JTh-IS-dfM"/>
-                            <constraint firstItem="tuB-H7-pPH" firstAttribute="leading" secondItem="iuO-Lp-HIt" secondAttribute="leading" id="OTK-Ke-IDh"/>
+                            <constraint firstItem="tuB-H7-pPH" firstAttribute="leading" secondItem="iuO-Lp-HIt" secondAttribute="leading" constant="10" id="OTK-Ke-IDh"/>
                             <constraint firstItem="2lp-80-czU" firstAttribute="top" secondItem="tuB-H7-pPH" secondAttribute="bottom" constant="10" id="VOG-QY-eeo"/>
-                            <constraint firstAttribute="trailing" secondItem="tuB-H7-pPH" secondAttribute="trailing" id="qIU-oa-hPk"/>
+                            <constraint firstAttribute="trailing" secondItem="tuB-H7-pPH" secondAttribute="trailing" constant="10" id="qIU-oa-hPk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentBar" destination="tuB-H7-pPH" id="lAJ-Oj-KgM"/>
+                        <outlet property="tableView" destination="2lp-80-czU" id="0jl-u4-Vzh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxE-aF-1TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2976,7 +3006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy5-e1-trC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-1053"/>
+            <point key="canvasLocation" x="1541.5999999999999" y="-1053.8230884557722"/>
         </scene>
         <!--Voice NoteVC-->
         <scene sceneID="Sd9-C9-KFz">
@@ -3180,7 +3210,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7lK-Ce-HNl">
-                                <rect key="frame" x="16" y="405" width="343" height="173"/>
+                                <rect key="frame" x="16" y="454" width="343" height="173"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hiy-ko-s9x">
                                         <rect key="frame" x="0.0" y="0.0" width="156.5" height="173"/>
@@ -3287,7 +3317,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIY-xr-wSa">
-                                <rect key="frame" x="0.0" y="551" width="375" height="3"/>
+                                <rect key="frame" x="0.0" y="600" width="375" height="3"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="iU5-PX-VSB"/>
@@ -3415,7 +3445,7 @@
                                                     </connections>
                                                 </button>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in3-nr-yhu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="111"/>
+                                                    <rect key="frame" x="-1" y="0.0" width="373" height="111"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pickerView>
@@ -3891,5 +3921,7 @@
         <segue reference="MMq-lX-QDT"/>
         <segue reference="5ng-Uv-Gl1"/>
         <segue reference="T5v-OP-1Mj"/>
+        <segue reference="x3R-2L-hgZ"/>
+        <segue reference="7bv-dy-IIR"/>
     </inferredMetricsTieBreakers>
 </document>

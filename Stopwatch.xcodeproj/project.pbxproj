@@ -32,6 +32,7 @@
 		D7791ED81ED92CB70023EDA4 /* SetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED71ED92CB70023EDA4 /* SetupCell.swift */; };
 		D7791EDA1ED981490023EDA4 /* RowNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791ED91ED981490023EDA4 /* RowNamesCell.swift */; };
 		D7791EDC1EDA81B80023EDA4 /* SetupRunOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */; };
+		D7791EDE1EDC12680023EDA4 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7791EDD1EDC12680023EDA4 /* NotesCell.swift */; };
 		D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */; };
 		D77AF53B1E84091200741A04 /* Setup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */; };
 		D77AF53C1E84091200741A04 /* Setup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */; };
@@ -67,13 +68,11 @@
 		D77AF5AD1EBD932700741A04 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AC1EBD932700741A04 /* WeatherCell.swift */; };
 		D77AF5B01EBDA3D900741A04 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */; };
 		D77AF5B21EBDA81100741A04 /* WeatherCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */; };
-		D77AF5B91EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */; };
 		D77AF5BA1EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */; };
 		D77AF5BB1EBDBFBA00741A04 /* Runs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */; };
 		D77AF5BC1EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */; };
 		D77AF5BD1EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B71EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift */; };
 		D77AF5BE1EBDBFBA00741A04 /* Championship+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5B81EBDBFBA00741A04 /* Championship+CoreDataClass.swift */; };
-		D77AF5C51EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */; };
 		D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */; };
 		D77AF5C71EBDBFCA00741A04 /* Runs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */; };
 		D77AF5C81EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */; };
@@ -85,6 +84,8 @@
 		D7E551591ECEAF3000FAFFD0 /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E551581ECEAF3000FAFFD0 /* AppGlobals.swift */; };
 		D7E5515B1ECEB58800FAFFD0 /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5515A1ECEB58800FAFFD0 /* OptionsVC.swift */; };
 		D7E5515E1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5515D1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift */; };
+		D7E8CF521EDD1DE100CBF967 /* VoiceNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E8CF511EDD1DE100CBF967 /* VoiceNote+CoreDataClass.swift */; };
+		D7E8CF541EDD1DEB00CBF967 /* VoiceNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E8CF531EDD1DEB00CBF967 /* VoiceNote+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		D7791ED71ED92CB70023EDA4 /* SetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCell.swift; sourceTree = "<group>"; };
 		D7791ED91ED981490023EDA4 /* RowNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowNamesCell.swift; sourceTree = "<group>"; };
 		D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupRunOverlayView.swift; sourceTree = "<group>"; };
+		D7791EDD1EDC12680023EDA4 /* NotesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 		D77AF5371E78516D00741A04 /* LapTimesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimesTableVC.swift; sourceTree = "<group>"; };
 		D77AF5391E84091200741A04 /* Setup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataClass.swift"; path = "../Setup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF53A1E84091200741A04 /* Setup+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Setup+CoreDataProperties.swift"; path = "../Setup+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -152,13 +154,11 @@
 		D77AF5AC1EBD932700741A04 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		D77AF5AF1EBDA3D900741A04 /* WeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		D77AF5B11EBDA81100741A04 /* WeatherCurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCurrent.swift; sourceTree = "<group>"; };
-		D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeaterMonitor+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Runs+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WrittenNote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF5B71EBDBFBA00741A04 /* PictureNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PictureNote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D77AF5B81EBDBFBA00741A04 /* Championship+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Championship+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WeaterMonitor+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Runs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WrittenNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -170,6 +170,8 @@
 		D7E551581ECEAF3000FAFFD0 /* AppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
 		D7E5515A1ECEB58800FAFFD0 /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		D7E5515D1ECEBB7700FAFFD0 /* UIViewControllerStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerStatusBar.swift; sourceTree = "<group>"; };
+		D7E8CF511EDD1DE100CBF967 /* VoiceNote+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D7E8CF531EDD1DEB00CBF967 /* VoiceNote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VoiceNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				D7791ED71ED92CB70023EDA4 /* SetupCell.swift */,
 				D7791ED91ED981490023EDA4 /* RowNamesCell.swift */,
 				D7791EDB1EDA81B80023EDA4 /* SetupRunOverlayView.swift */,
+				D7791EDD1EDC12680023EDA4 /* NotesCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -292,8 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				D7791ED31ED921610023EDA4 /* SetupRun+CoreDataProperties.swift */,
-				D77AF5BF1EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift */,
 				D77AF5C01EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift */,
+				D7E8CF531EDD1DEB00CBF967 /* VoiceNote+CoreDataProperties.swift */,
 				D77AF5C11EBDBFCA00741A04 /* Runs+CoreDataProperties.swift */,
 				D77AF5C21EBDBFCA00741A04 /* WrittenNote+CoreDataProperties.swift */,
 				D77AF5C31EBDBFCA00741A04 /* PictureNote+CoreDataProperties.swift */,
@@ -390,7 +393,7 @@
 				D77AF53D1E8409DE00741A04 /* Car+CoreDataClass.swift */,
 				D77AF5691E976E0C00741A04 /* Note+CoreDataClass.swift */,
 				D77AF59D1EB9C77A00741A04 /* Session+CoreDataClass.swift */,
-				D77AF5B31EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift */,
+				D7E8CF511EDD1DE100CBF967 /* VoiceNote+CoreDataClass.swift */,
 				D77AF5B41EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift */,
 				D77AF5B51EBDBFBA00741A04 /* Runs+CoreDataClass.swift */,
 				D77AF5B61EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift */,
@@ -451,8 +454,8 @@
 				TargetAttributes = {
 					D708BF3F1E5EA6CA00F5B3E8 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = T7CJM64QL7;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = UNCZ7LA74Q;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7791EDE1EDC12680023EDA4 /* NotesCell.swift in Sources */,
 				D77AF5BA1EBDBFBA00741A04 /* WeaterMonitor+CoreDataClass.swift in Sources */,
 				D768267D1E6C4C1D00C520BF /* PitLaneTime+CoreDataProperties.swift in Sources */,
 				D77AF5901EB088A600741A04 /* RaceEvent+CoreDataProperties.swift in Sources */,
@@ -557,16 +561,15 @@
 				D77AF5381E78516E00741A04 /* LapTimesTableVC.swift in Sources */,
 				D77AF5421E840C7000741A04 /* SetupVC.swift in Sources */,
 				D77AF5BC1EBDBFBA00741A04 /* WrittenNote+CoreDataClass.swift in Sources */,
-				D77AF5B91EBDBFBA00741A04 /* VoiceNote+CoreDataClass.swift in Sources */,
 				D708BF681E65CA5800F5B3E8 /* CarsVC.swift in Sources */,
 				D768267C1E6C4C1D00C520BF /* PitLaneTime+CoreDataClass.swift in Sources */,
-				D77AF5C51EBDBFCA00741A04 /* VoiceNote+CoreDataProperties.swift in Sources */,
 				D708BF6C1E65D2DD00F5B3E8 /* Cars.swift in Sources */,
 				D77AF56C1E976E0C00741A04 /* Note+CoreDataProperties.swift in Sources */,
 				D77AF5BB1EBDBFBA00741A04 /* Runs+CoreDataClass.swift in Sources */,
 				D77AF5A11EB9C77A00741A04 /* Session+CoreDataClass.swift in Sources */,
 				D768267F1E6C4C1D00C520BF /* LapTime+CoreDataProperties.swift in Sources */,
 				D77AF55C1E94F08200741A04 /* Page1VC.swift in Sources */,
+				D7E8CF521EDD1DE100CBF967 /* VoiceNote+CoreDataClass.swift in Sources */,
 				D7C9DACF1ECD65E6002DEF46 /* NotesVC.swift in Sources */,
 				D77AF5AB1EBD90D100741A04 /* WeatherForecast.swift in Sources */,
 				D77AF56B1E976E0C00741A04 /* Note+CoreDataClass.swift in Sources */,
@@ -596,6 +599,7 @@
 				D7E551591ECEAF3000FAFFD0 /* AppGlobals.swift in Sources */,
 				D77AF5961EB482DC00741A04 /* Extensions.swift in Sources */,
 				D708BF6E1E6651C400F5B3E8 /* CarDetailsVC.swift in Sources */,
+				D7E8CF541EDD1DEB00CBF967 /* VoiceNote+CoreDataProperties.swift in Sources */,
 				D7791EDA1ED981490023EDA4 /* RowNamesCell.swift in Sources */,
 				D77AF5C61EBDBFCA00741A04 /* WeaterMonitor+CoreDataProperties.swift in Sources */,
 				D708BF4C1E5EA6CA00F5B3E8 /* Stopwatch.xcdatamodeld in Sources */,
@@ -735,11 +739,16 @@
 			baseConfigurationReference = 255D412D5A7922D976EAAAF6 /* Pods-Stopwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T7CJM64QL7;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = UNCZ7LA74Q;
 				INFOPLIST_FILE = Stopwatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Derstroff.Stopwatch";
+				PRODUCT_BUNDLE_IDENTIFIER = com.derstroffmichael.stablerace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4a7c1e44-baba-4013-a8ab-363f070d2c5e";
+				PROVISIONING_PROFILE_SPECIFIER = StableRaceDistProv;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -749,11 +758,16 @@
 			baseConfigurationReference = 034B2561919300B7127690D0 /* Pods-Stopwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T7CJM64QL7;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = UNCZ7LA74Q;
 				INFOPLIST_FILE = Stopwatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Derstroff.Stopwatch";
+				PRODUCT_BUNDLE_IDENTIFIER = com.derstroffmichael.stablerace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4a7c1e44-baba-4013-a8ab-363f070d2c5e";
+				PROVISIONING_PROFILE_SPECIFIER = StableRaceDistProv;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

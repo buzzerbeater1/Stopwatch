@@ -139,8 +139,8 @@
         <relationship name="toWrittenNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WrittenNote" inverseName="toSetupRun" inverseEntity="WrittenNote" syncable="YES"/>
     </entity>
     <entity name="VoiceNote" representedClassName="VoiceNote" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="voice" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toCar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="toVoiceNote" inverseEntity="Car" syncable="YES"/>
         <relationship name="toSetup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Setup" inverseName="toVoiceNote" inverseEntity="Setup" syncable="YES"/>
         <relationship name="toSetupRun" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toVoiceNote" inverseEntity="SetupRun" syncable="YES"/>
@@ -170,9 +170,9 @@
         <element name="Runs" positionX="-342" positionY="-81" width="128" height="120"/>
         <element name="Session" positionX="-360" positionY="-99" width="128" height="225"/>
         <element name="Setup" positionX="241" positionY="-135" width="128" height="210"/>
+        <element name="SetupRun" positionX="-387" positionY="-126" width="128" height="435"/>
         <element name="VoiceNote" positionX="-369" positionY="-108" width="128" height="120"/>
         <element name="WeaterMonitor" positionX="-333" positionY="-72" width="128" height="105"/>
         <element name="WrittenNote" positionX="-378" positionY="-117" width="128" height="120"/>
-        <element name="SetupRun" positionX="-387" positionY="-126" width="128" height="435"/>
     </elements>
 </model>

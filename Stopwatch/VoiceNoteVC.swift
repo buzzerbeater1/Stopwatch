@@ -12,9 +12,12 @@ import AVFoundation
 class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var car: Car!
+    var currentSetupRun: SetupRun!
+    var currentSetup: Setup!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,18 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
     }
     
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+
+        let note = VoiceNote(context: context)
+        let pathComponent = "recording\(note.created as! Date).m4a"
+        let audioFilename = getDocumentsDirectory().appendingPathComponent(pathComponent)
+        note.filePath = pathComponent
+        car.addToToVoiceNote(note)
+        if currentSetup != nil {
+            currentSetup.addToToVoiceNote(note)
+        }
+        if currentSetupRun != nil {
+            currentSetupRun.addToToVoiceNote(note)
+        }
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -96,7 +110,8 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
         
         if success {
-            recordButton.setTitle("Tap to Re-record", for: .normal)
+            recordButton.setTitle("Tap to Record!", for: .normal)
+            ad.saveContext()
         } else {
             recordButton.setTitle("Tap to Record", for: .normal)
             // recording failed :(

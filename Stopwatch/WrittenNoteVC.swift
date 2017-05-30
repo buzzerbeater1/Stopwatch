@@ -13,6 +13,8 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     
     var car: Car!
+    var currentSetupRun: SetupRun!
+    var currentSetup: Setup!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +62,19 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        let note = Note(context: context)
-//        note.written = textView.text
-//        car.addToToNote(note)
-//        ad.saveContext()
-//        print(car.toNote!.count)
+        if textView.text != "Please write your Note in this Textfield!" && textView.text != "" {
+            let note = WrittenNote(context: context)
+            note.written = textView.text
+            car.addToToWrittenNote(note)
+            if currentSetupRun != nil {
+                currentSetupRun.addToToWrittenNote(note)
+            }
+            if currentSetup != nil {
+                currentSetup.addToToWrittenNote(note)
+            }
+            ad.saveContext()
+        }
+        print(car.toWrittenNote!.count)
     }
 
 }

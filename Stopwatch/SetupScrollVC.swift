@@ -15,12 +15,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var notesStackView: UIStackView!
     
-    @IBAction func debugButtonPressed(_ sender: UIButton) {
-        for singleSetup in setups {
-            print(singleSetup.created!)
-        }
-    }
-    
     @IBAction func chooseSetupButtonPressed(_ sender: UIButton) {
         if tableView == nil {
             
@@ -103,7 +97,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
         
         
         if car != nil {
@@ -321,11 +314,12 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            let note = Note(context: context)
-//            note.picture = img
-//            car.addToToNote(note)
-//            ad.saveContext()
-//            print(car.toNote!.count)
+            let note = PictureNote(context: context)
+            note.picture = img
+            car.addToToPictureNote(note)
+            setup.addToToPictureNote(note)
+            ad.saveContext()
+            print(car.toPictureNote!.count)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

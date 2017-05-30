@@ -10,21 +10,36 @@ import UIKit
 
 class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var expandedView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func testButtonPressed(_ sender: UIButton) {
-//        performSegue(withIdentifier: "InRaceSetupDetailsVC", sender: nil)
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let newSetup = SetupRun(context: context)
+        setupRuns.append(newSetup)
+        car.addToToSetupRun(newSetup)
+        ad.saveContext()
     }
     
-    @IBAction func toggleButtonPressed(_ sender: UIButton) {
-        if expandedView.isHidden {
-            expandedView.isHidden = false
+    @IBAction func pictureButtonPressed(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraCaptureMode = .photo
+            imagePicker.modalPresentationStyle = .fullScreen
+            present(imagePicker,animated: true,completion: nil)
         } else {
-            expandedView.isHidden = true
+            noCamera()
         }
+    }
+    
+    @IBAction func voiceButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "VoiceNoteVC", sender: car)
+    }
+    
+    @IBAction func writeButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "WrittenNoteVC", sender: car)
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
@@ -38,8 +53,10 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     var car: Car!
     var setupRuns = [SetupRun]() {
         didSet {
-            setupRuns = setupRuns.sorted(by: { ($0.created?.timeIntervalSince1970)! > ($1.created?.timeIntervalSince1970)! })
+            setupRuns = setupRuns.sorted(by: { ($0.created?.timeIntervalSince1970)! < ($1.created?.timeIntervalSince1970)! })
             print("SetupRuns just got set!!, there are \(setupRuns.count) Setups")
+            subviewNeedsLayout = true
+            self.view.setNeedsLayout()
         }
     }
     var imagePicker: UIImagePickerController!
@@ -56,49 +73,7 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         if car != nil {
             setupRuns = car.toSetupRun?.allObjects as! [SetupRun]
         }
-//        let testRun = SetupRun(context: context)
-//        testRun.tirePressureRR = "11"
-//        testRun.tirePressureFL = "1"
-//        testRun.tirePressureFR = "2"
-//        testRun.tirePressureRL = "23"
-//        testRun.tireTemperatureFLIn = "1"
-//        testRun.tireTemperatureFLOut = "3"
-//        testRun.tireTemperatureFLMid = "2"
-//        testRun.tireTemperatureFRIn = "1"
-//        testRun.tireTemperatureFROut = "3"
-//        testRun.tireTemperatureFRMid = "2"
-//        testRun.tireTemperatureRLIn = "1"
-//        testRun.tireTemperatureRLOut = "3"
-//        testRun.tireTemperatureRLMid = "2"
-//        testRun.tireTemperatureRRIn = "1"
-//        testRun.tireTemperatureRROut = "3"
-//        testRun.tireTemperatureRRMid = "2"
-//        testRun.airTemp = "23"
-//        testRun.trackTemp = "43"
-//        testRun.fuel = "34"
-//        setupRuns.append(testRun)
-//        let testRun2 = SetupRun(context: context)
-//        testRun2.tirePressureRR = "15"
-//        testRun2.tirePressureFL = "5"
-//        testRun2.tirePressureFR = "12"
-//        testRun2.tirePressureRL = "8"
-//        testRun2.tireTemperatureFLIn = "7"
-//        testRun2.tireTemperatureFLOut = "9"
-//        testRun2.tireTemperatureFLMid = "8"
-//        testRun2.tireTemperatureFRIn = "7"
-//        testRun2.tireTemperatureFROut = "9"
-//        testRun2.tireTemperatureFRMid = "8"
-//        testRun2.tireTemperatureRLIn = "7"
-//        testRun2.tireTemperatureRLOut = "9"
-//        testRun2.tireTemperatureRLMid = "8"
-//        testRun2.tireTemperatureRRIn = "7"
-//        testRun2.tireTemperatureRROut = "9"
-//        testRun2.tireTemperatureRRMid = "8"
-//        testRun2.airTemp = "57"
-//        testRun2.trackTemp = "55"
-//        testRun2.fuel = "12"
-//        setupRuns.append(testRun2)
-        
+
         containerScrollView.delegate = self
         
         tableView.dataSource = self
@@ -126,7 +101,7 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
                 tv.rowHeight = 50
                 runTables.append(tv)
                 self.containerScrollView.addSubview(runTables[x])
-                //print("\(x) sucessfully initialized")
+                print("\(x) sucessfully initialized")
             } while (runTables.count < setupRuns.count)
             subviewNeedsLayout = false
         }
@@ -136,18 +111,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "InRaceSetupDetailsVC" {
-//            if let controller = segue.destination as? InRaceSetupDetailsVC {
-//                controller.presentationController?.delegate = self
-//                controller.modalPresentationStyle = .overCurrentContext
-//                controller.view.superview?.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-//                controller.view.superview?.center = self.view.center
-//            }
-//        }
-//    }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if targetContentOffset.pointee.x < 10 {
@@ -330,13 +293,13 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         for tf in textFields {
             tf.textAlignment = .center
             tf.borderStyle = .none
+            tf.minimumFontSize = 5
             tf.font = UIFont(name: "Arial", size: 50)
             tf.adjustsFontSizeToFitWidth = true
             tf.keyboardType = .numbersAndPunctuation
             overlay.addSubview(tf)
         }
     }
-    
     
     func removeSubview() {
         saveData()
@@ -352,29 +315,30 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         let x = currentTable
         let y = currentRow
         if y == 0 {
-        setupRuns[x].tirePressureFL = tirePressureFLTextField.text
-        setupRuns[x].tirePressureFR = tirePressureFRTextField.text
-        setupRuns[x].tirePressureFR = tirePressureRLTextField.text
-        setupRuns[x].tirePressureRR = tirePressureRRTextField.text
+            setupRuns[x].tirePressureFL = tirePressureFLTextField.text
+            setupRuns[x].tirePressureFR = tirePressureFRTextField.text
+            setupRuns[x].tirePressureRL = tirePressureRLTextField.text
+            setupRuns[x].tirePressureRR = tirePressureRRTextField.text
         } else if y == 1 {
-        setupRuns[x].tireTemperatureFLOut = tireTemperatureFLOutTextField.text
-        setupRuns[x].tireTemperatureFLMid = tireTemperatureFLMidTextField.text
-        setupRuns[x].tireTemperatureFLIn = tireTemperatureFLInTextField.text
-        setupRuns[x].tireTemperatureFROut = tireTemperatureFROutTextField.text
-        setupRuns[x].tireTemperatureFRMid = tireTemperatureFRMidTextField.text
-        setupRuns[x].tireTemperatureFRIn = tireTemperatureFRInTextField.text
-        setupRuns[x].tireTemperatureRLOut = tireTemperatureRLOutTextField.text
-        setupRuns[x].tireTemperatureRLMid = tireTemperatureRLMidTextField.text
-        setupRuns[x].tireTemperatureRLIn = tireTemperatureRLInTextField.text
-        setupRuns[x].tireTemperatureRROut = tireTemperatureRROutTextField.text
-        setupRuns[x].tireTemperatureRRMid = tireTemperatureRRMidTextField.text
-        setupRuns[x].tireTemperatureRRIn = tireTemperatureRRInTextField.text
+            setupRuns[x].tireTemperatureFLOut = tireTemperatureFLOutTextField.text
+            setupRuns[x].tireTemperatureFLMid = tireTemperatureFLMidTextField.text
+            setupRuns[x].tireTemperatureFLIn = tireTemperatureFLInTextField.text
+            setupRuns[x].tireTemperatureFROut = tireTemperatureFROutTextField.text
+            setupRuns[x].tireTemperatureFRMid = tireTemperatureFRMidTextField.text
+            setupRuns[x].tireTemperatureFRIn = tireTemperatureFRInTextField.text
+            setupRuns[x].tireTemperatureRLOut = tireTemperatureRLOutTextField.text
+            setupRuns[x].tireTemperatureRLMid = tireTemperatureRLMidTextField.text
+            setupRuns[x].tireTemperatureRLIn = tireTemperatureRLInTextField.text
+            setupRuns[x].tireTemperatureRROut = tireTemperatureRROutTextField.text
+            setupRuns[x].tireTemperatureRRMid = tireTemperatureRRMidTextField.text
+            setupRuns[x].tireTemperatureRRIn = tireTemperatureRRInTextField.text
         } else if y == 2 {
-        setupRuns[x].fuel = fuelTextfield.text
+            setupRuns[x].fuel = fuelTextfield.text
         } else if y == 3 {
-        setupRuns[x].airTemp = airTempTextfield.text
-        setupRuns[x].trackTemp = trackTempTextfield.text
+            setupRuns[x].airTemp = airTempTextfield.text
+            setupRuns[x].trackTemp = trackTempTextfield.text
         }
+        ad.saveContext()
         runTables[x].reloadData()
     }
     
@@ -399,4 +363,58 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         airTempTextfield = UITextField()
         trackTempTextfield = UITextField()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //segue for the popover configuration window
+        if segue.identifier == "VoiceNoteVC" {
+            if let controller = segue.destination as? VoiceNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                    controller.currentSetupRun = setupRuns.last
+                }
+            }
+        }
+        if segue.identifier == "WrittenNoteVC" {
+            if let controller = segue.destination as? WrittenNoteVC {
+                controller.popoverPresentationController!.delegate = self
+                controller.modalPresentationStyle = UIModalPresentationStyle.popover
+                if let car = sender as? Car {
+                    controller.car = car
+                    controller.currentSetupRun = setupRuns.last
+                }
+            }
+        }
+    }
+    
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let note = PictureNote(context: context)
+            note.picture = img
+            car.addToToPictureNote(note)
+            setupRuns.last?.addToToPictureNote(note)
+            ad.saveContext()
+            print(car.toPictureNote!.count)
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+
+
 }
