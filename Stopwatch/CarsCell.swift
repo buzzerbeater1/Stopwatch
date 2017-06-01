@@ -17,6 +17,8 @@ class CarsCell: UITableViewCell {
    
     func configureCell(car: Car){
         carImage.image = car.picture as? UIImage
+        carImage.contentMode = .scaleAspectFill
+        carImage.clipsToBounds = true
         carModel.text = car.model
         carName.text = car.name
     }

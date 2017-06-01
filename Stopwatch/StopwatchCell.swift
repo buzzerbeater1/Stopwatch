@@ -16,6 +16,7 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var carNameLabel: UILabel!
     @IBOutlet weak var lapResetButton: UIButton!
+    @IBOutlet weak var startStopButton: UIButton!
 
     var counter = 0.0
     var timer = Timer()
@@ -29,6 +30,8 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
     @IBAction func carNameLabelPressed(_ sender: UIButton) {
         carPicker.isHidden = false
     }
+    
+    
     
     
 //    @IBAction func resetButtonPressed(_ sender: UIButton) {
@@ -45,12 +48,14 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
         if isPlaying {
             timer.invalidate()
             isPlaying = false
-            lapResetButton.titleLabel?.text = "Reset"
+            lapResetButton.setTitle("Reset", for: .normal)
+            startStopButton.setTitle("Start", for: .normal)
         } else {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             isPlaying = true
             accurateStartTime = NSDate.timeIntervalSinceReferenceDate
-            lapResetButton.titleLabel?.text = "Lap"
+            lapResetButton.setTitle("Lap", for: .normal)
+            startStopButton.setTitle("Stop", for: .normal)
         }
     }
     
@@ -92,6 +97,8 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
 //        carPicker.isHidden = true
         carPicker.delegate = self
         carPicker.dataSource = self
+        
+        startStopButton.titleLabel?.text = "Start"
         
         getCars()
     }

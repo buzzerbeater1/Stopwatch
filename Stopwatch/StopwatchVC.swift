@@ -9,6 +9,7 @@
 import UIKit
 
 class StopwatchVC: UIViewControllerStatusBar {
+    
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -84,6 +85,7 @@ class StopwatchVC: UIViewControllerStatusBar {
     func UpdateTimer() {
         counter += 0.1
         totalCounter += 0.1
+        timeLabel.text = String(format: "%.1f", counter)
         if sectionCounter == 1 {
             section1Label.text = String(format: "%.1f", counter)
         } else if sectionCounter == 2 {

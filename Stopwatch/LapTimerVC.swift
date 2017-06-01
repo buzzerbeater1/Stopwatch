@@ -17,6 +17,11 @@ class LapTimerVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         rows += 1
         tableView.reloadData()

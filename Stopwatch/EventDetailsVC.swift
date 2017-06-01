@@ -53,14 +53,46 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
         }
     }
     
-    @IBAction func datePickerButtonPressed(_ sender: UIButton) {
+    @IBAction func startDateButtonPressed(_ sender: UIButton) {
         if showDatePicker {
+            step = 0
             hideDatePicker(false)
             navigationBar.topItem?.title = "Set Start Date!"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            dateFormatter.timeStyle = DateFormatter.Style.short
+            startDateLabel.text = dateFormatter.string(from: datePicker.date)
         } else {
             hideDatePicker(true)
+            if step == 0 {
+                event.startDate = datePicker.date as NSDate?
+            } else {
+                event.endDate = datePicker.date as NSDate?
+            }
         }
     }
+    
+    @IBAction func endDateButtonPressed(_ sender: UIButton) {
+        if showDatePicker {
+            step = 1
+            hideDatePicker(false)
+            navigationBar.topItem?.title = "Set End Date!"
+            datePicker.minimumDate = event.startDate as Date?
+        } else {
+            hideDatePicker(true)
+            if step == 0 {
+                event.startDate = datePicker.date as NSDate?
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = DateFormatter.Style.short
+                dateFormatter.timeStyle = DateFormatter.Style.short
+                startDateLabel.text = dateFormatter.string(from: datePicker.date)
+            } else {
+                event.endDate = datePicker.date as NSDate?
+            }
+        }
+    }
+    
+    
     
     @IBAction func addCarButtonPressed(_ sender: UIButton) {
         if addCarsMode {
@@ -118,7 +150,7 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
             weatherButton.isEnabled = false
         }
         
-        configurePickerButton()
+        
         cars = event.toCar?.allObjects as! [Car]
         attemptFetch()
         
@@ -148,24 +180,28 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
         }
     }
     
-    func configurePickerButton() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventDetailsVC.tap))  //Tap function will call when user tap on button
-        tapGesture.delegate = self
-//        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
-//        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
-        tapGesture.numberOfTapsRequired = 1
-//        doubleTapGesture.numberOfTapsRequired = 2
-        datePicker.addGestureRecognizer(tapGesture)
-//        carImageButton.addGestureRecognizer(longGesture)
-//        carImageButton.addGestureRecognizer(doubleTapGesture)
-    }
+//    func configurePickerButton() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventDetailsVC.tap))  //Tap function will call when user tap on button
+//        tapGesture.delegate = self
+////        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
+////        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
+//        tapGesture.numberOfTapsRequired = 1
+////        doubleTapGesture.numberOfTapsRequired = 2
+//        datePicker.addGestureRecognizer(tapGesture)
+////        carImageButton.addGestureRecognizer(longGesture)
+////        carImageButton.addGestureRecognizer(doubleTapGesture)
+//    }
     
     func tap() {
         if step == 0 {
             event.startDate = datePicker.date as NSDate?
-            step += 1
             datePicker.minimumDate = event.startDate as Date?
             navigationBar.topItem?.title = "Set End Date!"
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            dateFormatter.timeStyle = DateFormatter.Style.short
+            startDateLabel.text = dateFormatter.string(from: datePicker.date)
         }else if step == 1 {
             event.endDate = datePicker.date as NSDate?
             hideDatePicker(true)
