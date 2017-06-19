@@ -12,7 +12,6 @@
         <relationship name="toLaptime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LapTime" inverseName="toCar" inverseEntity="LapTime" syncable="YES"/>
         <relationship name="toPictureNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PictureNote" inverseName="toCar" inverseEntity="PictureNote" syncable="YES"/>
         <relationship name="toRaceEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEvent" inverseName="toCar" inverseEntity="RaceEvent" syncable="YES"/>
-        <relationship name="toRuns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Runs" inverseName="toCar" inverseEntity="Runs" syncable="YES"/>
         <relationship name="toSession" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="toCar" inverseEntity="Session" syncable="YES"/>
         <relationship name="toSetup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Setup" inverseName="toCar" inverseEntity="Setup" syncable="YES"/>
         <relationship name="toSetupRun" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toCar" inverseEntity="SetupRun" syncable="YES"/>
@@ -48,15 +47,6 @@
         <relationship name="toSetup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Setup" inverseName="toPictureNote" inverseEntity="Setup" syncable="YES"/>
         <relationship name="toSetupRun" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toPictureNote" inverseEntity="SetupRun" syncable="YES"/>
     </entity>
-    <entity name="PitLaneTime" representedClassName="PitLaneTime" syncable="YES">
-        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="section1Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="section2Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="section3Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="section4Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="section5Time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
     <entity name="RaceEvent" representedClassName="RaceEvent" syncable="YES">
         <attribute name="circuit" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -66,7 +56,6 @@
         <relationship name="toCar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="toRaceEvent" inverseEntity="Car" syncable="YES"/>
         <relationship name="toChampionship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Championship" inverseName="toRaceEvent" inverseEntity="Championship" syncable="YES"/>
         <relationship name="toRacetrack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Racetrack" inverseName="toRaceEvent" inverseEntity="Racetrack" syncable="YES"/>
-        <relationship name="toRuns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Runs" inverseName="toRaceEvent" inverseEntity="Runs" syncable="YES"/>
         <relationship name="toSession" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="toRaceEvent" inverseEntity="Session" syncable="YES"/>
         <relationship name="toSetupRun" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toRaceEvent" inverseEntity="SetupRun" syncable="YES"/>
         <relationship name="toWeatherMonitor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaterMonitor" inverseName="toRaceEvent" inverseEntity="WeaterMonitor" syncable="YES"/>
@@ -75,13 +64,6 @@
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toRaceEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEvent" inverseName="toRacetrack" inverseEntity="RaceEvent" syncable="YES"/>
-    </entity>
-    <entity name="Runs" representedClassName="Runs" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="toCar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="toRuns" inverseEntity="Car" syncable="YES"/>
-        <relationship name="toRaceEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RaceEvent" inverseName="toRuns" inverseEntity="RaceEvent" syncable="YES"/>
-        <relationship name="toSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="toRuns" inverseEntity="Session" syncable="YES"/>
-        <relationship name="toSetup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Setup" inverseName="toRuns" inverseEntity="Setup" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -93,7 +75,6 @@
         <relationship name="toCar" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="toSession" inverseEntity="Car" syncable="YES"/>
         <relationship name="toChampionship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Championship" inverseName="toSession" inverseEntity="Championship" syncable="YES"/>
         <relationship name="toRaceEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RaceEvent" inverseName="toSession" inverseEntity="RaceEvent" syncable="YES"/>
-        <relationship name="toRuns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Runs" inverseName="toSession" inverseEntity="Runs" syncable="YES"/>
         <relationship name="toSetupRun" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toSession" inverseEntity="SetupRun" syncable="YES"/>
         <relationship name="toWeatherMonitor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeaterMonitor" inverseName="toSession" inverseEntity="WeaterMonitor" syncable="YES"/>
     </entity>
@@ -106,7 +87,6 @@
         <attribute name="rr" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="toCar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="toSetup" inverseEntity="Car" syncable="YES"/>
         <relationship name="toPictureNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PictureNote" inverseName="toSetup" inverseEntity="PictureNote" syncable="YES"/>
-        <relationship name="toRuns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Runs" inverseName="toSetup" inverseEntity="Runs" syncable="YES"/>
         <relationship name="toVoiceNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VoiceNote" inverseName="toSetup" inverseEntity="VoiceNote" syncable="YES"/>
         <relationship name="toWrittenNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WrittenNote" inverseName="toSetup" inverseEntity="WrittenNote" syncable="YES"/>
     </entity>
@@ -159,17 +139,15 @@
         <relationship name="toSetupRun" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetupRun" inverseName="toWrittenNote" inverseEntity="SetupRun" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Car" positionX="-315" positionY="-63" width="128" height="300"/>
+        <element name="Car" positionX="-315" positionY="-63" width="128" height="285"/>
         <element name="Championship" positionX="-351" positionY="-90" width="128" height="180"/>
         <element name="Driver" positionX="-387" positionY="-126" width="128" height="105"/>
         <element name="LapTime" positionX="-585" positionY="-36" width="128" height="88"/>
         <element name="PictureNote" positionX="-387" positionY="-126" width="128" height="120"/>
-        <element name="PitLaneTime" positionX="-351" positionY="-267" width="128" height="150"/>
-        <element name="RaceEvent" positionX="-369" positionY="-108" width="128" height="225"/>
+        <element name="RaceEvent" positionX="-369" positionY="-108" width="128" height="210"/>
         <element name="Racetrack" positionX="-378" positionY="-117" width="128" height="90"/>
-        <element name="Runs" positionX="-342" positionY="-81" width="128" height="120"/>
-        <element name="Session" positionX="-360" positionY="-99" width="128" height="225"/>
-        <element name="Setup" positionX="241" positionY="-135" width="128" height="210"/>
+        <element name="Session" positionX="-360" positionY="-99" width="128" height="210"/>
+        <element name="Setup" positionX="241" positionY="-135" width="128" height="195"/>
         <element name="SetupRun" positionX="-387" positionY="-126" width="128" height="435"/>
         <element name="VoiceNote" positionX="-369" positionY="-108" width="128" height="120"/>
         <element name="WeaterMonitor" positionX="-333" positionY="-72" width="128" height="105"/>

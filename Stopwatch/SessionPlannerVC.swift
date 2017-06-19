@@ -51,18 +51,23 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         
         if event != nil {
             print("We have an event in the planner!")
+        } else {
+            dismiss(animated: true, completion: nil)
         }
         
         if event.toSession?.allObjects != nil {
             sessions = event.toSession?.allObjects as! [Session]
             print("We have this many sessions: \(sessions.count)")
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         numberOfDays = findNumberOfDays()
         weekDays = createWeekdays(from: event.startDate as! Date, to: event.endDate as! Date)
-        print("number of week days: \(weekDays)")
-        
-        
+        sessions = event.toSession?.allObjects as! [Session]
+        for tv in dayTables {
+            tv.reloadData()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,7 +93,9 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
     
     func findNumberOfDays() -> Int {
         let calendar = NSCalendar.current
-        
+        if event.startDate == nil || event.endDate == nil {
+            return 0
+        }
         // Replace the hour (time) of both dates with 00:00
         let date1 = calendar.startOfDay(for: event.startDate as! Date)
         let date2 = calendar.startOfDay(for: event.endDate as! Date)
@@ -107,13 +114,20 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         let numberOfEndDay = calendar.component(.weekday, from: end)
         print("number of end day:\(numberOfEndDay)")
         if numberOfDays < 5 {
-            weekday = calendar.weekdaySymbols
+            weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         } else {
-            weekday = calendar.shortWeekdaySymbols
+            weekday = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         }
+        
+        if numberOfStartDay == 7 {
+            return ["Saturday", "Sunday"]
+        }
+        
         for x in numberOfStartDay...numberOfEndDay {
-            weekdays.append(weekday[x-1])
+            weekdays.append(weekday[x-2])
         }
+        
+        print(weekdays)
         return weekdays
     }
     
@@ -131,12 +145,11 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as? SessionCell {
+            cell.numberLabel?.text = "\(indexPath.row)"
             for session in sessions {
-                if session.eventDay == "Mon" && tableView.tag == 0 {
-                    
-                    cell.label?.text = "\(indexPath.row)"
-                }
-                if session.eventDay == "Wed" && tableView.tag == 2 {
+                print(weekDays.index(of: session.eventDay!)!)
+                print(tableView.tag)
+                if weekDays.index(of: session.eventDay!) == tableView.tag {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "HH"
                     let start = Int(dateFormatter.string(from: session.startTime! as Date))!
@@ -145,7 +158,9 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
                     let startMinute = Int(dateFormatter.string(from: session.startTime! as Date))!
                     let endMinute = Int(dateFormatter.string(from: session.endTime! as Date))!
                     if indexPath.row >= start && indexPath.row <= end {
-                        cell.label?.text = "\(indexPath.row)"
+                        cell.numberLabel?.backgroundColor = .red
+                        cell.nameLabel?.text = session.name
+                        cell.nameLabel?.isHidden = false
                         cell.yellowStrip?.isHidden = false
                         if indexPath.row == start {
                             cell.yellowStrip?.frame = CGRect(x: 30, y: (Double(startMinute)/60)*Double(cell.frame.height), width: 5, height: (1 - (Double(startMinute)/60))*Double(cell.frame.height))

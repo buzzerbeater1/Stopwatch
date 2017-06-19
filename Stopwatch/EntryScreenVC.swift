@@ -9,15 +9,11 @@
 import UIKit
 
 class EntryScreenVC: UIViewControllerStatusBar {
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-   
     @IBAction func stopwatchButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "StopwatchVC0", sender: nil)
     }

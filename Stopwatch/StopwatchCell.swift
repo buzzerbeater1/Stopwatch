@@ -31,19 +31,6 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
         carPicker.isHidden = false
     }
     
-    
-    
-    
-//    @IBAction func resetButtonPressed(_ sender: UIButton) {
-//        sectionCounter = 1
-//        timer.invalidate()
-//        isPlaying = false
-//        counter = 0.0
-//        totalCounter = 0.0
-//        lapTimeLabel.text = "0.0"
-//        totalTimeLabel.text = "0.0"
-//    }
-    
     @IBAction func startStopButtonPressed(_ sender: UIButton) {
         if isPlaying {
             timer.invalidate()
@@ -58,8 +45,6 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
             startStopButton.setTitle("Stop", for: .normal)
         }
     }
-    
-    
     
     @IBAction func lapResetButtonPressed(_ sender: UIButton) {
         if isPlaying {
@@ -105,15 +90,13 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func updateTimer() {
         counter += 0.1
         totalCounter += 0.1
-        lapTimeLabel.text = String(format:"%.01f", counter)
-        totalTimeLabel.text = String(format: "%.01f", totalCounter)
+        lapTimeLabel.text = formatTimeString(counter, sig: 1)
+        totalTimeLabel.text = formatTimeString(totalCounter, sig: 1)
     }
     
     func updateName(car: String) {
@@ -153,16 +136,25 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
             print("\(error)")
         }
     }
-    
-//    override func prepareForReuse() {
-//        timer.invalidate()
-//        isPlaying = false
-//        sectionCounter = 1
-//        counter = 0.0
-//        totalCounter = 0.0
-//        lapTimeLabel.text = "0.0"
-//        totalTimeLabel.text = "0.0"
-//        lapResetButton.titleLabel?.text = "Reset"
-//    }
+ 
+    func formatTimeString(_ time: Double, sig digits: Int) -> String {
+        if time < 60 {
+            return String(format:"%.0\(digits)f",time)
+        }else if time < 3600 {
+            var combinedTime: String
+            let min = Int(round((time / 60)*10)/10)
+            let secPre = (time - Double(min*60))
+            let sec = String(format:"%2.0\(digits)f", secPre)
+            if secPre < 10 {
+                combinedTime = "\(min):0\(sec)"
+            } else {
+                combinedTime = "\(min):\(sec)"
+            }
+            return combinedTime
+        }else{
+            print("Who the fuck takes Laptimes Longer than one hour?!")
+            return "Stackoverflow"
+        }
+    }
 
 }

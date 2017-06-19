@@ -11,6 +11,17 @@ import CoreData
 
 class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+    @IBAction func sessionPlannerButtonPressed(_ sender: UIButton) {
+        if event.startDate != nil && event.endDate != nil {
+            performSegue(withIdentifier: "SessionPlannerVC", sender: event)
+        } else {
+            let alert = UIAlertController(title: "Warning!", message: "Session Planner only available if a start and end date is set!!", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK!", style: .cancel, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
 
         if let name = nameTextfield.text {
@@ -23,7 +34,7 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
             event.circuit = circuit
         }
         
-        if event.name != nil && event.name != "" {
+        if event.name != nil && event.name != "" && event.startDate != nil && event.endDate != nil {
             ad.saveContext()
         }
         _ = navigationController?.popViewController(animated: true)
@@ -143,13 +154,18 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
         tableView.dataSource = self
         
         if event != nil {
+            if event.startDate != nil && event.endDate != nil {
+                
+            } else {
+                sessionPlannerButton.isEnabled = false
+                weatherButton.isEnabled = false
+            }
             loadEventData()
         } else {
             event = RaceEvent(context: context)
             sessionPlannerButton.isEnabled = false
             weatherButton.isEnabled = false
         }
-        
         
         cars = event.toCar?.allObjects as! [Car]
         attemptFetch()
@@ -159,7 +175,6 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func loadEventData() {
@@ -179,18 +194,6 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
             }
         }
     }
-    
-//    func configurePickerButton() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventDetailsVC.tap))  //Tap function will call when user tap on button
-//        tapGesture.delegate = self
-////        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
-////        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
-//        tapGesture.numberOfTapsRequired = 1
-////        doubleTapGesture.numberOfTapsRequired = 2
-//        datePicker.addGestureRecognizer(tapGesture)
-////        carImageButton.addGestureRecognizer(longGesture)
-////        carImageButton.addGestureRecognizer(doubleTapGesture)
-//    }
     
     func tap() {
         if step == 0 {
@@ -262,7 +265,7 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
         }
         if segue.identifier == "WeatherVC" {
             if let destination = segue.destination as? WeatherVC {
-                    destination.event = self.event
+                destination.event = self.event
             }
         }
         if segue.identifier == "SessionPlannerVC" {

@@ -79,8 +79,7 @@ class StopwatchVC: UIViewControllerStatusBar {
     
     @IBAction func PreviousButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-    
+    }  
     
     func UpdateTimer() {
         counter += 0.1
@@ -99,9 +98,5 @@ class StopwatchVC: UIViewControllerStatusBar {
         }
         totalTimeLabel.text = String(format: "%.1f", totalCounter)
     }
-    
-    
-
-
 }
 

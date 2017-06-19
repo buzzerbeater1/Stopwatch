@@ -19,13 +19,10 @@ class NotesCell: UITableViewCell, AVAudioPlayerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configureCell(_ car: Car, at index: Int, with row: Int) {
@@ -81,7 +78,6 @@ class NotesCell: UITableViewCell, AVAudioPlayerDelegate {
         let noDataLabel = UILabel(frame: CGRect(x: 5, y: 5, width: self.bounds.width - 10, height: 20))
         noDataLabel.text = "There is no Data, sorry."
         self.addSubview(noDataLabel)
-        //tableView.rowHeight = 30
     }
     
     override func prepareForReuse() {

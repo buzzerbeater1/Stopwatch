@@ -155,37 +155,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             print("Page \(x) sucessfully initialized")
         } while (x < segmentControl.numberOfSegments)
         
-        
-//        
-//        self.containerScrollView.addSubview(obj2.view)
-//        obj2.willMove(toParentViewController: self)
-//        self.addChildViewController(obj2)
-//        
-//        self.containerScrollView.addSubview(obj1.view)
-//        obj1.willMove(toParentViewController: self)
-//        self.addChildViewController(obj1)
-//        
-//        self.containerScrollView.addSubview(obj3.view)
-//        obj3.willMove(toParentViewController: self)
-//        self.addChildViewController(obj3)
-//        
-//        self.containerScrollView.addSubview(obj4.view)
-//        obj4.willMove(toParentViewController: self)
-//        self.addChildViewController(obj4)
-//        
-//        self.containerScrollView.addSubview(obj5.view)
-//        obj5.willMove(toParentViewController: self)
-//        self.addChildViewController(obj5)
-//        
-//        obj1.view.frame.origin =  CGPoint.init(x: 0, y: 0)
-//        obj2.view.frame.origin =  CGPoint.init(x: UIScreen.main.bounds.width, y: 0)
-//        obj3.view.frame.origin = CGPoint.init(x: 2*UIScreen.main.bounds.width, y: 0)
-//        obj4.view.frame.origin = CGPoint.init(x: 3*UIScreen.main.bounds.width, y: 0)
-//        obj5.view.frame.origin = CGPoint.init(x: 4*UIScreen.main.bounds.width, y: 0)
-        
-//        self.containerScrollView.frame = obj[2].view.frame
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidLayoutSubviews() {
@@ -249,18 +218,13 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         page5.imageView.contentMode = .scaleToFill
         page5.imageView.frame = CGRect(x: 0, y: 0, width: width, height: width * (baseHeight/375))
         page5.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: width, height: width * (baseHeight/375)))
-        
-        
-        print("SHIT I DID A NEW LAYOUT WTF!!!")
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        //Do shit
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -270,7 +234,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //segue for the popover configuration window
         if segue.identifier == "VoiceNoteVC" {
             if let controller = segue.destination as? VoiceNoteVC {
                 controller.popoverPresentationController!.delegate = self
@@ -292,7 +255,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
     }
     

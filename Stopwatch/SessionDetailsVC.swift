@@ -31,7 +31,6 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
             print("We will save it!!")
         }
         
-        
         _ = navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -110,9 +109,7 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TEST DATA DELETE IT AGAIN
-    //   let sessionArray = event.toSession?.allObjects as? [Session]
-    //    session = sessionArray?[0]
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -160,15 +157,10 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
     }
     
     func configurePickerButton() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventDetailsVC.tap))  //Tap function will call when user tap on button
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EventDetailsVC.tap)) 
         tapGesture.delegate = self
-        //        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
-        //        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
         tapGesture.numberOfTapsRequired = 1
-        //        doubleTapGesture.numberOfTapsRequired = 2
         datePicker.addGestureRecognizer(tapGesture)
-        //        carImageButton.addGestureRecognizer(longGesture)
-        //        carImageButton.addGestureRecognizer(doubleTapGesture)
     }
     
     func tap() {

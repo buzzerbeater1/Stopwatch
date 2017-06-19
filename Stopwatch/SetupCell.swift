@@ -56,8 +56,6 @@ class SetupCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     func createLayout(_ row: Int, dataFrom setup: SetupRun) {
@@ -126,14 +124,9 @@ class SetupCell: UITableViewCell {
             tirePressureFRLabel.text = setup.tirePressureFR
             tirePressureFLLabel.text = setup.tirePressureFL
         } else if row == 1 {
-            print("HELLO HELLO HELLO HELLO ")
- //           let divisorFL = (2*((Double(setup.tireTemperatureFLMid ?? "50") + Double(setup.tireTemperatureFLIn ?? "50") + Double(setup.tireTemperatureFLOut ?? "50")) / 3))
             tireTemperatureFLMidLabel.text = setup.tireTemperatureFLMid
-  //          tireTemperatureFLMidLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLMid ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)   //(red: CGFloat(Double(setup.tireTemperatureFLMid ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLMid ?? "50")!)/divisorFL), blue: 0, alpha: 1)
             tireTemperatureFLOutLabel.text = setup.tireTemperatureFLOut
- //           tireTemperatureFLOutLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLOut ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)   //red: CGFloat(Double(setup.tireTemperatureFLOut ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLOut ?? "50")!)/divisorFL), blue: 0, alpha: 1)
             tireTemperatureFLInLabel.text = setup.tireTemperatureFLIn
-  //          tireTemperatureFLInLabel.backgroundColor = UIColor(hue: Double(setup.tireTemperatureFLIn ?? "50")/divisorFL, saturation: 1, brightness: 1, alpha: 1)  //red: CGFloat(Double(setup.tireTemperatureFLIn ?? "50")!)/divisorFL, green: (1 - CGFloat(Double(setup.tireTemperatureFLIn ?? "50")!)/divisorFL), blue: 0, alpha: 1)
             tireTemperatureFRMidLabel.text = setup.tireTemperatureFRMid
             tireTemperatureFROutLabel.text = setup.tireTemperatureFROut
             tireTemperatureFRInLabel.text = setup.tireTemperatureFRIn

@@ -18,12 +18,11 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         textView.delegate = self
-
         textView.text = "Please write your Note in this Textfield!"
         textView.textColor = UIColor.lightGray
-        // Do any additional setup after loading the view.
-        
+  
         if car == nil {
             print("There is no car")
         } else {
@@ -33,20 +32,8 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -56,7 +43,7 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Placeholder"
+            textView.text = "Please write your Note in this Textfield!"
             textView.textColor = UIColor.lightGray
         }
     }
@@ -74,7 +61,5 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
             }
             ad.saveContext()
         }
-        print(car.toWrittenNote!.count)
     }
-
 }

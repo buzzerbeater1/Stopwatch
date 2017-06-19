@@ -49,8 +49,6 @@ class Page2VC: UIViewController {
         frNew.coldPressure.value = coldPressureTextField.text!
         frNew.hotPressure.value = hotPressuretTextField.text!
         
-        
-        
         setup.fr = frNew
     }
     
@@ -66,42 +64,12 @@ class Page2VC: UIViewController {
         
         scrollView.contentSize = CGSize(width: super.view.frame.width, height: super.view.frame.width * (732/375))
         scrollView.frame = super.view.bounds
-        
-        //        let scrollView = UIScrollView(frame: super.view.bounds)
-        //
-        //
-        //        scrollView.delegate = self
-        //        scrollView.backgroundColor = UIColor.black
-        //        let contentWidth = scrollView.bounds.width
-        //        let contentHeight = scrollView.bounds.height*1.2
-        //        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
-        //        let frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight)
-        //        let subview = UIImageView(frame: frame)
-        //        subview.image = UIImage(named: "fr")
-        //        subview.contentMode = .scaleAspectFit
-        //        super.view.addSubview(scrollView)
-        //        scrollView.addSubview(subview)
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
     func updateLabels() {
         rideHeightTextField.text = fr.rideHeight.value
         trackPlateTextField.text = fr.trackPlate.value
@@ -130,5 +98,4 @@ class Page2VC: UIViewController {
         }
         updateLabels()
     }
-    
 }

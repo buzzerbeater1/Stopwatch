@@ -22,7 +22,6 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -41,39 +40,25 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
             let error = error as NSError
             print("\(error) Nothing going on here")
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func loadRecordingUI() {
         recordButton.setTitle("Tap to Record", for: .normal)
         recordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
         recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
-        view.addSubview(recordButton)
     }
     
     func startRecording() {
-
         let note = VoiceNote(context: context)
         let pathComponent = "recording\(note.created as! Date).m4a"
         let audioFilename = getDocumentsDirectory().appendingPathComponent(pathComponent)
         note.filePath = pathComponent
         car.addToToVoiceNote(note)
+        
         if currentSetup != nil {
             currentSetup.addToToVoiceNote(note)
         }
@@ -110,12 +95,11 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
         
         if success {
-            recordButton.setTitle("Tap to Record!", for: .normal)
             ad.saveContext()
         } else {
-            recordButton.setTitle("Tap to Record", for: .normal)
             // recording failed :(
         }
+        recordButton.setTitle("Tap to Record", for: .normal)
     }
     
     func recordTapped() {
@@ -131,5 +115,4 @@ class VoiceNoteVC: UIViewController, AVAudioRecorderDelegate {
             finishRecording(success: false)
         }
     }
-
 }

@@ -11,32 +11,22 @@ import CoreData
 
 class CarsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
-    override var prefersStatusBarHidden: Bool {
-            return statusBarHiddenAppWide
-    }
     
     @IBOutlet weak var tableView: UITableView!
-    //@IBOutlet weak var tabBarItem: UITabBarItem!
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     var controller: NSFetchedResultsController<Car>!
-    
-
-    
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        //generateTestData()
         attemptFetch()
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,7 +78,6 @@ class CarsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSou
     func attemptFetch() {
         let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
         let nameSort = NSSortDescriptor(key: "name", ascending: true)
-        //let modelSort = NSSortDescriptor(key: "model", ascending: true)
         fetchRequest.sortDescriptors = [nameSort]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -137,44 +126,6 @@ class CarsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSou
             }
             break
         }
-    }
-    
-    
-    
-//    func generateTestData() {
-//        let car1 = Cars(image: "1", nameDetails: "CTCC Car 1", model: "BMW M3")
-//        let car2 = Cars(image: "2", nameDetails: "TCR Car 4", model: "Subaru BRZ")
-//        let car3 = Cars(image: "3", nameDetails: "Formula 4 Car 2", model: "Toyota 43SZ")
-//        
-//        cars.append(car1)
-//        cars.append(car2)
-//        cars.append(car3)
-//    }
-    
-    func generateTestData() {
-        let car = Car(context: context)
-        car.model = "Tesla Model S"
-        car.name = "CTCC Car 1"
-        car.picture = UIImage(named: "1")
-        
-        let car2 = Car(context: context)
-        car2.model = "Tesla Model X"
-        car2.name = "China GT1"
-        car2.picture = UIImage(named: "2")
-        
-        let car3 = Car(context: context)
-        car3.model = "Tesla Model 3"
-        car3.name = "TCR Asia"
-        car3.picture = UIImage(named: "3")
-        
-        ad.saveContext()
-    }
-    
-    
-    
-    
-    
-    
-    
+    }   
     
 }

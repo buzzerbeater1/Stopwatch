@@ -47,8 +47,9 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
             car.model = model
         }
         
-        ad.saveContext()
-        
+        if  carName.text != nil && carName.text != "" {
+            ad.saveContext()
+        }
         _ = navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -73,23 +74,12 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func unwindToCarDetailsVC(segue: UIStoryboardSegue, sender: Any) {
-        // Completion code not working: Bug attaches to dismissed VC
         if let segue = segue as? UIStoryboardSegueWithCompletion {
             segue.completion = {
                 self.segueSetup()
             }
         }
-        // This solution isnt working either. Reason unknown
-//        let setupScrollVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetupScrollVC") as? SetupScrollVC
-//        setupScrollVC?.car = carToEdit
-//        self.navigationController?.viewControllers.append(setupScrollVC!)
-//        self.navigationController?.show(setupScrollVC!, sender: self)
     }
-    
-//    @IBAction func addImage(_ sender: UIButton) {
-//        present(imagePicker, animated: true, completion: nil)
-//    } 
-    
     
     
     @IBOutlet weak var carImageButton: UIButton!
@@ -205,9 +195,11 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
     func long() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.allowsEditing = false
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.sourceType = .camera
             imagePicker.cameraCaptureMode = .photo
             imagePicker.modalPresentationStyle = .fullScreen
+            imagePicker.allowsEditing = true
+            imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
             present(imagePicker,animated: true,completion: nil)
             print("Long press")
         } else {
@@ -217,16 +209,13 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
     
     func doubleTap() {
         let alert = UIAlertController(title: "Download Picture", message: "Please Input a valid picture URL!", preferredStyle: .alert)
-//        let alertAction = UIAlertAction(title: "Download", style: .default, handler: nil)
         let alertAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
-            // Get 1st TextField's text
             let textField = alert.textFields![0]
             self.carName.text = textField.text!
         })
         alert.addAction(alertAction)
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Enter URL:"
-//            textField.isSecureTextEntry = true
         })
         self.present(alert, animated: true, completion: nil)
         
@@ -251,7 +240,6 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
             if textView.isHidden {
                 textView.isHidden = false
                 navigationBar.topItem?.title = "Job List"
-                //setText()
                 showArrowForJobList(true)
             } else {
                 textView.isHidden = true
@@ -267,18 +255,33 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
         }
     }
     
+    func pan() {
+        let alert = UIAlertController(title: "Good Morning", message: "How may I help you sir?", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "What?", style: .destructive, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func configureButtons() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.tap))  //Tap function will call when user tap on button
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
-        let notesTapGesture = UITapGestureRecognizer(target: self, action: #selector(CarDetailsVC.notesTap))
-        let notesLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(CarDetailsVC.notesLong))
+        let panGesture = UIPanGestureRecognizer(target: self,
+                                                action: #selector(CarDetailsVC.pan))
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(CarDetailsVC.tap))  //Tap function will call when user tap on button
+        let longGesture = UILongPressGestureRecognizer(target: self,
+                                                       action: #selector(CarDetailsVC.long)) //Long function will call when user long press on button.
+        let doubleTapGesture = UITapGestureRecognizer(target: self,
+                                                      action: #selector(CarDetailsVC.doubleTap)) //DoubleTap dunction will be called if double tap happens.
+        let notesTapGesture = UITapGestureRecognizer(target: self,
+                                                     action: #selector(CarDetailsVC.notesTap))
+        let notesLongGesture = UILongPressGestureRecognizer(target: self,
+                                                            action: #selector(CarDetailsVC.notesLong))
         print(notesTapGesture.numberOfTapsRequired)
         tapGesture.numberOfTapsRequired = 1
         doubleTapGesture.numberOfTapsRequired = 2
         carImageButton.addGestureRecognizer(tapGesture)
         carImageButton.addGestureRecognizer(longGesture)
         carImageButton.addGestureRecognizer(doubleTapGesture)
+        carImageButton.addGestureRecognizer(panGesture)
         notesButton.addGestureRecognizer(notesTapGesture)
         notesButton.addGestureRecognizer(notesLongGesture)
     }
@@ -299,12 +302,10 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
             completion: nil)
     }
     
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        //Do shit
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {   
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
     }
 

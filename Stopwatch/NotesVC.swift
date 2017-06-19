@@ -91,6 +91,4 @@ class NotesVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSo
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-
 }

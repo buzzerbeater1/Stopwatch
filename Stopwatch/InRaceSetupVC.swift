@@ -54,7 +54,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     var setupRuns = [SetupRun]() {
         didSet {
             setupRuns = setupRuns.sorted(by: { ($0.created?.timeIntervalSince1970)! < ($1.created?.timeIntervalSince1970)! })
-            print("SetupRuns just got set!!, there are \(setupRuns.count) Setups")
             subviewNeedsLayout = true
             self.view.setNeedsLayout()
         }
@@ -64,9 +63,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
- //       imagePicker = UIImagePickerController()
- //       imagePicker.delegate = self
     
         overlayInit()
         
@@ -78,15 +74,12 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
         if subviewNeedsLayout && setupRuns.count != 0 {
             self.containerScrollView.decelerationRate = UIScrollViewDecelerationRateFast
             self.containerScrollView.contentSize = CGSize(width: CGFloat(setupRuns.count*100),height: containerScrollView.frame.height)
-            
-            
             
             let frame = CGRect(x: 0, y: 0, width: 100, height: containerScrollView.frame.height)
             
@@ -109,7 +102,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -126,7 +118,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        // return UIModalPresentationStyle.FullScreen
         return UIModalPresentationStyle.none
     }
     
@@ -140,7 +131,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SetupCell", for: indexPath) as? SetupCell {
             print(cell.subviews == [])
             if cell.needLayout {
-                //print("NEED LAYOUT AT ROW: \(indexPath.row) IN TABLEVIEW NR: \(tableView.tag)")
                 cell.createLayout(indexPath.row, dataFrom: setupRuns[tableView.tag])
             }
             cell.updateValues(indexPath.row, with: setupRuns[tableView.tag])
