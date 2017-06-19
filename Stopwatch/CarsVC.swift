@@ -69,7 +69,6 @@ class CarsVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSou
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = controller.sections {
-            print(sections.count)
             return sections.count
         }
         return 0

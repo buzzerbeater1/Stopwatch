@@ -18,15 +18,12 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         
     }
     @IBAction func debugButtonPressed(_ sender: UIBarButtonItem) {
-        print((event.toSession?.count)! as Int)
-        print("Do stuff")
         for tv in dayTables {
             tv.reloadData()
         }
     }
+    
     @IBAction func debugPressed(_ sender: UIButton) {
-        print((event.toSession?.count)! as Int)
-        print("Do stuff")
         for tv in dayTables {
             tv.reloadData()
         }
@@ -50,14 +47,12 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         super.viewDidLoad()
         
         if event != nil {
-            print("We have an event in the planner!")
         } else {
             dismiss(animated: true, completion: nil)
         }
         
         if event.toSession?.allObjects != nil {
             sessions = event.toSession?.allObjects as! [Session]
-            print("We have this many sessions: \(sessions.count)")
         }
     }
     
@@ -110,9 +105,7 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         var weekdays: [String]! = []
         var weekday: [String]!
         let numberOfStartDay = calendar.component(.weekday, from: start)
-        print("number of start day:\(numberOfStartDay)")
         let numberOfEndDay = calendar.component(.weekday, from: end)
-        print("number of end day:\(numberOfEndDay)")
         if numberOfDays < 5 {
             weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         } else {
@@ -126,8 +119,7 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         for x in numberOfStartDay...numberOfEndDay {
             weekdays.append(weekday[x-2])
         }
-        
-        print(weekdays)
+    
         return weekdays
     }
     
@@ -147,8 +139,6 @@ class SessionPlannerVC: UIViewControllerStatusBar, UIScrollViewDelegate, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as? SessionCell {
             cell.numberLabel?.text = "\(indexPath.row)"
             for session in sessions {
-                print(weekDays.index(of: session.eventDay!)!)
-                print(tableView.tag)
                 if weekDays.index(of: session.eventDay!) == tableView.tag {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "HH"

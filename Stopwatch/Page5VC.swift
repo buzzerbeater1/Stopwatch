@@ -112,11 +112,8 @@ class Page5VC: UIViewController {
     
     func getWheel() {
         if setup.general != nil {
-            print("We have a General in the page 5 view controller")
             general = setup.general as? General
-            
         }else{
-            print("no General in page 5")
             general = General()
         }
         updateLabels()

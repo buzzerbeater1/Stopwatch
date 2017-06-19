@@ -89,11 +89,8 @@ class Page4VC: UIViewController {
     
     func getWheel() {
         if setup.rr != nil {
-            print("We have a wheel in the page 4 view controller")
             rr = setup.rr as? Wheel
-            
         }else{
-            print("no wheel in page 4")
             rr = Wheel()
         }
         updateLabels()

@@ -77,7 +77,7 @@ class LapTimesTableVC: UIViewControllerStatusBar, UITableViewDelegate, UITableVi
                 }
                 cell.lapTimeLabel?.text = combinedTime
             }else{
-                print("Who the fuck takes Laptimes Longer than one hour?!")
+
             }
             let number = indexPath.row + 1
             cell.numberLabel?.text = String(number) + "."

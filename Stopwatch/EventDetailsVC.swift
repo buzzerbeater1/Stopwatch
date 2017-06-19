@@ -169,8 +169,7 @@ class EventDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegate,
         
         cars = event.toCar?.allObjects as! [Car]
         attemptFetch()
-        
-        print((event.toSession?.count)! as Int)
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -87,13 +87,9 @@ class Page1VC: UIViewController {
     
     func getWheel() {
         if setup.fl != nil {
-            print("We have a wheel in the page 1 view controller")
             fl = setup.fl as? Wheel
-            
         }else{
-            print("no wheel in page 1")
             fl = Wheel()
-            
         }
         updateLabels()
     }

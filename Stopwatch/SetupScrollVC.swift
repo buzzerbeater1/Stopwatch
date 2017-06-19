@@ -39,8 +39,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             }
         }
         tableView.reloadData()
-        print(setups.count)
-        print("Hello")
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -98,31 +96,16 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-        
-        if car != nil {
-            print("I guess we have a car at least")
-        } else {
-            print("No car damn")
-        }
-        
-        
+
         if car.toSetup?.count == 0 {
             setup = Setup(context: context)
             car.addToToSetup(setup)
             ad.saveContext()
-            print("We just created a new Setup")
         } else {
             setups = car.toSetup?.allObjects as! [Setup]
             setup = setups[0]
-            print("Already have a set up, lets use that")
         }
         createTopTitle()
-        print("weh have setups:\(car.toSetup?.count)")
-        if setup != nil {
-            print("We have a setup in the main view controller.")
-        }
-        
-        print("The height of the scrollView is: \(containerScrollView.bounds.height)")
         
         containerScrollView.delegate = self
         
@@ -152,7 +135,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             self.addChildViewController(obj[x])
             obj[x].view.frame.origin =  CGPoint(x: (CGFloat(x))*UIScreen.main.bounds.width, y: 0)
             x += 1
-            print("Page \(x) sucessfully initialized")
         } while (x < segmentControl.numberOfSegments)
         
     }
@@ -281,7 +263,6 @@ class SetupScrollVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             car.addToToPictureNote(note)
             setup.addToToPictureNote(note)
             ad.saveContext()
-            print(car.toPictureNote!.count)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

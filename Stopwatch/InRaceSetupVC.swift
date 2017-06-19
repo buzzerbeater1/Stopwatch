@@ -94,7 +94,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
                 tv.rowHeight = 50
                 runTables.append(tv)
                 self.containerScrollView.addSubview(runTables[x])
-                print("\(x) sucessfully initialized")
             } while (runTables.count < setupRuns.count)
             subviewNeedsLayout = false
         }
@@ -129,7 +128,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             }
         }
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SetupCell", for: indexPath) as? SetupCell {
-            print(cell.subviews == [])
             if cell.needLayout {
                 cell.createLayout(indexPath.row, dataFrom: setupRuns[tableView.tag])
             }
@@ -401,7 +399,6 @@ class InRaceSetupVC: UIViewControllerStatusBar, UIScrollViewDelegate, UIPopoverP
             car.addToToPictureNote(note)
             setupRuns.last?.addToToPictureNote(note)
             ad.saveContext()
-            print(car.toPictureNote!.count)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

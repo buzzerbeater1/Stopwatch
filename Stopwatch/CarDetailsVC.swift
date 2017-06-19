@@ -189,7 +189,6 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(imagePicker, animated: true, completion: nil)
-        print("Tap happend")
     }
     
     func long() {
@@ -201,7 +200,6 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
             imagePicker.allowsEditing = true
             imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
             present(imagePicker,animated: true,completion: nil)
-            print("Long press")
         } else {
             noCamera()
         }
@@ -275,7 +273,6 @@ class CarDetailsVC: UIViewControllerStatusBar, UIImagePickerControllerDelegate, 
                                                      action: #selector(CarDetailsVC.notesTap))
         let notesLongGesture = UILongPressGestureRecognizer(target: self,
                                                             action: #selector(CarDetailsVC.notesLong))
-        print(notesTapGesture.numberOfTapsRequired)
         tapGesture.numberOfTapsRequired = 1
         doubleTapGesture.numberOfTapsRequired = 2
         carImageButton.addGestureRecognizer(tapGesture)

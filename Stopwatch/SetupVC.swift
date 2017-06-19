@@ -42,7 +42,6 @@ class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImag
             imagePicker.cameraCaptureMode = .photo
             imagePicker.modalPresentationStyle = .fullScreen
             present(imagePicker,animated: true,completion: nil)
-            print("Long press")
         } else {
             noCamera()
         }
@@ -61,12 +60,6 @@ class SetupVC: UIViewController, UIPopoverPresentationControllerDelegate, UIImag
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if car == nil {
-            print("There is no car")
-        } else {
-            print("We have a car, that is cool")
-        }
-        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         

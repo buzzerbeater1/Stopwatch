@@ -57,7 +57,6 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
                         let laptime = LapTime(context: context)
                         laptime.time = accurateTime
                         c.addToToLaptime(laptime)
-                        print("\(c.toLaptime?.count)")
                         ad.saveContext()
                         break
                     }
@@ -152,7 +151,6 @@ class StopwatchCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelega
             }
             return combinedTime
         }else{
-            print("Who the fuck takes Laptimes Longer than one hour?!")
             return "Stackoverflow"
         }
     }

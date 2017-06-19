@@ -28,11 +28,6 @@ class NotesVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSo
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        if car != nil {
-            print("CAR CAR CAR CAR CAR CAR")
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,17 +66,14 @@ class NotesVC: UIViewControllerStatusBar, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentBar.selectedSegmentIndex == 0 {
             if car.toWrittenNote?.count != 0 {
-                print("Written?")
                 return car.toWrittenNote!.count
             }
         } else if segmentBar.selectedSegmentIndex == 1 {
             if car.toPictureNote?.count != 0 {
-                print("PICTURRRRE!")
                 return car.toPictureNote!.count
             }
         } else {
             if car.toVoiceNote?.count != 0 {
-                print("Voice, maybe....")
                 return car.toVoiceNote!.count
             }
         }

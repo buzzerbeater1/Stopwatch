@@ -51,7 +51,6 @@ class NotesCell: UITableViewCell, AVAudioPlayerDelegate {
             } catch {
                 let error = error as NSError
                 print("\(error)")
-                print("FAIL FAIL FAIL FAIL")
             }
             voiceNotePlayer.prepareToPlay()
             let durationLabel = UILabel(frame: CGRect(x: self.bounds.width - 100, y: 10, width: 90, height: 20))

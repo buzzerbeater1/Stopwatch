@@ -28,7 +28,6 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
         if session.name != nil && session.name != "" {
             event.addToToSession(session)
             ad.saveContext()
-            print("We will save it!!")
         }
         
         _ = navigationController?.popViewController(animated: true)
@@ -117,18 +116,12 @@ class SessionDetailsVC: UIViewControllerStatusBar, UINavigationControllerDelegat
         descriptionTextView.layer.borderColor = UIColor.black.cgColor
         descriptionTextView.layer.cornerRadius = 5
         
-        if event != nil {
-            print("we have an event")
-        }
         
         if session != nil {
             loadSessionData()
-            print("We have a session")
         } else {
             session = Session(context: context)
-            print("We will create a session")
         }
-        print(currentDay)
         
         configurePickerButton()
         cars = session.toCar?.allObjects as! [Car]

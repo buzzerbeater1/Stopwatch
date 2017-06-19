@@ -22,12 +22,6 @@ class WrittenNoteVC: UIViewController, UITextViewDelegate {
         textView.delegate = self
         textView.text = "Please write your Note in this Textfield!"
         textView.textColor = UIColor.lightGray
-  
-        if car == nil {
-            print("There is no car")
-        } else {
-            print("We have a car, that is cool")
-        }
     }
 
     override func didReceiveMemoryWarning() {
